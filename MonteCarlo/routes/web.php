@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrationController;
 
 /*
@@ -21,7 +22,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('home.about');
 Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');
 Route::post('register', [RegistrationController::class, 'store']);
 
-Route::get('/login', 'SessionsController@create');
+Route::get('/login', [LoginController::class, 'login'])->name('login.login');
 Route::post('/login', 'SessionsController@store');
 Route::get('/logout', 'SessionsController@destroy');
 
