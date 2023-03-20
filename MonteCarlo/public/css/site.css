@@ -75,3 +75,18 @@ input.no-arrow::-webkit-inner-spin-button {
 input.no-arrow {
     -moz-appearance: textfield;
 }
+
+:root {
+    --nav-height: 56px;
+}
+
+.height-nav{
+    height: calc(100vh - var(--nav-height));
+}
+
+@media (max-width: 768px) {
+    .height-nav {
+        height: 100vh;
+        margin-top: var(--nav-height) 
+        }
+  }

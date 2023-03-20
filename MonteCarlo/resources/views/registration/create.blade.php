@@ -3,10 +3,10 @@
 @section('content')
     <form method="POST" action="/register">
         {{ csrf_field() }}
-        <div class="d-flex justify-content-center align-items-center min-vh-100">
-            <div class="container custom-vert">
+        <div class="d-flex justify-content-center align-items-center height-nav">
+            <div class="container">
                 <div class="row">
-                    <div class="col-12 col-sm-9 col-md-6 col-lg-4 mx-auto my-5 bg-white shadow rounded-custom p-4">
+                    <div class="col-12 col-sm-9 col-md-6 col-lg-4 mx-auto bg-white shadow rounded-custom p-4">
                         <p class="fs-1 fs-sm-4 pt-3 text-center" style="font-weight: bold;">
                             Rejestracja
                         </p>
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button style="cursor:pointer" type="submit" class="btn btn-reg rounded-pill d-block mx-auto mt-3 col-12">Zarejestruj się</button>
+                            <button style="cursor:pointer; font-weight: bold;" type="submit" class="btn btn-reg rounded-pill d-block mx-auto mt-5 mb-3 col-12">Zarejestruj się</button>
                         </div>
                     </div>
                 </div>
