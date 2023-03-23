@@ -27,7 +27,7 @@
 
                         <div class="form-group">
                             <label for="name"></label>
-                            <input type="number" class="form-control no-arrow" id="pkk_number" name="pkk_number" placeholder="Numer PKK" max="9999999999999999999999999" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="25">
+                            <input type="number" class="form-control no-arrow" id="pkk_number" name="pkk_number" placeholder="Numer PKK" max="99999999999999999999" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="20">
                         </div>
 
                         <div class="form-group">
