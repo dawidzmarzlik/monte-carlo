@@ -7,7 +7,7 @@
             <div class="row fs-4 mb-1">Zostań odpowiedzialnym</div>
             <div class="row fs-4 mb-1 offset-1">kierowcą razem z Monte Carlo</div>
             <div class="row fs-3 mb-1 offset-2">Dołącz do nas już dziś!</div>
-            <button class="row offset-4 btn btn-reg rounded-pill">Zarejestruj się</button>
+            <a class="row offset-4 btn btn-reg rounded-pill" href="{{ route('registration.create') }}">Zarejestruj się</a>
         </div>
     </div>
     <div class="row bg-image-2">

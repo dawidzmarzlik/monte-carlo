@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button style="cursor:pointer; font-weight: bold;" class="btn btn-reg rounded-pill d-block mx-auto my-3 col-12">Zarejestruj się</button>
+                            <a style="cursor:pointer; font-weight: bold;" class="btn btn-reg rounded-pill d-block mx-auto my-3 col-12" href="{{ route('registration.create') }}">Zarejestruj się</a>
                         </div>
                     </div>
                 </div>
