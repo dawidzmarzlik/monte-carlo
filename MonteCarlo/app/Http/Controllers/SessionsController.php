@@ -34,12 +34,15 @@ class SessionsController extends Controller
         return redirect()->to('/about');
     }
     
-    public function destroy()
+    public function destroy(Request $request)
     {
         Auth::logout();
-        // auth()->logout();
-        
-        return redirect()->to('/');
+
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect('/');
     }
 } 
  

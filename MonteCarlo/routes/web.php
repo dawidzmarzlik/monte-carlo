@@ -26,7 +26,7 @@ Route::post('register', [RegistrationController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'login'])->name('login.login');
 Route::post('login', [SessionsController::class, 'store']);
-Route::get('logout', [SessionsController::class, 'destroy']);
+Route::get('logout', [SessionsController::class, 'destroy'])->name('logout');
 
 // Route::get('/', function () {
 //     return view('welcome');

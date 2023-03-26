@@ -27,18 +27,15 @@
             </ul>
             <ul class="navbar-nav">
               @if( auth()->check() )
-                <span class="navbar-text">
-                  {{ auth()->user()->name }}
+                <span class="navbar-text fw-bold">
+                  {{ auth()->user()->name }} {{ auth()->user()->surname }},
                 </span>
                 <li class="nav-item">
-                  <a class="nav-link" href="/logout">Log Out</a>
+                  <a class="nav-link" href="{{ route('logout') }}">Wyloguj się</a>
                 </li>
               @else
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Log In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
+                    <a class="nav-link" href="{{ route('login.login') }}">Zaloguj się</a>
                 </li>
               @endif
             </ul>
