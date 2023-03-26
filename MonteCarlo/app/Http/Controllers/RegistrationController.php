@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 
 class RegistrationController extends Controller
 {
@@ -11,21 +14,28 @@ class RegistrationController extends Controller
         return view('registration.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $this->validate(request(), [
+        $request->validate([
             'name' => 'required',
-            'lastname' => 'required',
-            'bithdate' => 'required',
-            'pkk_number' => 'required',
+            'surname' => 'required',
             'email' => 'required|email',
+            'birthDate' => 'required|date|date_format:Y-m-d',
+            'pkk' => 'required',
             'password' => 'required'
         ]);
         
-        $user = User::create(request(['name', 'email', 'password']));
+        $student = Student::create([
+            'name' => $request->name,
+            'surname' => $request->surname,
+            'email' => $request->email,
+            'birthDate' => $request->birthDate,
+            'pkk' => $request->pkk,
+            'password' => Hash::make($request->password)
+        ]);
         
-        auth()->login($user);
+        auth()->login($student);
         
-        return redirect()->to('/games');
+        return redirect()->to('/');
     }
 }

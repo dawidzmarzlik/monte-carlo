@@ -17,17 +17,17 @@
 
                         <div class="form-group">
                             <label for="name"></label>
-                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Nazwisko">
+                            <input type="text" class="form-control" id="surname" name="surname" placeholder="Nazwisko">
                         </div>
 
                         <div class="form-group">
                             <label for="name"></label>
-                            <input type="text" onfocus="(this.type='date')" onlo class="form-control" id="birthdate" name="birthdate" placeholder="Data urodzenia" required>
+                            <input type="text" onfocus="(this.type='date')" onlo class="form-control" id="birthDate" name="birthDate" placeholder="Data urodzenia" required>
                         </div>
 
                         <div class="form-group">
                             <label for="name"></label>
-                            <input type="number" class="form-control no-arrow" id="pkk_number" name="pkk_number" placeholder="Numer PKK" max="99999999999999999999" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="20">
+                            <input type="number" class="form-control no-arrow" id="pkk" name="pkk" placeholder="Numer PKK" max="99999999999999999999" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="20">
                         </div>
 
                         <div class="form-group">

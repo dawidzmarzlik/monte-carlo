@@ -25,7 +25,20 @@
                 <a class="nav-link" href="{{ route('home.about') }}">O nas</a>
               </li>
             </ul>
-            <a class="nav-link me-2" href="{{ route('login.login') }}">Zaloguj</a>
+            <ul class="navbar-nav">
+              @if( auth()->check() )
+                <span class="navbar-text fw-bold">
+                  {{ auth()->user()->name }} {{ auth()->user()->surname }},
+                </span>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('logout') }}">Wyloguj się</a>
+                </li>
+              @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login.login') }}">Zaloguj się</a>
+                </li>
+              @endif
+            </ul>
           </div>
         </div>
       </nav>
