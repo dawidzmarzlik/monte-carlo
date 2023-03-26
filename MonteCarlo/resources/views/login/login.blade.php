@@ -4,7 +4,7 @@
     <form method="POST" action="/login">
         {{ csrf_field() }}
         <div class="d-flex justify-content-center align-items-center height-nav">
-            <div class="container custom-vert">
+            <div class="container">
                 <div class="row">
                     <div class="col-12 col-sm-9 col-md-6 col-lg-4 mx-auto mb-5 bg-white shadow rounded-custom p-4">
                         <p class="fs-1 fs-sm-4 pt-3 text-center" style="font-weight: bold;">
