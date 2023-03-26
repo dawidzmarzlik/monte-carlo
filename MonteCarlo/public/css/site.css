@@ -80,13 +80,24 @@ input.no-arrow {
     --nav-height: 56px;
 }
 
-.height-nav{
+.height-nav {
     height: calc(100vh - var(--nav-height));
+}
+
+.navbar-brand {
+    padding: 0;
+    margin-bottom: auto;
+}
+
+.bg-image-1 {
+    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 @media (max-width: 768px) {
     .height-nav {
         height: 100vh;
-        margin-top: var(--nav-height) 
-        }
-  }
+        margin-top: var(--nav-height);
+    }
+}
