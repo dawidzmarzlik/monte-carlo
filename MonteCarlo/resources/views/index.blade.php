@@ -79,11 +79,11 @@
             <form>
                 <div class="mb-3">
                   <label for="inputEmailHome" class="form-label">E-mail</label>
-                  <input type="email" class="form-control rounded-pill" id="inputEmailHome" aria-describedby="emailHelp">
+                  <input type="email" class="form-control rounded" id="inputEmailHome" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                   <label for="messageText" class="form-label">Treść wiadomości</label>
-                  <textarea type="text" class="form-control rounded-pill" id="messageText" rows="5"></textarea>
+                  <textarea type="text" class="form-control rounded" id="messageText" rows="5"></textarea>
                 </div>
                 <button style="cursor:pointer; font-weight: bold;" type="submit" class="btn btn-log rounded-pill d-block mx-auto my-4 col-4">Wyślij</button>              </form>
         </div>
