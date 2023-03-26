@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\SessionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,8 @@ Route::get('/register', [RegistrationController::class, 'create'])->name('regist
 Route::post('register', [RegistrationController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'login'])->name('login.login');
-Route::post('/login', 'SessionsController@store');
-Route::get('/logout', 'SessionsController@destroy');
+Route::post('login', [SessionsController::class, 'store']);
+Route::get('logout', [SessionsController::class, 'destroy']);
 
 // Route::get('/', function () {
 //     return view('welcome');
