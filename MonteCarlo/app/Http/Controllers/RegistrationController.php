@@ -19,9 +19,9 @@ class RegistrationController extends Controller
         $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:student',
             'birthDate' => 'required|date|date_format:Y-m-d',
-            'pkk' => 'required',
+            'pkk' => 'required|min:20|max:20',
             'password' => 'required'
         ]);
         
