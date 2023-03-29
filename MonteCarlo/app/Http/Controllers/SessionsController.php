@@ -8,30 +8,34 @@ use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends Controller
 {
-    public function create()
+    public function login()
     {
-        return view('sessions.create');
+        return view('login.login');
     }
     
     public function store(Request $request)
     {
+        $messages = [    
+            'email.required' => 'Wpisz adres e-mail.',       
+            'email.exists' => 'Podany adres e-mail nie istnieje.',       
+            'password.required' => 'Wpisz hasło.',      
+        ];
+
         $request->validate([
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
-        ]);
+        ], $messages);
 
         $credentials = $request->only('email', 'password');
         
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
             return redirect()->intended('/');
         } else {
             var_dump($credentials);
-            return redirect()->back()->withErrors(['email' => 'error']);
+            return redirect()->back()->withErrors(['student' => 'Błędny adres e-mail lub hasło.']);
         }
 
-        // Authentication failed...
-        return redirect()->to('/about');
+        return redirect()->to('/login');
     }
     
     public function destroy(Request $request)
