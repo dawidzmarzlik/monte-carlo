@@ -18,7 +18,11 @@ class RegistrationController extends Controller
     {
         $messages = [
             'name.required' => 'Pole jest wymagane. Uzupełnij dane.',     
+            'name.alpha' => 'Pole może zawierać jedynie litery',     
+            'name.regex' => 'Pole musi zaczynać się od wielkiej litery',     
             'surname.required' => 'Pole jest wymagane. Uzupełnij dane.',     
+            'surname.alpha' => 'Pole może zawierać jedynie litery',     
+            'surname.regex' => 'Pole musi zaczynać się od wielkiej litery',     
             'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.',     
             'birthDate.before' => 'Musisz mieć conajmniej 18 lat.',     
             'pkk.required' => 'Wpisz numer PKK. Powinien się składać z 20 cyfr.',
@@ -30,8 +34,8 @@ class RegistrationController extends Controller
         ];
         
         $request->validate([
-            'name' => 'required|alpha:ascii',
-            'surname' => 'required',
+            'name' => 'required|alpha:ascii|regex:/^[A-Z]/',
+            'surname' => 'required|alpha:ascii|regex:/^[A-Z]/',
             'email' => 'required|email|unique:student',
             'birthDate' => 'required|date|date_format:Y-m-d|before:-18 years',
             'pkk' => 'required|numeric|min:20|max:20',
