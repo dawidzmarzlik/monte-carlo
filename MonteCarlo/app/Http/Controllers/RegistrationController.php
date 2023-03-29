@@ -26,7 +26,8 @@ class RegistrationController extends Controller
             'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.',     
             'birthDate.before' => 'Musisz mieć conajmniej 18 lat.',     
             'pkk.required' => 'Wpisz numer PKK. Powinien się składać z 20 cyfr.',
-            'pkk.min' => 'Numer PKK powinien się składać z 20 cyfr.',      
+            'pkk.digits' => 'Numer PKK powinien się składać z 20 cyfr.',     
+            'pkk.unique' => 'Numer PKK jest już wykorzystywany.',     
             'email.required' => 'Wpisz adres e-mail.',     
             'email.unique' => 'Adres e-mail jest już zajęty.',     
             'password.required' => 'Wpisz hasło. Powinno się składać z minimum 8 znaków.',     
@@ -38,7 +39,7 @@ class RegistrationController extends Controller
             'surname' => 'required|alpha:ascii|regex:/^[A-Z]/',
             'email' => 'required|email|unique:student',
             'birthDate' => 'required|date|date_format:Y-m-d|before:-18 years',
-            'pkk' => 'required|numeric|min:20|max:20',
+            'pkk' => 'required|numeric|digits:20|unique:student',
             'password' => 'required|min:8'
         ], $messages);
         
