@@ -45,21 +45,7 @@
       <div class="container-fluid">
         @yield('content')
       </div>
-      <footer class="container py-5 bg-footer">
-        <div class="row">
-        <div class="col-12 col-md-6">
-            <h5>Kontakt:</h5>
-            <p class="text-light">tel: +48 765 098 321</p>
-            <p class="text-light">tel: +48 900 800 700</p>
-            <p class="text-light">e-mail: MonteCarlo@gmail.com</p>
-        </div>
-        <div class="col-12 col-md-6 text-end">
-            <h5>Adres:</h5>
-            <p class="text-light">ul. Oleska 2a</p>
-            <p class="text-light">46-200 Opole</p>
-        </div>
-        </div>
-      </footer>
+        @yield('footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
 </html>
