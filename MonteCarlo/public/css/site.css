@@ -17,7 +17,8 @@ html {
 }
 
 .bg-grad {
-    height: 100vh;
+    min-height: calc(100vh - var(--nav-height));
+    height: 100%;
     background-image: linear-gradient(#457eac, #c9b2e5);
     background-repeat: no-repeat;
     background-attachment: fixed;
