@@ -201,7 +201,7 @@ input.no-arrow {
 /* Cennik tabela */
 
 .table {
-    margin-top: 10%;
+    margin: 10% 0;
     text-align: center;
     background-color: whitesmoke;
     color: black;
