@@ -1,13 +1,13 @@
 @extends('layout')
 
 @section('content')
-<div class="col">
+<div class="col content">
     <div class="row bg-image-1">
-        <div class="color-overlay d-flex flex-column justify-content-center align-items-center">
-            <div class="row fs-4 mb-1">Zostań odpowiedzialnym</div>
-            <div class="row fs-4 mb-1 offset-1">kierowcą razem z Monte Carlo</div>
-            <div class="row fs-3 mb-1 offset-2">Dołącz do nas już dziś!</div>
-            <a class="row offset-4 btn btn-reg rounded-pill" href="{{ route('registration.create') }}">Zarejestruj się</a>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <p class="row mb-1">Zostań odpowiedzialnym</p>
+            <p class="row mb-1 offset-2">kierowcą razem z Monte Carlo</p>
+            <p class="row mb-3 offset-5">Dołącz do nas już dziś!</p>
+            <a class="row offset-7 btn btn-reg rounded" href="{{ route('registration.create') }}">Zarejestruj się!</a>
         </div>
     </div>
     <div class="row bg-image-2">
@@ -17,8 +17,8 @@
                 <div class="cards-wrapper justify-content-center align-items-center my-5">
                     <div class="card">
                         <div class="card-body">
-                        <p class="fs-2 card-title">Kategoria AM, A1, A2, A</p>
-                        <p class="fs-6 card-text">Kategoria A i pokrewne daje uprawnienia do kierowania motocyklem</p>
+                        <p class=" card-title">Kategoria AM, A1, A2, A</p>
+                        <p class=" card-text">Kategoria A i pokrewne daje uprawnienia do kierowania motocyklem</p>
                         </div>
                         <img src="{{ asset('img/gSXS750AL7KELDiagonal-removebg-preview.png') }}" class="card-img-bottom" alt="...">
                     </div>
@@ -28,8 +28,8 @@
                 <div class="cards-wrapper justify-content-center align-items-center my-5">
                     <div class="card">
                         <div class="card-body">
-                        <h5 class="fs-2 card-title">Kategoria B</h5>
-                        <p class="fs-6 card-text">Prawo jazdy kategorii B uprawnia do prowadzenia samochodów osobowych</p>
+                        <h5 class=" card-title">Kategoria B</h5>
+                        <p class=" card-text">Prawo jazdy kategorii B uprawnia do prowadzenia samochodów osobowych</p>
                         </div>
                         <img src="{{ asset('img/fordfiesta-removebg-preview.png') }}" class="card-img-bottom" alt="...">
                     </div>
@@ -39,8 +39,8 @@
                 <div class="cards-wrapper justify-content-center align-items-center my-5">
                     <div class="card">
                         <div class="card-body">
-                        <h5 class="fs-2 card-title">Kategoria C</h5>
-                        <p class="fs-6 card-text">Uprawnia do prowadzenia pojazdu samochodowego o dopuszczalnej masie całkowitej przekraczającej 3,5 t</p>
+                        <h5 class=" card-title">Kategoria C</h5>
+                        <p class=" card-text">Uprawnia do prowadzenia pojazdu samochodowego o dopuszczalnej masie całkowitej przekraczającej 3,5 t</p>
                         </div>
                         <img src="{{ asset('img/Ford-f-max.png') }}" class="card-img-bottom" alt="...">
                     </div>
@@ -50,8 +50,8 @@
                 <div class="cards-wrapper justify-content-center align-items-center my-5">
                     <div class="card">
                         <div class="card-body">
-                        <h5 class="fs-2 card-title">Kategoria D</h5>
-                        <p class="fs-6 card-text">Kategoria D daje uprawnienia do kierowania autobusem</p>
+                        <h5 class=" card-title">Kategoria D</h5>
+                        <p class=" card-text">Kategoria D daje uprawnienia do kierowania autobusem</p>
                         </div>
                         <img src="{{ asset('img/yeni_travego_01-removebg-preview.png') }}" class="card-img-bottom" alt="...">
                     </div>
@@ -71,8 +71,8 @@
     <div class="row bg-image-3">
         <div class="col-12 col-md-6">
             <div class="q-text">
-                <p class="fs-3 mb-0" style="font-weight:bold">Masz Pytanie?</p>
-                <p class="fs-6">Napisz do nas</p>
+                <p class="mb-0 h2" style="font-weight:bold">Masz Pytanie?</p>
+                <p class="">Napisz do nas</p>
             </div>
         </div>
         <div class="col-12 col-md-6 align-self-center">
@@ -87,26 +87,7 @@
                 </div>
                 <button style="cursor:pointer; font-weight: bold;" type="submit" class="btn btn-log rounded-pill d-block mx-auto my-4 col-4">Wyślij</button>              </form>
         </div>
-    </div>
-    
-    <footer class="container py-5 bg-footer vw-100">
-        <div class="row">
-        <div class="col-12 col-md-6">
-            <h5>Kontakt</h5>
-            <p class="text-light">tel: +48 765 098 321</p>
-            <p class="text-light">tel: +48 900 800 700</p>
-            <p class="text-light">e-mail: MonteCarlo@gmail.com</p>
-        </div>
-        <div class="col-12 col-md-6 text-end">
-            <h5>Adres</h5>
-            <p class="text-light">ul. Oleska 2a</p>
-            <p class="text-light">46-200 Opole</p>
-        </div>
-        </div>
-    </footer>
-  
-  
-    
+    </div>    
 </div>
 
 @endsection
