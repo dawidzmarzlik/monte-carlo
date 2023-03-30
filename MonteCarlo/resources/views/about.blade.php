@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="row content">
+    <div class="row content bg-grad">
         <div class="col-12 col-md-6 about-us">
             <img class="about-us-img" src="{{ asset('img/czerwona-strzała.png') }}" alt="...">
         </div>
