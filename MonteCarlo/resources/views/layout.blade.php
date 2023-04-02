@@ -50,19 +50,23 @@
     <div class="container-fluid">
         @yield('content')
     </div>
-    <footer class="container py-5 bg-footer">
+    <footer class="content py-5 bg-footer">
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-4">
                 <h5>Kontakt:</h5>
                 <p class="text-light">tel: +48 765 098 321</p>
                 <p class="text-light">tel: +48 900 800 700</p>
                 <p class="text-light">e-mail: MonteCarlo@gmail.com</p>
             </div>
-            <div class="col-12 col-md-6 text-end">
+            <div class="col-12 col-md-4 text-end">
                 <h5>Adres:</h5>
                 <p class="text-light">ul. Oleska 2a</p>
                 <p class="text-light">46-200 Opole</p>
             </div>
+            <div class="col-12 col-md-4">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2529.546094059615!2d17.900558830748377!3d50.65412051500208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471053bb1bcdafab%3A0xf2ef41915344d5dd!2sPolitechnika%20Opolska!5e0!3m2!1spl!2spl!4v1680458016880!5m2!1spl!2spl" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="ms-5"></iframe>
+            </div>
+
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
