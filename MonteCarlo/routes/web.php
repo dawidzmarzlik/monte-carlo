@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,9 @@ Route::post('register', [RegistrationController::class, 'store']);
 Route::get('/login', [LoginController::class, 'login'])->name('login.login');
 Route::post('login', [SessionsController::class, 'store']);
 Route::get('logout', [SessionsController::class, 'destroy'])->name('logout');
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin/vehicle', [AdminController::class, 'vehicle'])->name('admin.vehicle');
 
 // Route::get('/', function () {
 //     return view('welcome');
