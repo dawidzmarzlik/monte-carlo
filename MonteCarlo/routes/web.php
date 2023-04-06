@@ -30,6 +30,9 @@ Route::post('login', [SessionsController::class, 'store']);
 Route::get('logout', [SessionsController::class, 'destroy'])->name('logout');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin/teacher', [AdminController::class, 'teacher'])->name('admin.teacher');
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/vehicle', [AdminController::class, 'vehicle'])->name('admin.vehicle');
 
 // Route::get('/', function () {
