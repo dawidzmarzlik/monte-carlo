@@ -33,6 +33,9 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/teacher', [AdminController::class, 'teacher'])->name('admin.teacher');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin/student', [AdminController::class, 'student'])->name('admin.student');
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/vehicle', [AdminController::class, 'vehicle'])->name('admin.vehicle');
 
 // Route::get('/', function () {

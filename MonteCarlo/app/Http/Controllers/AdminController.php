@@ -14,6 +14,10 @@ class AdminController extends Controller
         return view('admin.teacher');
     }
 
+    public function student(){
+        return view('admin.student');
+    }
+
     public function vehicle(){
         return view('admin.vehicle');
     }

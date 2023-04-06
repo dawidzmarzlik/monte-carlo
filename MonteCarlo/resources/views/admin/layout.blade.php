@@ -27,6 +27,9 @@
                         <a class="nav-link" href="{{ route('admin.teacher') }}">Instruktorzy</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.student') }}">Kursanci</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.vehicle') }}">Pojazdy</a>
                     </li>
                 </ul>
