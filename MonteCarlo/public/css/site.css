@@ -26,6 +26,10 @@ html {
     background-attachment: fixed;
 }
 
+.white {
+    color: white;
+}
+
 .btn-reg {
     background-color: #9c52fa;
     color: white;
@@ -282,4 +286,63 @@ input.no-arrow {
     .content {
         padding: 0 15%;
     }
+}
+
+/* admin backgorund */
+.admin-bg-grad {
+    min-height: calc(100vh - var(--nav-height));
+    height: 100%;
+    background-image: linear-gradient(#5079b5, #9c52f9);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* all admin tables */
+.admin-table {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.admin-table thead tr {
+    background-color: rgba(0, 0, 0, 0.4);
+    font-size: 1.25rem;
+}
+
+.admin-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.admin-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}  
+
+.btn-table {
+    background-color: #5577ba;
+    color: #ffffff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-table:hover {
+    background-color: #9c52f9;
+    color: #ffffff;
+}
+
+/* add vehicle button */
+.btn-add {
+    background-color: #9c52f9;
+    color: #ffffff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-add:hover {
+    background-color: rgba(255, 255, 255, 1);
+    color: #9c52f9;
 }
