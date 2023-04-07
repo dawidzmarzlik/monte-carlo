@@ -314,7 +314,7 @@ input.no-arrow {
 
 .admin-table tbody tr:hover {
     background-color: rgba(255, 255, 255, 0.8);
-}  
+}
 
 .btn-table {
     background-color: #5577ba;
@@ -345,4 +345,12 @@ input.no-arrow {
 .btn-add:hover {
     background-color: rgba(255, 255, 255, 1);
     color: #9c52f9;
+}
+
+/* teacher page */
+.teacher-container {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

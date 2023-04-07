@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminTeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,12 +32,10 @@ Route::get('logout', [SessionsController::class, 'destroy'])->name('logout');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/teacher', [AdminController::class, 'teacher'])->name('admin.teacher');
-
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/student', [AdminController::class, 'student'])->name('admin.student');
-
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/vehicle', [AdminController::class, 'vehicle'])->name('admin.vehicle');
+
+Route::get('/admin/teacher/teacherpage', [AdminTeacherController::class, 'teacherpage'])->name('admin.teacher.teacherpage');
 
 // Route::get('/', function () {
 //     return view('welcome');
