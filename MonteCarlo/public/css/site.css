@@ -348,9 +348,15 @@ input.no-arrow {
 }
 
 /* teacher page */
-.teacher-container {
+.person-container {
     background-color: rgba(0, 0, 0, 0.2);
     color: white;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.person-data-container {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    border-radius: 5px;
 }

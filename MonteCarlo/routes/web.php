@@ -36,6 +36,7 @@ Route::get('/admin/student', [AdminController::class, 'student'])->name('admin.s
 Route::get('/admin/vehicle', [AdminController::class, 'vehicle'])->name('admin.vehicle');
 
 Route::get('/admin/teacher/teacherpage', [AdminTeacherController::class, 'teacherpage'])->name('admin.teacher.teacherpage');
+Route::get('/admin/teacher/studentpage', [AdminTeacherController::class, 'studentpage'])->name('admin.teacher.studentpage');
 
 // Route::get('/', function () {
 //     return view('welcome');
