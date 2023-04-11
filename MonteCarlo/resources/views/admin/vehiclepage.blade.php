@@ -7,7 +7,7 @@
                 <h1 class="white">Pojazd</h1>
             </div>
         </div>
-        <div class="container teacher-container rounded-4">
+        <div class="container person-container rounded-4">
 
             <div class="row">
                 <div class="col">
@@ -16,7 +16,7 @@
                             <div class="col-sm">
                                 Marka:
                             </div>
-                            <div class="col-sm">
+                            <div class="col-sm person-data-container">
                                 Ford
                             </div>
                         </div>
@@ -24,7 +24,7 @@
                             <div class="col-sm">
                                 Model:
                             </div>
-                            <div class="col-sm">
+                            <div class="col-sm person-data-container">
                                 Fiesta
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                             <div class="col-sm">
                                 Nr. rejestracyjny
                             </div>
-                            <div class="col-sm">
+                            <div class="col-sm person-data-container">
                                 OPO 24534
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                             <div class="col-sm">
                                 Typ
                             </div>
-                            <div class="col-sm">
+                            <div class="col-sm person-data-container">
                                 Kompakt
                             </div>
                         </div>
@@ -48,14 +48,14 @@
                 </div>
 
                 <div class="col">
-                    Przypisany instruktor
+                    Instruktor:
                     <div class="col">
                         <div class="container">
                             <div class="row pt-1">
                                 <div class="col-sm">
                                     Imię:
                                 </div>
-                                <div class="col-sm">
+                                <div class="col-sm person-data-container">
                                     Jan
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                 <div class="col-sm">
                                     Nazwisko:
                                 </div>
-                                <div class="col-sm">
+                                <div class="col-sm person-data-container">
                                     Kowalski
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                                 <div class="col-sm">
                                     Uprawnienia:
                                 </div>
-                                <div class="col-sm">
+                                <div class="col-sm person-data-container">
                                     B
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                                 <div class="col-sm">
                                     Telefon:
                                 </div>
-                                <div class="col-sm">
+                                <div class="col-sm person-data-container">
                                     +48 123 456 789
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                                 <div class="col-sm">
                                     Email:
                                 </div>
-                                <div class="col-sm">
+                                <div class="col-sm person-data-container">
                                     j.kowalski@gmail.com
                                 </div>
                             </div>
