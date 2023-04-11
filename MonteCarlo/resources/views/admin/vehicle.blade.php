@@ -29,7 +29,7 @@
                             <td>OPO 24534</td>
                             <td>Kompakt</td>
                             <td class="text-end">
-                                <a class="btn btn-table" href="#">Edytuj</a>
+                                <a class="btn btn-table" href="{{ route('admin.vehicle.vehiclepage') }}">Więcej</a>
                             </td>
                         </tr>
                     @endfor

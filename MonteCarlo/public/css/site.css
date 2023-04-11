@@ -189,6 +189,7 @@ input.no-arrow {
     color: white;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
+
 .about-us-img {
     padding: 0 0;
     width: 100%;
@@ -209,6 +210,7 @@ input.no-arrow {
     background-color: whitesmoke;
     color: black;
 }
+
 .table-bordered {
     border-color: rgb(43, 43, 43);
 }
@@ -220,6 +222,7 @@ input.no-arrow {
         font-size: 1.25rem;
         padding: 15% 0;
     }
+
     .bg-image-2 {
         font-size: 1.25rem;
         padding: 0 1%;
@@ -243,6 +246,7 @@ input.no-arrow {
     .bg-image-3 {
         padding: 5% 5%;
     }
+
     .bg-image-2 {
         padding: 1% 1%;
     }
@@ -253,6 +257,7 @@ input.no-arrow {
     .bg-image-1 {
         font-size: 2rem;
     }
+
     .bg-image-2 {
         font-size: 1.5rem;
     }
@@ -268,6 +273,7 @@ input.no-arrow {
     .about-us-text {
         font-size: 1.4rem;
     }
+
     .about-us-img {
         padding: 10% 5%;
         width: 100%;
