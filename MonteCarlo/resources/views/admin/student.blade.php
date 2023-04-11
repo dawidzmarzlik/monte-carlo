@@ -33,7 +33,7 @@
                             <td>12345678901234567890</td>
                             <td>Jan Kowalski</td>
                             <td class="text-end">
-                                <a class="btn btn-table" href="#">Więcej</a>
+                                <a class="btn btn-table" href="{{ route('admin.teacher.studentpage') }}">Więcej</a>
                             </td>
                         </tr>
                     @endfor

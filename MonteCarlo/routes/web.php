@@ -39,6 +39,7 @@ Route::get('/admin/vehicle', [AdminController::class, 'vehicle'])->name('admin.v
 
 Route::get('/admin/teacher/teacherpage', [AdminTeacherController::class, 'teacherpage'])->name('admin.teacher.teacherpage');
 Route::get('/admin/vehicle/vehiclepage', [AdminVehicleController::class, 'vehiclepage'])->name('admin.vehicle.vehiclepage');
+Route::get('/admin/teacher/studentpage', [AdminTeacherController::class, 'studentpage'])->name('admin.teacher.studentpage');
 
 Route::post('contact_mail', [ContactController::class, 'contact_mail_send']);
 // Route::get('/', function () {
