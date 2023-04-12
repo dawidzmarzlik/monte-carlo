@@ -47,11 +47,11 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Vehicle` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `brand` VARCHAR(45) NOT NULL,
   `model` VARCHAR(45) NOT NULL,
-  `registrationNumber` VARCHAR(8) NOT NULL,
+  `numberplate` VARCHAR(8) NOT NULL,
   `type` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `idPojazd_UNIQUE` (`id` ASC) VISIBLE,
-  UNIQUE INDEX `nrRejestracyjny_UNIQUE` (`registrationNumber` ASC) VISIBLE)
+  UNIQUE INDEX `nrRejestracyjny_UNIQUE` (`numberplate` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 

@@ -35,11 +35,19 @@ Route::get('logout', [SessionsController::class, 'destroy'])->name('logout');
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/teacher', [AdminController::class, 'teacher'])->name('admin.teacher');
 Route::get('/admin/student', [AdminController::class, 'student'])->name('admin.student');
-Route::get('/admin/vehicle', [AdminController::class, 'vehicle'])->name('admin.vehicle');
 
 Route::get('/admin/teacher/teacherpage', [AdminTeacherController::class, 'teacherpage'])->name('admin.teacher.teacherpage');
-Route::get('/admin/vehicle/vehiclepage', [AdminVehicleController::class, 'vehiclepage'])->name('admin.vehicle.vehiclepage');
 Route::get('/admin/teacher/studentpage', [AdminTeacherController::class, 'studentpage'])->name('admin.teacher.studentpage');
+
+// VEHICLE RELATED
+Route::get('/admin/vehicle', [AdminController::class, 'vehicle'])->name('admin.vehicle');
+Route::get('admin/vehicle/create', [AdminVehicleController::class, 'create'])->name('vehicle.create');
+Route::post('admin/vehicle/create', [AdminVehicleController::class, 'store'])->name('vehicle.store');
+Route::get('admin/vehicle/{vehicle}/show', [AdminVehicleController::class, 'show'])->name('vehicle.show');
+Route::get('admin/vehicle/{vehicle}/edit', [AdminVehicleController::class, 'edit'])->name('vehicle.edit');
+Route::patch('admin/vehicle/{vehicle}/update', [AdminVehicleController::class, 'update'])->name('vehicle.update');
+Route::delete('admin/vehicle/{vehicle}/delete', [AdminVehicleController::class, 'destroy'])->name('vehicle.destroy');
+// VEHICLE RELATED
 
 Route::post('contact_mail', [ContactController::class, 'contact_mail_send']);
 // Route::get('/', function () {

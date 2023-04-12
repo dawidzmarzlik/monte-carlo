@@ -7,13 +7,14 @@
                 <h1 class="white">Pojazdy</h1>
             </div>
             <div class="col text-end pe-0">
-                <a href="#" class="btn btn-add">Dodaj pojazd</a>
+                <a href="{{ route('vehicle.create') }}" class="btn btn-add">Dodaj pojazd</a>
             </div>
         </div>
         <div class="table-responsive rounded-4 mt-2">
             <table class="table table-hover align-middle table-borderless admin-table m-auto">
                 <thead>
                     <tr>
+                        <th scope="col">ID</th>
                         <th scope="col">Marka</th>
                         <th scope="col">Model</th>
                         <th scope="col">Nr. rejestracyjny</th>
@@ -22,17 +23,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for ($i = 0; $i < 20; $i++)
+                    @foreach ($vehicles as $vehicle)
                         <tr>
-                            <td>Ford</td>
-                            <td>Fiesta</td>
-                            <td>OPO 24534</td>
-                            <td>Kompakt</td>
+                            <td>{{ $vehicle->id }}</td>
+                            <td>{{ $vehicle->brand }}</td>
+                            <td>{{ $vehicle->model }}</td>
+                            <td>{{ $vehicle->numberplate }}</td>
+                            <td>{{ $vehicle->type }}</td>
                             <td class="text-end">
-                                <a class="btn btn-table" href="{{ route('admin.vehicle.vehiclepage') }}">Więcej</a>
+                                <a class="btn btn-table" href="{{ route('vehicle.show', $vehicle->id) }}">Więcej</a>
                             </td>
                         </tr>
-                    @endfor
+                    @endforeach
                 </tbody>
             </table>
         </div>

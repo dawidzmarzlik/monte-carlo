@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Vehicle;
 
 class AdminController extends Controller
 {
@@ -19,6 +20,8 @@ class AdminController extends Controller
     }
 
     public function vehicle(){
-        return view('admin.vehicle');
+        $vehicles = Vehicle::all();
+
+        return view('admin.vehicle', compact('vehicles'));
     }
 }

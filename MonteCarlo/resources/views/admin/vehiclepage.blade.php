@@ -4,7 +4,7 @@
     <div class="m-auto">
         <div class="row align-items-center m-auto">
             <div class="col ps-0">
-                <h1 class="white">Pojazd</h1>
+                <h1 class="white">Pojazd ID: {{ $vehicle->id }}</h1>
             </div>
         </div>
         <div class="container person-container rounded-4">
@@ -17,7 +17,7 @@
                                 Marka:
                             </div>
                             <div class="col-sm person-data-container">
-                                Ford
+                                {{ $vehicle->brand }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -25,7 +25,7 @@
                                 Model:
                             </div>
                             <div class="col-sm person-data-container">
-                                Fiesta
+                                {{ $vehicle->model }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -33,7 +33,7 @@
                                 Nr. rejestracyjny
                             </div>
                             <div class="col-sm person-data-container">
-                                OPO 24534
+                                {{ $vehicle->numberplate }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -41,7 +41,7 @@
                                 Typ
                             </div>
                             <div class="col-sm person-data-container">
-                                Kompakt
+                                {{ $vehicle->type }}
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                     Imię:
                                 </div>
                                 <div class="col-sm person-data-container">
-                                    Jan
+                                    this is still to be done
                                 </div>
                             </div>
                             <div class="row pt-1">
@@ -64,7 +64,7 @@
                                     Nazwisko:
                                 </div>
                                 <div class="col-sm person-data-container">
-                                    Kowalski
+                                    this is still to be done
                                 </div>
                             </div>
                             <div class="row pt-1">
@@ -72,7 +72,7 @@
                                     Uprawnienia:
                                 </div>
                                 <div class="col-sm person-data-container">
-                                    B
+                                    this is still to be done
                                 </div>
                             </div>
                             <div class="row pt-1">
@@ -80,7 +80,7 @@
                                     Telefon:
                                 </div>
                                 <div class="col-sm person-data-container">
-                                    +48 123 456 789
+                                    this is still to be done
                                 </div>
                             </div>
                             <div class="row pt-1">
@@ -88,7 +88,7 @@
                                     Email:
                                 </div>
                                 <div class="col-sm person-data-container">
-                                    j.kowalski@gmail.com
+                                    this is still to be done
                                 </div>
                             </div>
                         </div>
@@ -100,10 +100,14 @@
                 <div class="col-sm">
                     <div class="row text-end pe-0">
                         <div class="col-sm pt-2">
-                            <a class="btn btn-table" href="#">Zmień dane pojazdu</a>
+                            <a class="btn btn-table" href="{{ route('vehicle.edit', $vehicle->id) }}">Zmień dane pojazdu</a>
                         </div>
                         <div class="col-sm-auto pt-2">
-                            <a class="btn btn-add" href="#">Usuń pojazd</a>
+                            <form action="{{ route('vehicle.destroy', $vehicle->id) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-add">Usuń pojazd</button>
+                            </form>
                         </div>
                     </div>
                 </div>
