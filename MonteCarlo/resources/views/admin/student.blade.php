@@ -7,13 +7,14 @@
                 <h1 class="white">Kursanci</h1>
             </div>
             <div class="col text-end pe-0">
-                <a href="#" class="btn btn-add">Dodaj kursanta</a>
+                <a href="{{ route('student.create') }}" class="btn btn-add">Dodaj kursanta</a>
             </div>
         </div>
         <div class="table-responsive rounded-4 mt-2">
             <table class="table table-hover align-middle table-borderless admin-table m-auto">
                 <thead>
                     <tr>
+                        <th scope="col">ID</th>
                         <th scope="col">Imię</th>
                         <th scope="col">Nazwisko</th>
                         <th scope="col">Data urodzenia</th>
@@ -24,19 +25,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for ($i = 0; $i < 20; $i++)
+                    
+                    @foreach ($students as $student)
                         <tr>
-                            <td>Adam</td>
-                            <td>Nowak</td>
-                            <td>01.01.2004</td>
-                            <td>a.nowak@gmail.com</td>
-                            <td>12345678901234567890</td>
-                            <td>Jan Kowalski</td>
+                            <td>{{ $student->id }}</td>
+                            <td>{{ $student->name }}</td>
+                            <td>{{ $student->surname }}</td>
+                            <td>{{ $student->birthDate }}</td>
+                            <td>{{ $student->email }}</td>
+                            <td>{{ $student->pkk }}</td>
+                            <td></td>
                             <td class="text-end">
-                                <a class="btn btn-table" href="{{ route('admin.teacher.studentpage') }}">Więcej</a>
+                                <a class="btn btn-table" href="{{ route('student.show', $student->id) }}">Więcej</a>
                             </td>
                         </tr>
-                    @endfor
+                    @endforeach
+
                 </tbody>
             </table>
         </div>

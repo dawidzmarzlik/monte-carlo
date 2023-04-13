@@ -8,6 +8,7 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminTeacherController;
 use App\Http\Controllers\AdminVehicleController;
+use App\Http\Controllers\AdminStudentController;
 use App\Http\Controllers\ContactController;
 
 /*
@@ -34,10 +35,18 @@ Route::get('logout', [SessionsController::class, 'destroy'])->name('logout');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/teacher', [AdminController::class, 'teacher'])->name('admin.teacher');
-Route::get('/admin/student', [AdminController::class, 'student'])->name('admin.student');
-
 Route::get('/admin/teacher/teacherpage', [AdminTeacherController::class, 'teacherpage'])->name('admin.teacher.teacherpage');
-Route::get('/admin/teacher/studentpage', [AdminTeacherController::class, 'studentpage'])->name('admin.teacher.studentpage');
+
+//STUDENT
+Route::get('/admin/student', [AdminController::class, 'student'])->name('admin.student');
+Route::get('admin/student/create', [AdminStudentController::class, 'create'])->name('student.create');
+Route::post('admin/student/create', [AdminStudentController::class, 'store'])->name('student.store');
+Route::get('admin/student/{student}/show', [AdminStudentController::class, 'show'])->name('student.show');
+Route::get('admin/student/{student}/edit', [AdminStudentController::class, 'edit'])->name('student.edit');
+Route::patch('admin/student/{student}/update', [AdminStudentController::class, 'update'])->name('student.update');
+Route::delete('admin/student/{student}/delete', [AdminStudentController::class, 'destroy'])->name('student.destroy');
+//Route::get('/admin/teacher/studentpage', [AdminTeacherController::class, 'studentpage'])->name('admin.teacher.studentpage');
+
 
 // VEHICLE RELATED
 Route::get('/admin/vehicle', [AdminController::class, 'vehicle'])->name('admin.vehicle');
