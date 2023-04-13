@@ -17,7 +17,7 @@
                                 <h6>Imię:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                Adam
+                                {{ $student->name }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -25,7 +25,7 @@
                                 <h6>Nazwisko:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                Nowak
+                                {{ $student->surname }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -33,7 +33,7 @@
                                 <h6>Data urodzenia:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                01-01-2004
+                                {{ $student->birthDate }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -41,7 +41,7 @@
                                 <h6>Email:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                a.nowak@gmail.com
+                                {{ $student->email }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -49,7 +49,7 @@
                                 <h6>Numer PKK:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                12345678901234567890
+                                {{ $student->pkk }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -57,7 +57,7 @@
                                 <h6>Kurs na kategorię:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                B
+                                
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -65,23 +65,15 @@
                                 <h6>Instruktor:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                Jan Kowalski
-                            </div>
-                        </div>
-                        <div class="row pt-1">
-                            <div class="col-sm">
-                                <h6>Najwyższy wynik w teście:</h6>
-                            </div>
-                            <div class="col-sm person-data-container">
-                                32
+                                
                             </div>
                         </div>
                         <div class="row pt-1">
                             <div class="col-sm">
                                 <h6>Hasło:</h6>
                             </div>
-                            <div class="col-sm person-data-container">
-                                ********
+                            <div class="col-sm person-data-container" type="password">
+                                <input type="password" name="password" class="passwordpole noClick" value="{{ $student->password }}" readonly>
                             </div>
                         </div>
                     </div>
@@ -108,17 +100,21 @@
 
             </div>
             <div class="row">
-                <div class="col-sm"></div>
                 <div class="col-sm">
                     <div class="row text-end pe-0">
                         <div class="col-sm pt-2">
-                            <a class="btn btn-table" href="#">Zmień dane kursanta</a>
+                            <a class="btn btn-table" href="{{ route('student.edit', $student->id) }}">Zmień dane kursanta</a>
                         </div>
                         <div class="col-sm-auto pt-2">
-                            <a class="btn btn-add" href="#">Usuń kursanta</a>
+                            <form action="{{ route('student.destroy', $student->id) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-add">Usuń kursanta</button>
+                            </form>
                         </div>
                     </div>
                 </div>
+                <div class="col-sm"></div>
             </div>
         </div>
     </div>

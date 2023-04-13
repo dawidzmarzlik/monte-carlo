@@ -366,3 +366,14 @@ input.no-arrow {
     color: white;
     border-radius: 5px;
 }
+
+/* Show masked password */
+.passwordpole {
+    background-color: transparent;
+    border: 0px;
+    color: white;
+}
+
+.noClick {
+    pointer-events: none;
+}

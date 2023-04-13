@@ -15,11 +15,7 @@ class AdminController extends Controller
     public function teacher(){
         return view('admin.teacher');
     }
-/*
-    public function student(){
-        return view('admin.student');
-    }
-*/
+
     public function vehicle(){
         $vehicles = Vehicle::all();
 
