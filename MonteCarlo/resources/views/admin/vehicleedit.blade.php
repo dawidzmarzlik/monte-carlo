@@ -15,24 +15,28 @@
                     <label for="brand"></label>
                     <div class="form-group">
                         <input type="text" class="form-control" id="brand" name="brand" placeholder="Marka"
-                            value="{{ $vehicle->brand }}" required>
+                            value="{{ old('brand') != '' ? old('brand') : $vehicle->brand }}">
+                        {!! $errors->first('brand', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="model"></label>
                     <div class="form-group">
                         <input type="text" class="form-control" id="model" name="model" placeholder="Model"
-                            value="{{ $vehicle->model }}" required>
+                            value="{{ old('model') != '' ? old('model') : $vehicle->model }}">
+                        {!! $errors->first('model', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="numberplate"></label>
                     <div class="form-group">
                         <input type="text" class="form-control" id="numberplate" name="numberplate" maxlength="8"
-                            value="{{ $vehicle->numberplate }}" placeholder="Nr. rejestracyjny" required>
+                            value="{{ old('numberplate') != '' ? old('numberplate') : $vehicle->numberplate }}"
+                            placeholder="Nr. rejestracyjny">
+                        {!! $errors->first('numberplate', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="type"></label>
                     <div class="form-group">
-                        <select class="form-control" id="type" name="type" required>
+                        <select class="form-control" id="type" name="type">
                             <option value="">Wybierz typ</option>
                             <option value="Osobowy" {{ $vehicle->type == 'Osobowy' ? 'selected' : '' }}>Osobowy
                             </option>
@@ -42,6 +46,7 @@
                             <option value="Autobus" {{ $vehicle->type == 'Autobus' ? 'selected' : '' }}>Autobus
                             </option>
                         </select>
+                        {!! $errors->first('type', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <button type="submit" style="cursor:pointer; font-weight: bold;"

@@ -2,43 +2,45 @@
 
 @section('content')
     <div class="m-auto">
-        <div class="row align-items-center m-auto">
-            <div class="col ps-0">
-                <h1 class="text-center white">Dodaj pojazd</h1>
-            </div>
-        </div>
         <div class="row d-flex align-items-center justify-content-center p-4 m-0">
             <div class="col-md-6 col-lg-4 align-self-center justify-content-center bg-white rounded-4 p-4">
+                <p class="fs-1 fs-sm-4 pt-3 text-center" style="font-weight: bold;">
+                    Dodaj pojazd
+                </p>
                 <form method="POST" action="{{ route('vehicle.store') }}">
                     @csrf
 
                     <label for="brand"></label>
                     <div class="form-group">
                         <input type="text" class="form-control" id="brand" name="brand" placeholder="Marka"
-                            required>
+                            value="{{ old('brand') }}">
+                        {!! $errors->first('brand', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="model"></label>
                     <div class="form-group">
                         <input type="text" class="form-control" id="model" name="model" placeholder="Model"
-                            required>
+                            value="{{ old('model') }}">
+                        {!! $errors->first('model', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="numberplate"></label>
                     <div class="form-group">
                         <input type="text" class="form-control" id="numberplate" name="numberplate" maxlength="8"
-                            placeholder="Nr. rejestracyjny" required>
+                            placeholder="Nr. rejestracyjny" value="{{ old('numberplate') }}">
+                        {!! $errors->first('numberplate', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="type"></label>
                     <div class="form-group">
-                        <select class="form-control" id="type" name="type" required>
-                            <option value="">Wybierz typ</option>
-                            <option value="Osobowy">Osobowy</option>
-                            <option value="Motocykl">Motocykl</option>
-                            <option value="Ciężarowy">Ciężarowy</option>
-                            <option value="Autobus">Autobus</option>
+                        <select class="form-control" id="type" name="type">
+                            <option value="" {{ old('type') == '' ? 'selected' : '' }}>Wybierz typ</option>
+                            <option value="Osobowy" {{ old('type') == 'Osobowy' ? 'selected' : '' }}>Osobowy</option>
+                            <option value="Motocykl" {{ old('type') == 'Motocykl' ? 'selected' : '' }}> Motocykl</option>
+                            <option value="Ciężarowy" {{ old('type') == 'Ciężarowy' ? 'selected' : '' }}>Ciężarowy</option>
+                            <option value="Autobus" {{ old('type') == 'Autobus' ? 'selected' : '' }}>Autobus</option>
                         </select>
+                        {!! $errors->first('type', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <button type="submit" style="cursor:pointer; font-weight: bold;"
