@@ -34,15 +34,13 @@
                     <div class="form-group">
                         <select class="form-control" id="type" name="type" required>
                             <option value="">Wybierz typ</option>
-                            <option value="Hatchback" {{ $vehicle->type == 'Hatchback' ? 'selected' : '' }}>Hatchback
+                            <option value="Osobowy" {{ $vehicle->type == 'Osobowy' ? 'selected' : '' }}>Osobowy
                             </option>
-                            <option value="Sedan" {{ $vehicle->type == 'Sedan' ? 'selected' : '' }}>Sedan</option>
-                            <option value="Coupe" {{ $vehicle->type == 'Coupe' ? 'selected' : '' }}>Coupe</option>
-                            <option value="SUV" {{ $vehicle->type == 'SUV' ? 'selected' : '' }}>SUV</option>
-                            <option value="Ciężarówka" {{ $vehicle->type == 'Ciężarówka' ? 'selected' : '' }}>Ciężarówka
+                            <option value="Motocykl" {{ $vehicle->type == 'Motocykl' ? 'selected' : '' }}>Motocykl</option>
+                            <option value="Ciężarowy" {{ $vehicle->type == 'Ciężarowy' ? 'selected' : '' }}>Ciężarowy
                             </option>
-                            <option value="Ciągnik siodłowy" {{ $vehicle->type == 'Ciągnik siodłowy' ? 'selected' : '' }}>
-                                Ciągnik siodłowy</option>
+                            <option value="Autobus" {{ $vehicle->type == 'Autobus' ? 'selected' : '' }}>Autobus
+                            </option>
                         </select>
                     </div>
 

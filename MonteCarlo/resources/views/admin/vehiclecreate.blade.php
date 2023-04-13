@@ -34,12 +34,10 @@
                     <div class="form-group">
                         <select class="form-control" id="type" name="type" required>
                             <option value="">Wybierz typ</option>
-                            <option value="Hatchback">Hatchback</option>
-                            <option value="Sedan">Sedan</option>
-                            <option value="Coupe">Coupe</option>
-                            <option value="SUV">SUV</option>
-                            <option value="Ciężarówka">Ciężarówka</option>
-                            <option value="Ciągnik siodłowy">Ciągnik siodłowy</option>
+                            <option value="Osobowy">Osobowy</option>
+                            <option value="Motocykl">Motocykl</option>
+                            <option value="Ciężarowy">Ciężarowy</option>
+                            <option value="Autobus">Autobus</option>
                         </select>
                     </div>
 
