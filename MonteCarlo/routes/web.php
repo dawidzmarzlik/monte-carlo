@@ -33,6 +33,8 @@ Route::get('/login', [LoginController::class, 'login'])->name('login.login');
 Route::post('login', [SessionsController::class, 'store']);
 Route::get('logout', [SessionsController::class, 'destroy'])->name('logout');
 
+Route::get('/recover', [LoginController::class, 'recover'])->name('login.recover');
+
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/teacher', [AdminController::class, 'teacher'])->name('admin.teacher');
 Route::get('/admin/teacher/teacherpage', [AdminTeacherController::class, 'teacherpage'])->name('admin.teacher.teacherpage');

@@ -11,4 +11,9 @@ class LoginController extends Controller
         return view('login.login');
     }
 
+    public function recover()
+    {
+        return view('login.recover');
+    }
+
 }
