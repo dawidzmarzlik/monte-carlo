@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 
 class AdminStudentController extends Controller
 {
@@ -46,7 +47,7 @@ class AdminStudentController extends Controller
         $student->email = $request->input('email');
         $student->birthDate = $request->input('birthDate');
         $student->pkk = $request->input('pkk');
-        $student->password = $request->input('password');
+        $student->password = Hash::make($request->input('password'));
         $student->save();
 
         return redirect()->route('admin.student');
@@ -96,7 +97,18 @@ class AdminStudentController extends Controller
         $student->email = $request->input('email');
         $student->birthDate = $request->input('birthDate');
         $student->pkk = $request->input('pkk');
-        $student->password = $request->input('password');
+
+        if ($request->has('password') && $request->input('password') != '') {
+            // Get the current password from the database
+            $currentPassword = $student->password;
+            
+            // Check if the new password is different from the current password
+            if ($request->input('password') != $currentPassword) {
+                // Hash the new password
+                $student->password = Hash::make($request->input('password'));
+            }
+        }
+
         $student->save();
 
         return redirect()->route('admin.student');
