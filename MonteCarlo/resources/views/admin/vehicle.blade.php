@@ -1,5 +1,7 @@
 @extends('admin.layout')
-
+@php
+    use App\Models\Teacher;
+@endphp
 @section('content')
     <div class="m-auto">
         <div class="row align-items-center m-auto">
@@ -19,17 +21,28 @@
                         <th scope="col">Model</th>
                         <th scope="col">Nr. rejestracyjny</th>
                         <th scope="col">Typ</th>
+                        <th scope="col">Instruktor</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($vehicles as $vehicle)
+                        @php
+                            $teacher = Teacher::find($vehicle->Teacher_id);
+                        @endphp
                         <tr>
                             <td>{{ $vehicle->id }}</td>
                             <td>{{ $vehicle->brand }}</td>
                             <td>{{ $vehicle->model }}</td>
                             <td>{{ $vehicle->numberplate }}</td>
                             <td>{{ $vehicle->type }}</td>
+                            <td>
+                                @if ($teacher)
+                                    {{ $teacher->name }} {{ $teacher->surname }}
+                                @else
+                                    -----
+                                @endif
+                            </td>
                             <td class="text-end">
                                 <a class="btn btn-table" href="{{ route('vehicle.show', $vehicle->id) }}">Więcej</a>
                             </td>

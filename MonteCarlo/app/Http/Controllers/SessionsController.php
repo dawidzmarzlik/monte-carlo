@@ -31,7 +31,7 @@ class SessionsController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/');
         } else {
-            var_dump($credentials);
+            // var_dump($credentials);
             return redirect()->back()->withErrors(['student' => 'Błędny adres e-mail lub hasło.']);
         }
 

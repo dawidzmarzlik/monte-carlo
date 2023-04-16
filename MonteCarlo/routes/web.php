@@ -69,6 +69,8 @@ Route::get('admin/vehicle/{vehicle}/show', [AdminVehicleController::class, 'show
 Route::get('admin/vehicle/{vehicle}/edit', [AdminVehicleController::class, 'edit'])->name('vehicle.edit');
 Route::patch('admin/vehicle/{vehicle}/update', [AdminVehicleController::class, 'update'])->name('vehicle.update');
 Route::delete('admin/vehicle/{vehicle}/delete', [AdminVehicleController::class, 'destroy'])->name('vehicle.destroy');
+Route::get('admin/vehicle/{vehicle}/teacher', [AdminVehicleController::class, 'change_teacher'])->name('vehicle.teacher');
+Route::patch('admin/vehicle/{vehicle}/teacher', [AdminVehicleController::class, 'set_teacher'])->name('vehicle.setTeacher');
 // VEHICLE RELATED
 
 Route::post('contact_mail', [ContactController::class, 'contact_mail_send']);

@@ -50,48 +50,60 @@
                 <div class="col">
                     Instruktor:
                     <div class="col">
-                        <div class="container">
-                            <div class="row pt-1">
-                                <div class="col-sm">
-                                    Imię:
+                        @if ($teacher)
+                            <div class="container">
+                                <div class="row pt-1">
+                                    <div class="col-sm">
+                                        Imię:
+                                    </div>
+                                    <div class="col-sm person-data-container">
+                                        @if ($teacher)
+                                            {{ $teacher->name }}
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="col-sm person-data-container">
-                                    this is still to be done
+                                <div class="row pt-1">
+                                    <div class="col-sm">
+                                        Nazwisko:
+                                    </div>
+                                    <div class="col-sm person-data-container">
+                                        @if ($teacher)
+                                            {{ $teacher->surname }}
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="row pt-1">
+                                    <div class="col-sm">
+                                        Uprawnienia:
+                                    </div>
+                                    <div class="col-sm person-data-container">
+
+                                    </div>
+                                </div>
+                                <div class="row pt-1">
+                                    <div class="col-sm">
+                                        Telefon:
+                                    </div>
+                                    <div class="col-sm person-data-container">
+                                        @if ($teacher)
+                                            {{ $teacher->phoneNumber }}
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="row pt-1">
+                                    <div class="col-sm">
+                                        Email:
+                                    </div>
+                                    <div class="col-sm person-data-container">
+                                        @if ($teacher)
+                                            {{ $teacher->email }}
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row pt-1">
-                                <div class="col-sm">
-                                    Nazwisko:
-                                </div>
-                                <div class="col-sm person-data-container">
-                                    this is still to be done
-                                </div>
-                            </div>
-                            <div class="row pt-1">
-                                <div class="col-sm">
-                                    Uprawnienia:
-                                </div>
-                                <div class="col-sm person-data-container">
-                                    this is still to be done
-                                </div>
-                            </div>
-                            <div class="row pt-1">
-                                <div class="col-sm">
-                                    Telefon:
-                                </div>
-                                <div class="col-sm person-data-container">
-                                    this is still to be done
-                                </div>
-                            </div>
-                            <div class="row pt-1">
-                                <div class="col-sm">
-                                    Email:
-                                </div>
-                                <div class="col-sm person-data-container">
-                                    this is still to be done
-                                </div>
-                            </div>
-                        </div>
+                        @else
+                            Brak przypisanego instruktora.
+                        @endif
                     </div>
                 </div>
 
@@ -114,7 +126,13 @@
                 <div class="col-sm">
                     <div class="row text-end pe-0">
                         <div class="col-sm pt-2">
-                            <a class="btn btn-table" href="#">Zmień instruktora</a>
+                            @if ($teacher)
+                                <a class="btn btn-table" href="{{ route('vehicle.teacher', $vehicle->id) }}">Zmień
+                                    instruktora</a>
+                            @else
+                                <a class="btn btn-table" href="{{ route('vehicle.teacher', $vehicle->id) }}">Przypisz
+                                    instruktora</a>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vehicle;
+use App\Models\Teacher;
 use Illuminate\Validation\Rule;
 
 class AdminVehicleController extends Controller
@@ -48,7 +49,9 @@ class AdminVehicleController extends Controller
     public function show($id)
     {
         $vehicle = Vehicle::find($id);
-        return view('admin.vehiclepage', compact('vehicle'));
+        $teacher_id = $vehicle->Teacher_id;
+        $teacher = Teacher::find($teacher_id);
+        return view('admin.vehiclepage', compact('vehicle'), compact('teacher'));
     }
 
     public function edit($id)
@@ -94,5 +97,23 @@ class AdminVehicleController extends Controller
         $vehicle -> delete();
 
         return redirect()->route('admin.vehicle');
+    }
+
+    public function change_teacher($id)
+    {
+        $teachers = Teacher::all();
+        $vehicle = Vehicle::find($id);
+        return view('admin.vehiclechange', compact('teachers'), compact('vehicle'));
+    }
+
+    public function set_teacher(Request $request, $id)
+    {
+        $teacher = Teacher::find($request->teacher);
+
+        $vehicle = Vehicle::find($id);
+        $vehicle->Teacher_id = $request->input('teacher');
+        $vehicle->save();
+
+        return view('admin.vehiclepage', compact('teacher'), compact('vehicle'));
     }
 }
