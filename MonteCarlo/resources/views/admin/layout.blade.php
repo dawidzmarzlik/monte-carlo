@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('admin.index') }}">
+            <a class="navbar-brand" href="{{ route('admin.teacher') }}">
                 <img class="my-2" alt="Monte Carlo" src="{{ asset('img/logo-nobg.png') }}" height="25" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
