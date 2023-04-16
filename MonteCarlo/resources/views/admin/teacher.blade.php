@@ -20,7 +20,6 @@
                         <th scope="col">Numer telefonu</th>
                         <th scope="col">Email</th>
                         <th scope="col">Ilość kursantów</th>
-                        <th scope="col">Pojazd</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -32,8 +31,6 @@
                             <td>{{ $teacher->surname }}</td>
                             <td>{{ $teacher->phoneNumber }}</td>
                             <td>{{ $teacher->email }}</td>
-                            <td></td>
-                            <td></td>
                             <td class="text-end">
                                 <a class="btn btn-table" href="{{ route('teacher.show', $teacher->id) }}">Więcej</a>
                             </td>
