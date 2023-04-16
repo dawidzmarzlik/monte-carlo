@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminTeacherController;
 use App\Http\Controllers\AdminVehicleController;
 use App\Http\Controllers\AdminStudentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PasswordRecoverController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ Route::post('login', [SessionsController::class, 'store']);
 Route::get('logout', [SessionsController::class, 'destroy'])->name('logout');
 
 Route::get('/recover', [LoginController::class, 'recover'])->name('login.recover');
+Route::post('recover', [PasswordRecoverController::class, 'recover_password']);
+
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/teacher', [AdminController::class, 'teacher'])->name('admin.teacher');

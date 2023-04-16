@@ -4,7 +4,7 @@
     <div class="bg-grad">
         <div class="row d-flex align-items-center justify-content-center p-4 m-0">
             <div class="col-md-6 col-lg-4 align-self-center justify-content-center bg-white rounded-4 p-4 mt-5">
-                <form method="POST" action="/recover">
+                <form method="POST" action="recover">
                     @csrf
                     <p class="fs-1 fs-sm-4 pt-3 text-center" style="font-weight: bold;">
                         Zapomniałeś hasła?

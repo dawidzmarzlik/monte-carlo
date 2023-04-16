@@ -65,8 +65,8 @@
             </div>
             <div class="col-12 col-md-4">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2529.546094059615!2d17.900558830748377!3d50.65412051500208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471053bb1bcdafab%3A0xf2ef41915344d5dd!2sPolitechnika%20Opolska!5e0!3m2!1spl!2spl!4v1680458016880!5m2!1spl!2spl"
-                    width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2526.63936813429!2d17.9866406!3d50.7080765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4710515815eb0e8f%3A0xd1466e6b3efb7008!2sOleska%202A%2C%2046-045%20Zawada!5e0!3m2!1spl!2spl!4v1681646010013!5m2!1spl!2spl"
+                    width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade" class="ms-5"></iframe>
             </div>
         </div>

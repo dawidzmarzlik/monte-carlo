@@ -102,4 +102,10 @@
             </div>
         </div>
     </div>
+    @if (session('status'))
+    <script>
+        alert("{{ session('status') }}");
+        window.location.href = "/";
+    </script>
+    @endif
 @endsection
