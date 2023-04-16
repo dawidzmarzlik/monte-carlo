@@ -17,7 +17,7 @@
                                 <h6>Imię:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                Jan
+                                {{ $teacher->name }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -25,7 +25,7 @@
                                 <h6>Nazwisko:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                Kowalski
+                                {{ $teacher->surname }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -33,7 +33,7 @@
                                 <h6>Data urodzenia:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                01-01-1990
+                                {{ $teacher->birthDate }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -41,7 +41,7 @@
                                 <h6>Telefon:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                +48 123 456 789
+                                {{ $teacher->phoneNumber }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -49,15 +49,15 @@
                                 <h6>Email:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                j.kowalski@gmail.com
+                                {{ $teacher->email }}
                             </div>
                         </div>
                         <div class="row pt-1">
                             <div class="col-sm">
                                 <h6>Hasło:</h6>
                             </div>
-                            <div class="col-sm person-data-container">
-                                ********
+                            <div class="col-sm person-data-container" type="password">
+                                <input type="password" name="password" class="passwordpole noClick" value="{{ $teacher->password }}" readonly>
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -65,7 +65,7 @@
                                 <h6>Uprawnienia:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                B
+                                
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -73,7 +73,7 @@
                                 <h6>Ilość kursantów:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                3
+                                
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -81,7 +81,7 @@
                                 <h6>Pojazd:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                OPO 1234
+                                
                             </div>
                         </div>
                     </div>
@@ -112,10 +112,14 @@
                 <div class="col-sm">
                     <div class="row text-end pe-0">
                         <div class="col-sm pt-2">
-                            <a class="btn btn-table" href="#">Zmień dane instruktora</a>
+                            <a class="btn btn-table" href="{{ route('teacher.edit', $teacher->id) }}">Zmień dane instruktora</a>
                         </div>
                         <div class="col-sm-auto pt-2">
-                            <a class="btn btn-add" href="#">Usuń instruktora</a>
+                            <form action="{{ route('teacher.destroy', $teacher->id) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-add">Usuń instruktora</button>
+                            </form>
                         </div>
                     </div>
                 </div>

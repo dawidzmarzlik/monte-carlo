@@ -52,6 +52,14 @@ Route::patch('admin/student/{student}/update', [AdminStudentController::class, '
 Route::delete('admin/student/{student}/delete', [AdminStudentController::class, 'destroy'])->name('student.destroy');
 //Route::get('/admin/teacher/studentpage', [AdminTeacherController::class, 'studentpage'])->name('admin.teacher.studentpage');
 
+//TEACHER
+Route::get('/admin/teacher', [AdminController::class, 'teacher'])->name('admin.teacher');
+Route::get('admin/teacher/create', [AdminTeacherController::class, 'create'])->name('teacher.create');
+Route::post('admin/teacher/create', [AdminTeacherController::class, 'store'])->name('teacher.store');
+Route::get('admin/teacher/{teacher}/show', [AdminTeacherController::class, 'show'])->name('teacher.show');
+Route::get('admin/teacher/{teacher}/edit', [AdminTeacherController::class, 'edit'])->name('teacher.edit');
+Route::patch('admin/teacher/{teacher}/update', [AdminTeacherController::class, 'update'])->name('teacher.update');
+Route::delete('admin/teacher/{teacher}/delete', [AdminTeacherController::class, 'destroy'])->name('teacher.destroy');
 
 // VEHICLE RELATED
 Route::get('/admin/vehicle', [AdminController::class, 'vehicle'])->name('admin.vehicle');

@@ -7,13 +7,14 @@
                 <h1 class="white">Instruktorzy</h1>
             </div>
             <div class="col text-end pe-0">
-                <a href="#" class="btn btn-add">Dodaj instruktora</a>
+                <a href="{{ route('teacher.create') }}" class="btn btn-add">Dodaj instruktora</a>
             </div>
         </div>
         <div class="table-responsive rounded-4 mt-2">
             <table class="table table-hover align-middle table-borderless admin-table m-auto">
                 <thead>
                     <tr>
+                        <th scope="col">Id</th>
                         <th scope="col">Imię</th>
                         <th scope="col">Nazwisko</th>
                         <th scope="col">Numer telefonu</th>
@@ -24,19 +25,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for ($i = 0; $i < 20; $i++)
+                    @foreach ($teachers as $teacher)
                         <tr>
-                            <td>Jan</td>
-                            <td>Kowalski</td>
-                            <td>123 456 789</td>
-                            <td>j.kowalski@gmail.com</td>
-                            <td>2</td>
-                            <td>OPO 24534</td>
+                            <td>{{ $teacher->id }}</td>
+                            <td>{{ $teacher->name }}</td>
+                            <td>{{ $teacher->surname }}</td>
+                            <td>{{ $teacher->phoneNumber }}</td>
+                            <td>{{ $teacher->email }}</td>
+                            <td></td>
+                            <td></td>
                             <td class="text-end">
-                                <a class="btn btn-table" href="{{ route('admin.teacher.teacherpage') }}">Więcej</a>
+                                <a class="btn btn-table" href="{{ route('teacher.show', $teacher->id) }}">Więcej</a>
                             </td>
                         </tr>
-                    @endfor
+                    @endforeach
                 </tbody>
             </table>
         </div>

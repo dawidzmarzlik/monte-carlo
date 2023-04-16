@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vehicle;
 use App\Models\Student;
+use App\Models\Teacher;
 
 class AdminController extends Controller
 {
@@ -13,7 +14,9 @@ class AdminController extends Controller
     }
 
     public function teacher(){
-        return view('admin.teacher');
+        $teachers = Teacher::all();
+        
+        return view('admin.teacher', compact('teachers'));
     }
 
     public function vehicle(){
