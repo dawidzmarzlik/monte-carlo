@@ -27,7 +27,8 @@ class AdminStudentController extends Controller
             'pkk.min' => 'Pole powinno się składać z dokładnie 20 cyfr.',     
             'pkk.unique' => 'Numer PKK jest już wykorzystany.',     
             'email.required' => 'Pole jest wymagane. Uzupełnij dane.',  
-            'password.required' => 'Pole jest wymagane. Uzupełnij dane.',   
+            'password.required' => 'Pole jest wymagane. Uzupełnij dane.',
+            'password.min' => 'Hasło powinno składać się z co najmniej 8 znaków.',    
         ];
 
         $request->validate([
@@ -36,7 +37,7 @@ class AdminStudentController extends Controller
             'birthDate' => 'required',
             'pkk' => 'required|min:20|unique:student',
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:8',
         ], $messages);
 
         $student = new Student;
@@ -73,7 +74,8 @@ class AdminStudentController extends Controller
             'pkk.min' => 'Pole powinno się składać z dokładnie 20 cyfr.',     
             'pkk.unique' => 'Numer PKK jest już wykorzystany.',     
             'email.required' => 'Pole jest wymagane. Uzupełnij dane.',  
-            'password.required' => 'Pole jest wymagane. Uzupełnij dane.',   
+            'password.required' => 'Pole jest wymagane. Uzupełnij dane.', 
+            'password.min' => 'Hasło powinno składać się z co najmniej 8 znaków.',  
         ];
 
         $request->validate([
@@ -85,7 +87,7 @@ class AdminStudentController extends Controller
                 Rule::unique('student')->ignore($id),
             ],
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:8'
         ], $messages);
 
         $student = Student::find($id);
