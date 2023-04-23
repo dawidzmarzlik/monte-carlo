@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminTeacherController;
 use App\Http\Controllers\AdminVehicleController;
 use App\Http\Controllers\AdminStudentController;
+use App\Http\Controllers\AdminQuestionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PasswordRecoverController;
 
@@ -73,6 +74,15 @@ Route::delete('admin/vehicle/{vehicle}/delete', [AdminVehicleController::class, 
 Route::get('admin/vehicle/{vehicle}/teacher', [AdminVehicleController::class, 'change_teacher'])->name('vehicle.teacher');
 Route::patch('admin/vehicle/{vehicle}/teacher', [AdminVehicleController::class, 'set_teacher'])->name('vehicle.setTeacher');
 // VEHICLE RELATED
+
+// QUESTION RELATED
+Route::get('/admin/question', [AdminController::class, 'question'])->name('admin.question');
+Route::get('admin/question/create', [AdminQuestionController::class, 'create'])->name('question.create');
+Route::post('admin/question/create', [AdminQuestionController::class, 'store'])->name('question.store');
+Route::get('admin/question/{question}/edit', [AdminQuestionController::class, 'edit'])->name('question.edit');
+Route::patch('admin/question/{question}/update', [AdminQuestionController::class, 'update'])->name('question.update');
+Route::delete('admin/question/{question}/delete', [AdminQuestionController::class, 'destroy'])->name('question.destroy');
+// QUESTION RELATED
 
 Route::post('contact_mail', [ContactController::class, 'contact_mail_send']);
 // Route::get('/', function () {

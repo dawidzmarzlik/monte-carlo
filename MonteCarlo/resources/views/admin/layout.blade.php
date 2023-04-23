@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.vehicle') }}">Pojazdy</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.question') }}">Pytania teoretyczne</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav">
                     @if (auth()->check())

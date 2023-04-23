@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Vehicle;
 use App\Models\Student;
 use App\Models\Teacher;
+use App\Models\Question;
 
 class AdminController extends Controller
 {
@@ -29,5 +30,11 @@ class AdminController extends Controller
         $students = Student::all();
 
         return view('admin.student', compact('students'));
+    }
+
+    public function question(){
+        $questions = Question::all();
+
+        return view('admin.question', compact('questions'));
     }
 }
