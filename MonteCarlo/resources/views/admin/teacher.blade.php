@@ -31,6 +31,7 @@
                             <td>{{ $teacher->surname }}</td>
                             <td>{{ $teacher->phoneNumber }}</td>
                             <td>{{ $teacher->email }}</td>
+                            <td></td>
                             <td class="text-end">
                                 <a class="btn btn-table" href="{{ route('teacher.show', $teacher->id) }}">Więcej</a>
                             </td>
