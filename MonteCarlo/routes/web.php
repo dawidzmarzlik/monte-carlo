@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminStudentController;
 use App\Http\Controllers\AdminQuestionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PasswordRecoverController;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,13 +39,15 @@ Route::get('logout', [SessionsController::class, 'destroy'])->name('logout');
 Route::get('/recover', [LoginController::class, 'recover'])->name('login.recover');
 Route::post('recover', [PasswordRecoverController::class, 'recover_password']);
 
+//TEACHER PAGE
+Route::get('/teacher', [TeacherController::class, 'schedule'])->name('teacher.schedule');
 
-
+//ADMIN
 Route::get('/admin', [AdminController::class, 'teacher'])->name('admin.teacher');
 Route::get('/admin/teacher', [AdminController::class, 'teacher'])->name('admin.teacher');
 Route::get('/admin/teacher/teacherpage', [AdminTeacherController::class, 'teacherpage'])->name('admin.teacher.teacherpage');
 
-//STUDENT
+//ADMIN STUDENT
 Route::get('/admin/student', [AdminController::class, 'student'])->name('admin.student');
 Route::get('admin/student/create', [AdminStudentController::class, 'create'])->name('student.create');
 Route::post('admin/student/create', [AdminStudentController::class, 'store'])->name('student.store');
@@ -54,7 +57,7 @@ Route::patch('admin/student/{student}/update', [AdminStudentController::class, '
 Route::delete('admin/student/{student}/delete', [AdminStudentController::class, 'destroy'])->name('student.destroy');
 //Route::get('/admin/teacher/studentpage', [AdminTeacherController::class, 'studentpage'])->name('admin.teacher.studentpage');
 
-//TEACHER
+//ADMIN TEACHER
 Route::get('/admin/teacher', [AdminController::class, 'teacher'])->name('admin.teacher');
 Route::get('admin/teacher/create', [AdminTeacherController::class, 'create'])->name('teacher.create');
 Route::post('admin/teacher/create', [AdminTeacherController::class, 'store'])->name('teacher.store');
@@ -63,7 +66,7 @@ Route::get('admin/teacher/{teacher}/edit', [AdminTeacherController::class, 'edit
 Route::patch('admin/teacher/{teacher}/update', [AdminTeacherController::class, 'update'])->name('teacher.update');
 Route::delete('admin/teacher/{teacher}/delete', [AdminTeacherController::class, 'destroy'])->name('teacher.destroy');
 
-// VEHICLE RELATED
+//ADMIN VEHICLE RELATED
 Route::get('/admin/vehicle', [AdminController::class, 'vehicle'])->name('admin.vehicle');
 Route::get('admin/vehicle/create', [AdminVehicleController::class, 'create'])->name('vehicle.create');
 Route::post('admin/vehicle/create', [AdminVehicleController::class, 'store'])->name('vehicle.store');
@@ -75,7 +78,7 @@ Route::get('admin/vehicle/{vehicle}/teacher', [AdminVehicleController::class, 'c
 Route::patch('admin/vehicle/{vehicle}/teacher', [AdminVehicleController::class, 'set_teacher'])->name('vehicle.setTeacher');
 // VEHICLE RELATED
 
-// QUESTION RELATED
+//ADMIN QUESTION RELATED
 Route::get('/admin/question', [AdminController::class, 'question'])->name('admin.question');
 Route::get('admin/question/create', [AdminQuestionController::class, 'create'])->name('question.create');
 Route::post('admin/question/create', [AdminQuestionController::class, 'store'])->name('question.store');
@@ -84,6 +87,7 @@ Route::patch('admin/question/{question}/update', [AdminQuestionController::class
 Route::delete('admin/question/{question}/delete', [AdminQuestionController::class, 'destroy'])->name('question.destroy');
 // QUESTION RELATED
 
+//CONTACT MAIL
 Route::post('contact_mail', [ContactController::class, 'contact_mail_send']);
 // Route::get('/', function () {
 //     return view('welcome');
