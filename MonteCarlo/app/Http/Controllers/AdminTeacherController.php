@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Teacher;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
@@ -55,7 +56,9 @@ class AdminTeacherController extends Controller
     public function show($id)
     {
         $teacher = Teacher::find($id);
-        return view('admin.teacherpage', compact('teacher'));
+        $vehicle_id = $teacher->Vehicle_id;
+        $vehicle = Vehicle::find($vehicle_id);
+        return view('admin.teacherpage', compact('teacher'), compact('vehicle'));
     }
 
     public function edit($id)

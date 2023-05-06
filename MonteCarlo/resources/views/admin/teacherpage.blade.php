@@ -1,5 +1,7 @@
 @extends('admin.layout')
-
+@php
+    use App\Models\Vehicle;
+@endphp
 @section('content')
     <div class="m-auto">
         <div class="row align-items-center m-auto">
@@ -81,6 +83,15 @@
                                 <h6>Pojazd:</h6>
                             </div>
                             <div class="col-sm person-data-container">
+                            
+                                @php
+                                    $vehicle = Vehicle::find($teacher->id);
+                                @endphp
+                                    @if ($vehicle)
+                                        {{ $vehicle->numberplate }}
+                                    @else
+                                        -----
+                                    @endif
                                 
                             </div>
                         </div>
