@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminQuestionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PasswordRecoverController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,3 +93,13 @@ Route::post('contact_mail', [ContactController::class, 'contact_mail_send']);
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+//STUDENT
+Route::get('/student', [StudentController::class, 'index'])->name('student.index');
+Route::get('/student/schedule', [StudentController::class, 'schedule'])->name('student.schedule');
+Route::get('/student/materials', [StudentController::class, 'materials'])->name('student.materials');
+Route::get('/student/test', [StudentController::class, 'test'])->name('student.test');
+Route::get('/student/profile', [StudentController::class, 'profile'])->name('student.profile');
+Route::get('/student/opinion', [StudentController::class, 'opinion'])->name('student.opinion');
+Route::get('/student/chat', [StudentController::class, 'chat'])->name('student.chat');
+//STUDENT

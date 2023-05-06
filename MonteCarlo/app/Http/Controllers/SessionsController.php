@@ -29,7 +29,7 @@ class SessionsController extends Controller
         $credentials = $request->only('email', 'password');
         
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            return redirect()->route('student.index');
         } else {
             // var_dump($credentials);
             return redirect()->back()->withErrors(['student' => 'Błędny adres e-mail lub hasło.']);
