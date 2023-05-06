@@ -101,6 +101,7 @@ Route::get('/student', [StudentController::class, 'index'])->name('student.index
 Route::get('/student/schedule', [StudentController::class, 'schedule'])->name('student.schedule');
 Route::get('/student/materials', [StudentController::class, 'materials'])->name('student.materials');
 Route::get('/student/test', [StudentController::class, 'test'])->name('student.test');
+Route::get('/student/testpage', [StudentController::class, 'testpage'])->name('student.testpage');
 Route::get('/student/profile', [StudentController::class, 'profile'])->name('student.profile');
 Route::get('/student/opinion', [StudentController::class, 'opinion'])->name('student.opinion');
 Route::get('/student/chat', [StudentController::class, 'chat'])->name('student.chat');

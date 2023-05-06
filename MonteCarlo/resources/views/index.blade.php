@@ -82,19 +82,20 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 align-self-center">
-                <form method="POST" action="{{url('contact_mail')}}">
+                <form method="POST" action="{{ url('contact_mail') }}">
                     @csrf
                     <div class="mb-3">
                         <label for="InputName" class="form-label">Imie Nazwisko</label>
-                        <input type="text" class="form-control rounded" id="InputName" name="name">
+                        <input type="text" class="form-control form-control-2 rounded" id="InputName" name="name">
                     </div>
                     <div class="mb-3">
                         <label for="inputEmailHome" class="form-label">E-mail</label>
-                        <input type="email" class="form-control rounded" id="inputEmailHome" name="email">
+                        <input type="email" class="form-control form-control-2 rounded" id="inputEmailHome"
+                            name="email">
                     </div>
                     <div class="mb-3">
                         <label for="messageText" class="form-label">Treść wiadomości</label>
-                        <textarea type="text" class="form-control rounded" id="messageText" rows="5" name="message"></textarea>
+                        <textarea type="text" class="form-control form-control-2 rounded" id="messageText" rows="5" name="message"></textarea>
                     </div>
                     <button style="cursor:pointer; font-weight: bold;" type="submit"
                         class="btn btn-log rounded-pill d-block mx-auto my-4 col-4">Wyślij</button>
@@ -103,9 +104,9 @@
         </div>
     </div>
     @if (session('status'))
-    <script>
-        alert("{{ session('status') }}");
-        window.location.href = "/";
-    </script>
+        <script>
+            alert("{{ session('status') }}");
+            window.location.href = "/";
+        </script>
     @endif
 @endsection

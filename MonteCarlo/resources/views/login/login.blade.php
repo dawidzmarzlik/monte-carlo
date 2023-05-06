@@ -12,14 +12,15 @@
                     {!! $errors->first('student', "<span class='text-danger'>:message</span>") !!}
                     <div class="form-group">
                         <label for="email"></label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="E-mail"
-                            value="{{ old('email') }}">
+                        <input type="email" class="form-control form-control-2" id="email" name="email"
+                            placeholder="E-mail" value="{{ old('email') }}">
                         {!! $errors->first('email', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <div class="form-group">
                         <label for="password"></label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Hasło">
+                        <input type="password" class="form-control form-control-2" id="password" name="password"
+                            placeholder="Hasło">
                         {!! $errors->first('password', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
