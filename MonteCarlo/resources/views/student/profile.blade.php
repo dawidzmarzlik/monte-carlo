@@ -91,7 +91,7 @@
                         </div>
                         <div class="row pt-1">
                             <div class="col-sm">
-                                Data urodzenia:
+                                Telefon:
                             </div>
                             <div class="col-sm person-data-container">
                                 @if ($student)
