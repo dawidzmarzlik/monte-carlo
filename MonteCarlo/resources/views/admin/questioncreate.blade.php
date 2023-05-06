@@ -5,9 +5,9 @@
         <div class="row d-flex align-items-center justify-content-center p-4 m-0">
             <div class="col-md-6 col-lg-4 align-self-center justify-content-center bg-white rounded-4 p-4">
                 <p class="fs-1 fs-sm-4 pt-3 text-center" style="font-weight: bold;">
-                    Dodaj pojazd
+                    Dodaj pytanie
                 </p>
-                <form method="POST" action="{{ route('question.store') }}">
+                <form method="POST" action="{{ route('question.store') }}" enctype="multipart/form-data">
                     @csrf
 
                     <label for="questionText"></label>
