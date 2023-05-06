@@ -23,6 +23,7 @@
                         <th scope="col">Odpowiedź C</th>
                         <th scope="col">Poprawna odpowiedź</th>
                         <th scope="col">Punkty</th>
+                        <th scope="col">Plik</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
@@ -34,9 +35,22 @@
                             <td>{{ $question->questionText }}</td>
                             <td>{{ $question->answer1 }}</td>
                             <td>{{ $question->answer2 }}</td>
-                            <td>{{ $question->answer3 }}</td>
+                            <td>
+                                @if ($question->answer3)
+                                    {{ $question->answer3 }}
+                                @else
+                                    -----
+                                @endif
+                            </td>
                             <td>{{ $question->correctAnswer }}</td>
                             <td>{{ $question->questionScore }}</td>
+                            <td>
+                                @if ($question->questionFile)
+                                    {{ $question->questionFile }}
+                                @else
+                                    -----
+                                @endif
+                            </td>
                             <td class="text-end">
                                 <a class="btn btn-table" href="{{ route('question.edit', $question->id) }}">Edytuj</a>
                             </td>

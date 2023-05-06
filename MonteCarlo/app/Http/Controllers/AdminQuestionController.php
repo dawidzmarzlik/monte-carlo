@@ -19,7 +19,6 @@ class AdminQuestionController extends Controller
             'questionText.required' => 'Pole jest wymagane. Uzupełnij dane.',     
             'answer1.required' => 'Pole jest wymagane. Uzupełnij dane.',         
             'answer2.required' => 'Pole jest wymagane. Uzupełnij dane.',         
-            'answer3.required' => 'Pole jest wymagane. Uzupełnij dane.',         
             'correctAnswer.required' => 'Pole jest wymagane. Uzupełnij dane.',         
             'questionScore.required' => 'Pole jest wymagane. Uzupełnij dane.',         
         ];
@@ -28,29 +27,46 @@ class AdminQuestionController extends Controller
             'questionText' => 'required',
             'answer1' => 'required',
             'answer2' => 'required',
-            'answer3' => 'required',
+            'answer3' => 'nullable',
             'correctAnswer' => 'required',
             'questionScore' => 'required',
-            'questionFile' => 'nullable|mimes:jpeg,jpg,png,gif'
+            'questionFile' => 'nullable'
         ], $messages);
 
-        $file = $request->file('questionFile');
-        $filename = time() . '_' . $file->getClientOriginalName();
-        $filename_path = 'storage/files/' . $filename;
+        if($request->hasfile('questionFile'))
+        {
+            $file = $request->file('questionFile');
+            $name =  $file->getClientOriginalName();
+            $filename = time() . '_' . $name;
+            $filename_path = 'storage/files/' . $filename;
+    
+            Question::create([
+                'questionText' => $request->questionText,
+                'answer1' => $request->answer1,
+                'answer2' => $request->answer2,
+                'answer3' => $request->answer3,
+                'correctAnswer' => $request->correctAnswer,
+                'questionScore' => $request->questionScore,
+                'questionFile' => $filename_path,
+            ]);
+    
+            Storage::putFileAs('public/files', $file, $filename);
+    
+            return redirect()->route('admin.question');
+        }
+        else
+        {
+            Question::create([
+                'questionText' => $request->questionText,
+                'answer1' => $request->answer1,
+                'answer2' => $request->answer2,
+                'answer3' => $request->answer3,
+                'correctAnswer' => $request->correctAnswer,
+                'questionScore' => $request->questionScore,
+            ]);
 
-        Question::create([
-            'questionText' => $request->questionText,
-            'answer1' => $request->answer1,
-            'answer2' => $request->answer2,
-            'answer3' => $request->answer3,
-            'correctAnswer' => $request->correctAnswer,
-            'questionScore' => $request->questionScore,
-            'questionFile' => $filename_path,
-        ]);
-
-        Storage::putFileAs('public/files', $file, $filename);
-
-        return redirect()->route('admin.question');
+            return redirect()->route('admin.question');
+        }
     }
 
     public function edit($id)
@@ -65,7 +81,6 @@ class AdminQuestionController extends Controller
             'questionText.required' => 'Pole jest wymagane. Uzupełnij dane.',     
             'answer1.required' => 'Pole jest wymagane. Uzupełnij dane.',         
             'answer2.required' => 'Pole jest wymagane. Uzupełnij dane.',         
-            'answer3.required' => 'Pole jest wymagane. Uzupełnij dane.',         
             'correctAnswer.required' => 'Pole jest wymagane. Uzupełnij dane.',         
             'questionScore.required' => 'Pole jest wymagane. Uzupełnij dane.',         
         ];
@@ -74,21 +89,47 @@ class AdminQuestionController extends Controller
             'questionText' => 'required',
             'answer1' => 'required',
             'answer2' => 'required',
-            'answer3' => 'required',
+            'answer3' => 'nullable',
             'correctAnswer' => 'required',
             'questionScore' => 'required',
+            'questionFile' => 'nullable'
         ], $messages);
 
-        $question = Question::find($id);
-        $question->questionText = $request->input('questionText');
-        $question->answer1 = $request->input('answer1');
-        $question->answer2 = $request->input('answer2');
-        $question->answer3 = $request->input('answer3');
-        $question->correctAnswer = $request->input('correctAnswer');
-        $question->questionScore = $request->input('questionScore');
-        $question->save();
+        if($request->hasfile('questionFile'))
+        {
+            $file = $request->file('questionFile');
+            $name =  $file->getClientOriginalName();
+            $filename = time() . '_' . $name;
+            $filename_path = 'storage/files/' . $filename;
+    
+            $question = Question::find($id);
+            $question->questionText = $request->input('questionText');
+            $question->answer1 = $request->input('answer1');
+            $question->answer2 = $request->input('answer2');
+            $question->answer3 = $request->input('answer3');
+            $question->correctAnswer = $request->input('correctAnswer');
+            $question->questionScore = $request->input('questionScore');
+            $question->questionFile = $filename_path;
+            $question->save();
 
-        return redirect()->route('admin.question');
+            // Storage::putFileAs('public/files', $file, $filename);
+            Storage::disk('local')->put('public/files', $file);
+    
+            return redirect()->route('admin.question');
+        }
+        else
+        {
+            $question = Question::find($id);
+            $question->questionText = $request->input('questionText');
+            $question->answer1 = $request->input('answer1');
+            $question->answer2 = $request->input('answer2');
+            $question->answer3 = $request->input('answer3');
+            $question->correctAnswer = $request->input('correctAnswer');
+            $question->questionScore = $request->input('questionScore');
+            $question->save();
+    
+            return redirect()->route('admin.question');
+        }
     }
 
     public function destroy(Question $question)
