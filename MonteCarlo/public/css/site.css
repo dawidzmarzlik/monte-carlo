@@ -57,7 +57,7 @@ html {
     box-shadow: none;
 }
 
-.form-control {
+.form-control-2 {
     border-top: none;
     border-right: none;
     border-left: none;
@@ -69,17 +69,17 @@ html {
     border-bottom: 1px solid red;
 }
 
-.form-control:focus {
+.form-control-2:focus {
     outline: none;
     border-color: black;
     box-shadow: none;
 }
 
-.form-control::placeholder {
+.form-control-2::placeholder {
     color: gray;
 }
 
-.form-control:focus {
+.form-control-2:focus {
     color: black;
 }
 
@@ -388,4 +388,14 @@ input.no-arrow {
 
 .link-dark:hover {
     color: darkgrey !important;
+}
+
+.form-control-3 {
+    color: white;
+}
+
+.form-control-3:focus {
+    border-color: black;
+    box-shadow: none;
+    color: white;
 }

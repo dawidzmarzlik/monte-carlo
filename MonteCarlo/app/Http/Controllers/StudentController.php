@@ -27,6 +27,11 @@ class StudentController extends Controller
         return view('student.test');
     }
 
+    public function testpage()
+    {
+        return view('student.testpage');
+    }
+
     public function profile()
     {
         $student = Auth::user();
