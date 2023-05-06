@@ -23,10 +23,22 @@ class TeacherController extends Controller
         return view('teacher.student');
     }
 
-    function info(){
+    function info($id=1){
         //$vehicle = Vehicle::all();
         //$teacher = Teacher::all();
 
-        return view('teacher.info');
+        //return view('teacher.info');
+        $teacher = Teacher::find($id=1);
+        $vehicle_id = $teacher->Vehicle_id;
+        $vehicle = Vehicle::find($vehicle_id=1);
+        return view('teacher.info', compact('teacher'), compact('vehicle'));
+    }
+
+    public function show($id)
+    {
+        $teacher = Teacher::find($id);
+        $vehicle_id = $teacher->Vehicle_id;
+        $vehicle = Vehicle::find($vehicle_id);
+        return view('teacher.info', compact('teacher'), compact('vehicle'));
     }
 }

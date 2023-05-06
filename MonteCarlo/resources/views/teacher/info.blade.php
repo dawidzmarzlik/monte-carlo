@@ -1,5 +1,7 @@
 @extends('teacher.layout')
-
+@php
+    use App\Models\Vehicle;
+@endphp
 @section('content')
     <div class="m-auto mx-5">
         <div class="row">
@@ -15,7 +17,7 @@
                             <h6>Imię:</h6>
                         </div>
                         <div class="col-sm person-data-container">
-
+                            {{ $teacher->name }}
                         </div>
                     </div>
                     <div class="row pt-1">
@@ -23,7 +25,7 @@
                             <h6>Naziwsko:</h6>
                         </div>
                         <div class="col-sm person-data-container">
-
+                            {{ $teacher->surname }}
                         </div>
                     </div>
                     <div class="row pt-1">
@@ -31,7 +33,7 @@
                             <h6>Data urodzenia:</h6>
                         </div>
                         <div class="col-sm person-data-container">
-
+                            {{ $teacher->birthDate }}
                         </div>
                     </div>
                     <div class="row pt-1">
@@ -39,7 +41,7 @@
                             <h6>Telefon:</h6>
                         </div>
                         <div class="col-sm person-data-container">
-
+                            {{ $teacher->phoneNumber }}
                         </div>
                     </div>
                     <div class="row pt-1">
@@ -47,15 +49,15 @@
                             <h6>Email:</h6>
                         </div>
                         <div class="col-sm person-data-container">
-
+                            {{ $teacher->email }}
                         </div>
                     </div>
                     <div class="row pt-1">
                         <div class="col-sm">
                             <h6>Hasło:</h6>
                         </div>
-                        <div class="col-sm person-data-container">
-
+                        <div class="col-sm person-data-container" type="password">
+                            <input type="password" name="password" class="passwordpole noClick" value="{{ $teacher->password }}" readonly>
                         </div>
                     </div>
                     <div class="row pt-1">
@@ -83,12 +85,15 @@
                     </div>
                 </div>
                 <div class="container person-container rounded-4 px-5">
+                    @if ($vehicle)
                     <div class="row pt-1">
                         <div class="col-sm">
                             <h6>Marka:</h6>
                         </div>
                         <div class="col-sm person-data-container">
-
+                            @if ($vehicle)
+                                {{ $vehicle->brand }}
+                            @endif
                         </div>
                     </div>
                     <div class="row pt-1">
@@ -96,7 +101,9 @@
                             <h6>Model:</h6>
                         </div>
                         <div class="col-sm person-data-container">
-
+                            @if ($vehicle)
+                                {{ $vehicle->model }}
+                            @endif
                         </div>
                     </div>
                     <div class="row pt-1">
@@ -104,7 +111,9 @@
                             <h6>Numer rejestracyjny:</h6>
                         </div>
                         <div class="col-sm person-data-container">
-
+                            @if ($vehicle)
+                                {{ $vehicle->numberplate }}
+                            @endif
                         </div>
                     </div>
                     <div class="row pt-1">
@@ -112,18 +121,15 @@
                             <h6>Typ:</h6>
                         </div>
                         <div class="col-sm person-data-container">
-
-                        </div>
-                    </div>
-                    <div class="row pt-1">
-                        <div class="col-sm">
-                            <h6>Kategoria kursu:</h6>
-                        </div>
-                        <div class="col-sm person-data-container">
-
+                            @if ($vehicle)
+                                {{ $vehicle->type }}
+                            @endif
                         </div>
                     </div>
                     <!-- Add any other fields for "Mój pojazd" here -->
+                    @else
+                        <h6 class="white"> Brak przypisanego pojazdu.</h6>
+                    @endif
                 </div>
             </div>
         </div>
