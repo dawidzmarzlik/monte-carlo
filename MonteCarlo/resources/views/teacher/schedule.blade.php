@@ -1,13 +1,13 @@
 @extends('teacher.layout')
 
 @section('content')
-<div class="m-auto">
-    <div class="row align-items-center m-auto">
+<div class="m-auto mx-5">
+    <div class="row align-items-center m-auto my-3">
         <div class="col ps-0">
             <h1 class="white">Harmonogram</h1>
         </div>
         <div class="col text-end pe-0">
-            <a href="{{ route('schedule.create') }}" class="btn btn-add">Dodaj termin</a>
+            <a href="" class="btn btn-add">Dodaj termin</a>
         </div>
     </div>
     <div class="table-responsive rounded-4 mt-2">
