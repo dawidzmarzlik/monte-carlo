@@ -1,8 +1,8 @@
 @extends('teacher.layout')
 
 @section('content')
-<div class="m-auto">
-    <div class="row align-items-center m-auto">
+<div class="m-auto mx-5">
+    <div class="row align-items-center m-auto my-3">
         <div class="col ps-0">
             <h1 class="white">Kursanci</h1>
         </div>
