@@ -55,9 +55,7 @@ class StudentController extends Controller
             return redirect()->route('login.login');
         }
         $student = Auth::user();
-        $teacher_id = $student->Teacher_id;
-        $teacher = Teacher::find($teacher_id);
-        return view('student.profile', compact('student'), compact('teacher'));
+        return view('student.profile', compact('student'));
     }
 
     public function change_teacher()
@@ -82,7 +80,7 @@ class StudentController extends Controller
         $student->Teacher_id = $request->input('teacher');
         $student->save();
 
-        return view('student.profile', compact('student'), compact('teacher'));
+        return view('student.profile', compact('student'));
     }
 
     public function opinion()
