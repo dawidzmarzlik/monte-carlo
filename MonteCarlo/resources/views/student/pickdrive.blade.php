@@ -22,7 +22,7 @@
                                     {{ date('H:i', strtotime($schedule->dateTime)) }}</option>
                             @endforeach
                         </select>
-                        {!! $errors->first('teacher', "<span class='text-danger'>:message</span>") !!}
+                        {!! $errors->first('drive', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <button type="submit" style="cursor:pointer; font-weight: bold;"

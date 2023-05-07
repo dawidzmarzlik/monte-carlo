@@ -46,6 +46,14 @@ class StudentController extends Controller
             return redirect()->route('login.login');
         }
 
+        $messages = [
+            'drive.required' => 'Pole jest wymagane. Uzupełnij dane.',     
+        ];
+
+        $request->validate([
+            'drive' => 'required',
+        ], $messages);
+
         $id = $request->drive;
         
         $drive = Drive::find($id);
