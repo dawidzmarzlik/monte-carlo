@@ -12,44 +12,46 @@
                     </p>
                     <div class="form-group">
                         <label for="name"></label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Imię"
-                            value="{{ old('name') != '' ? old('name') : $student->name}}">
+                        <input type="text" class="form-control form-control-2" id="name" name="name"
+                            placeholder="Imię" value="{{ old('name') != '' ? old('name') : $student->name }}">
                         {!! $errors->first('name', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <div class="form-group">
                         <label for="name"></label>
-                        <input type="text" class="form-control" id="surname" name="surname" placeholder="Nazwisko"
-                        value="{{ old('surname') != '' ? old('surname') : $student->surname}}">
+                        <input type="text" class="form-control form-control-2" id="surname" name="surname"
+                            placeholder="Nazwisko" value="{{ old('surname') != '' ? old('surname') : $student->surname }}">
                         {!! $errors->first('surname', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <div class="form-group">
                         <label for="name"></label>
-                        <input type="text" onfocus="(this.type='date')" onlo class="form-control" id="birthDate"
-                            name="birthDate" placeholder="Data urodzenia" value="{{ old('birthDate') != '' ? old('birthDate') : $student->birthDate}}">
+                        <input type="text" onfocus="(this.type='date')" onlo class="form-control form-control-2"
+                            id="birthDate" name="birthDate" placeholder="Data urodzenia"
+                            value="{{ old('birthDate') != '' ? old('birthDate') : $student->birthDate }}">
                         {!! $errors->first('birthDate', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <div class="form-group">
                         <label for="name"></label>
-                        <input type="number" class="form-control no-arrow" id="pkk" name="pkk"
+                        <input type="number" class="form-control form-control-2 no-arrow" id="pkk" name="pkk"
                             placeholder="Numer PKK" max="99999999999999999999"
                             oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            maxlength="20" value="{{ old('pkk') != '' ? old('pkk') : $student->pkk}}">
+                            maxlength="20" value="{{ old('pkk') != '' ? old('pkk') : $student->pkk }}">
                         {!! $errors->first('pkk', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <div class="form-group">
                         <label for="email"></label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="E-mail"
-                        value="{{ old('email') != '' ? old('email') : $student->email}}">
+                        <input type="email" class="form-control form-control-2" id="email" name="email"
+                            placeholder="E-mail" value="{{ old('email') != '' ? old('email') : $student->email }}">
                         {!! $errors->first('email', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <div class="form-group">
                         <label for="password"></label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Hasło" value="{{ old('password') != '' ? old('password') : $student->password}}">
+                        <input type="password" class="form-control form-control-2" id="password" name="password"
+                            placeholder="Hasło" value="{{ old('password') != '' ? old('password') : $student->password }}">
                         {!! $errors->first('password', "<span class='text-danger'>:message</span>") !!}
                     </div>
 

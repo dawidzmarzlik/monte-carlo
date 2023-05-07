@@ -105,6 +105,8 @@ Route::get('/student/materials', [StudentController::class, 'materials'])->name(
 Route::get('/student/test', [StudentController::class, 'test'])->name('student.test');
 Route::get('/student/testpage', [StudentController::class, 'testpage'])->name('student.testpage');
 Route::get('/student/profile', [StudentController::class, 'profile'])->name('student.profile');
+Route::get('/student/teacher', [StudentController::class, 'change_teacher'])->name('student.teacher');
+Route::patch('/student/teacher', [StudentController::class, 'set_teacher'])->name('student.setTeacher');
 Route::get('/student/opinion', [StudentController::class, 'opinion'])->name('student.opinion');
 Route::get('/student/chat', [StudentController::class, 'chat'])->name('student.chat');
 //STUDENT

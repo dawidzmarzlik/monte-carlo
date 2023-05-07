@@ -54,7 +54,7 @@ class RegistrationController extends Controller
 
         if(!is_null($student)) {
             auth()->login($student);
-            return redirect()->to('/');
+            return redirect()->to('/student/schedule');
         }
         else {
             return back()->with("failed", "Błąd. Nie udało się utworzyć konta.")->withInput();

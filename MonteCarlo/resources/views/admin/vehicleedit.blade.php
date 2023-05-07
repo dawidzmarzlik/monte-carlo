@@ -14,21 +14,22 @@
                     @csrf
                     <label for="brand"></label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="brand" name="brand" placeholder="Marka"
-                            value="{{ old('brand') != '' ? old('brand') : $vehicle->brand }}">
+                        <input type="text" class="form-control form-control-2" id="brand" name="brand"
+                            placeholder="Marka" value="{{ old('brand') != '' ? old('brand') : $vehicle->brand }}">
                         {!! $errors->first('brand', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="model"></label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="model" name="model" placeholder="Model"
-                            value="{{ old('model') != '' ? old('model') : $vehicle->model }}">
+                        <input type="text" class="form-control form-control-2" id="model" name="model"
+                            placeholder="Model" value="{{ old('model') != '' ? old('model') : $vehicle->model }}">
                         {!! $errors->first('model', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="numberplate"></label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="numberplate" name="numberplate" maxlength="8"
+                        <input type="text" class="form-control form-control-2" id="numberplate" name="numberplate"
+                            maxlength="8"
                             value="{{ old('numberplate') != '' ? old('numberplate') : $vehicle->numberplate }}"
                             placeholder="Nr. rejestracyjny">
                         {!! $errors->first('numberplate', "<span class='text-danger'>:message</span>") !!}
@@ -36,7 +37,7 @@
 
                     <label for="type"></label>
                     <div class="form-group">
-                        <select class="form-control" id="type" name="type">
+                        <select class="form-control form-control-2" id="type" name="type">
                             <option value="">Wybierz typ</option>
                             <option value="Osobowy" {{ $vehicle->type == 'Osobowy' ? 'selected' : '' }}>Osobowy
                             </option>
