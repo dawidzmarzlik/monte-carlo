@@ -12,28 +12,28 @@
 
                     <label for="brand"></label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="brand" name="brand" placeholder="Marka"
-                            value="{{ old('brand') }}">
+                        <input type="text" class="form-control form-control-2" id="brand" name="brand"
+                            placeholder="Marka" value="{{ old('brand') }}">
                         {!! $errors->first('brand', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="model"></label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="model" name="model" placeholder="Model"
-                            value="{{ old('model') }}">
+                        <input type="text" class="form-control form-control-2" id="model" name="model"
+                            placeholder="Model" value="{{ old('model') }}">
                         {!! $errors->first('model', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="numberplate"></label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="numberplate" name="numberplate" maxlength="8"
-                            placeholder="Nr. rejestracyjny" value="{{ old('numberplate') }}">
+                        <input type="text" class="form-control form-control-2" id="numberplate" name="numberplate"
+                            maxlength="8" placeholder="Nr. rejestracyjny" value="{{ old('numberplate') }}">
                         {!! $errors->first('numberplate', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="type"></label>
                     <div class="form-group">
-                        <select class="form-control" id="type" name="type">
+                        <select class="form-control form-control-2" id="type" name="type">
                             <option value="" {{ old('type') == '' ? 'selected' : '' }}>Wybierz typ</option>
                             <option value="Osobowy" {{ old('type') == 'Osobowy' ? 'selected' : '' }}>Osobowy</option>
                             <option value="Motocykl" {{ old('type') == 'Motocykl' ? 'selected' : '' }}> Motocykl</option>

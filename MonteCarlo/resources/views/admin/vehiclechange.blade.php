@@ -14,7 +14,7 @@
                     @csrf
                     <label for="teacher"></label>
                     <div class="form-group">
-                        <select class="form-control" id="teacher" name="teacher">
+                        <select class="form-control form-control-2" id="teacher" name="teacher">
                             <option value="">Brak przypisanego instruktora</option>
                             @foreach ($teachers as $teacher)
                                 <option value="{{ $teacher->id }}"

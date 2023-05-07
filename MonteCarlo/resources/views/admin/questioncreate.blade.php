@@ -12,28 +12,28 @@
 
                     <label for="questionText"></label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="questionText" name="questionText"
+                        <input type="text" class="form-control form-control-2" id="questionText" name="questionText"
                             placeholder="Treść pytania" value="{{ old('questionText') }}">
                         {!! $errors->first('questionText', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="answer1"></label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="answer1" name="answer1" placeholder="Odpowiedź 1"
-                            value="{{ old('answer1') }}">
+                        <input type="text" class="form-control form-control-2" id="answer1" name="answer1"
+                            placeholder="Odpowiedź 1" value="{{ old('answer1') }}">
                         {!! $errors->first('answer1', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="answer2"></label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="answer2" name="answer2" placeholder="Odpowiedź 2"
-                            value="{{ old('answer2') }}">
+                        <input type="text" class="form-control form-control-2" id="answer2" name="answer2"
+                            placeholder="Odpowiedź 2" value="{{ old('answer2') }}">
                         {!! $errors->first('answer2', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="answer3"></label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="answer3" name="answer3"
+                        <input type="text" class="form-control form-control-2" id="answer3" name="answer3"
                             placeholder="Odpowiedź 3 (pozostaw puste jeśli odpowiedzi to TAK lub NIE)"
                             value="{{ old('answer3') }}">
                         {!! $errors->first('answer3', "<span class='text-danger'>:message</span>") !!}
@@ -41,14 +41,14 @@
 
                     <label for="correctAnswer"></label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="correctAnswer" name="correctAnswer"
+                        <input type="text" class="form-control form-control-2" id="correctAnswer" name="correctAnswer"
                             placeholder="Poprawna odpowiedź (dokładna treść)" value="{{ old('correctAnswer') }}">
                         {!! $errors->first('correctAnswer', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <label for="questionScore"></label>
                     <div class="form-group">
-                        <select class="form-control" id="questionScore" name="questionScore">
+                        <select class="form-control form-control-2" id="questionScore" name="questionScore">
                             <option value="" {{ old('questionScore') == '' ? 'selected' : '' }}>Wybierz punkty
                             </option>
                             <option value="1" {{ old('questionScore') == '1' ? 'selected' : '' }}>1</option>
@@ -60,7 +60,7 @@
 
                     <label for="questionFile"></label>
                     <div class="form-group">
-                        <input class="form-control" type="file" id="questionFile" name="questionFile">
+                        <input class="form-control form-control-2" type="file" id="questionFile" name="questionFile">
                         {!! $errors->first('questionFile', "<span class='text-danger'>:message</span>") !!}
                     </div>
 

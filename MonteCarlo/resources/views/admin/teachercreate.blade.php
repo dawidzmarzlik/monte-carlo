@@ -11,43 +11,45 @@
                     </p>
                     <div class="form-group">
                         <label for="name"></label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Imię"
-                            value="{{ old('name') }}">
+                        <input type="text" class="form-control form-control-2" id="name" name="name"
+                            placeholder="Imię" value="{{ old('name') }}">
                         {!! $errors->first('name', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <div class="form-group">
                         <label for="name"></label>
-                        <input type="text" class="form-control" id="surname" name="surname" placeholder="Nazwisko"
-                            value="{{ old('surname') }}">
+                        <input type="text" class="form-control form-control-2" id="surname" name="surname"
+                            placeholder="Nazwisko" value="{{ old('surname') }}">
                         {!! $errors->first('surname', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <div class="form-group">
                         <label for="name"></label>
-                        <input type="text" onfocus="(this.type='date')" onlo class="form-control" id="birthDate"
-                            name="birthDate" placeholder="Data urodzenia" value="{{ old('birthDate') }}">
+                        <input type="text" onfocus="(this.type='date')" onlo class="form-control form-control-2"
+                            id="birthDate" name="birthDate" placeholder="Data urodzenia" value="{{ old('birthDate') }}">
                         {!! $errors->first('birthDate', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <div class="form-group">
                         <label for="phoneNumber"></label>
-                        <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Numer Telefonu" max="999999999"
-                        oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                        maxlength="9" value="{{ old('phoneNumber') }}">
+                        <input type="number" class="form-control form-control-2" id="phoneNumber" name="phoneNumber"
+                            placeholder="Numer Telefonu" max="999999999"
+                            oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="9" value="{{ old('phoneNumber') }}">
                         {!! $errors->first('phoneNumber', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <div class="form-group">
                         <label for="email"></label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="E-mail"
-                            value="{{ old('email') }}">
+                        <input type="email" class="form-control form-control-2" id="email" name="email"
+                            placeholder="E-mail" value="{{ old('email') }}">
                         {!! $errors->first('email', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
                     <div class="form-group">
                         <label for="password"></label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Hasło">
+                        <input type="password" class="form-control form-control-2" id="password" name="password"
+                            placeholder="Hasło">
                         {!! $errors->first('password', "<span class='text-danger'>:message</span>") !!}
                     </div>
 
