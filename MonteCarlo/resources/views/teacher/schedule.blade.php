@@ -7,7 +7,7 @@
             <h1 class="white">Harmonogram jazd</h1>
         </div>
         <div class="col text-end pe-0">
-            <a href="" class="btn btn-add">Dodaj termin</a>
+            <a href="{{ route('teacher.schedulecreate') }}" class="btn btn-add">Dodaj termin</a>
         </div>
     </div>
     <div class="table-responsive rounded-4 mt-2">
@@ -17,8 +17,6 @@
                     <th scope="col">Data</th>
                     <th scope="col">Godzina</th>
                     <th scope="col">Kursant</th>
-                    <th scope="col">Telefon kursanta</th>
-                    <th scope="col">Kategoria</th>
                     <th scope="col">Więcej</th>
                 </tr>
             </thead>

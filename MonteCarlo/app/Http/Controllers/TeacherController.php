@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\Vehicle;
+use App\Models\Drive;
 
 
 
@@ -17,6 +18,25 @@ class TeacherController extends Controller
         return view('teacher.schedule');
     }
 
+    function schedule_create(){
+        return view('teacher.schedulecreate');
+    }
+
+    function store_schedule(Request $request){
+        
+        //WALIDACJA
+        $validatedData = $request->validate([
+            'dateTime' => 'required|date_format:Y-m-d\TH:i',
+        ]);
+
+        $drive = new Drive();
+        $drive->dateTime = $validatedData['dateTime'];
+        $drive->idTeacher = 1;
+        $drive->save();
+
+        return redirect()->route('teacher.schedule');
+    }
+
     function student(){
         //$students = Student::all();
 
@@ -24,10 +44,6 @@ class TeacherController extends Controller
     }
 
     function info($id=1){
-        //$vehicle = Vehicle::all();
-        //$teacher = Teacher::all();
-
-        //return view('teacher.info');
         $teacher = Teacher::find($id=1);
         $vehicle_id = $teacher->Vehicle_id;
         $vehicle = Vehicle::find($vehicle_id=1);
