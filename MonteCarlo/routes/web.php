@@ -104,6 +104,9 @@ Route::post('contact_mail', [ContactController::class, 'contact_mail_send']);
 //STUDENT
 Route::get('/student', [StudentController::class, 'index'])->name('student.index');
 Route::get('/student/schedule', [StudentController::class, 'schedule'])->name('student.schedule');
+Route::get('/student/schedule/pickdrive', [StudentController::class, 'pickdrive'])->name('student.pickdrive');
+Route::patch('/student/schedule/pickdrive', [StudentController::class, 'setdrive'])->name('student.setdrive');
+Route::patch('/student/schedule/deldrive', [StudentController::class, 'deldrive'])->name('student.deldrive');
 Route::get('/student/materials', [StudentController::class, 'materials'])->name('student.materials');
 Route::get('/student/test', [StudentController::class, 'test'])->name('student.test');
 Route::get('/student/testpage', [StudentController::class, 'testpage'])->name('student.testpage');
