@@ -10,12 +10,12 @@ class Drive extends Model
     use HasFactory;
 
     protected $table = 'Drive';
+    public $timestamps = false;
 
     protected $fillable = [
         'id',
         'dateTime',
         'idTeacher',
-        'idStudent',
     ];
 
     public function teacher()

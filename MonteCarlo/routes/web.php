@@ -42,6 +42,7 @@ Route::post('recover', [PasswordRecoverController::class, 'recover_password']);
 
 //TEACHER PAGE
 Route::get('/teacher/schedule', [TeacherController::class, 'schedule'])->name('teacher.schedule');
+Route::get('teacher/schedule/create', [TeacherController::class, 'schedule_create'])->name('teacher.schedulecreate');
 Route::post('teacher/schedule/create', [TeacherController::class, 'store_schedule'])->name('teacher.store_schedule');
 Route::get('/teacher/students', [TeacherController::class, 'student'])->name('teacher.student');
 Route::get('/teacher/info', [TeacherController::class, 'info'])->name('teacher.info');
