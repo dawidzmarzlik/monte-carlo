@@ -17,8 +17,6 @@
                     <th scope="col">Data</th>
                     <th scope="col">Godzina</th>
                     <th scope="col">Kursant</th>
-                    <th scope="col">Telefon kursanta</th>
-                    <th scope="col">Kategoria</th>
                     <th scope="col">Więcej</th>
                 </tr>
             </thead>

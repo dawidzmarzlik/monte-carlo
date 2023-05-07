@@ -17,6 +17,15 @@ class TeacherController extends Controller
         return view('teacher.schedule');
     }
 
+    function store_schedule(Request $request){
+        $teacher = new Teacher();
+        $teacher->Teacher_id = $request->Teacher_id;
+        $teacher->Vehicle_id = $request->Vehicle_id;
+        $teacher->save();
+
+        return redirect()->route('teacher.schedule');
+    }
+
     function student(){
         //$students = Student::all();
 

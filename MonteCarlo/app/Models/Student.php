@@ -17,6 +17,12 @@ class Student extends Authenticatable
      *
      * @var array<int, string>
      */
+
+     public function drives()
+     {
+         return $this->hasMany(Drive::class, 'idStudent');
+     }
+
     protected $fillable = [
         'name',
         'surname',
