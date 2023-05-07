@@ -4,7 +4,7 @@
 <div class="m-auto mx-5">
     <div class="row align-items-center m-auto my-3">
         <div class="col ps-0">
-            <h1 class="white">Kursanci</h1>
+            <h1 class="white">Twoi Kursanci</h1>
         </div>
     </div>
     <div class="table-responsive rounded-4 mt-2">
@@ -15,7 +15,6 @@
                     <th scope="col">Nazwisko</th>
                     <th scope="col">Email</th>
                     <th scope="col">PKK</th>
-                    <th scope="col">Więcej</th>
 
                 </tr>
             </thead>
@@ -26,10 +25,6 @@
                         <td>{{ $student->surname }}</td>
                         <td>{{ $student->email }}</td>
                         <td>{{ $student->pkk }}</td>
-
-                        <td>
-                            <a class="btn btn-table" href="">Edytuj</a>
-                        </td>
                     </tr>
                 @endforeach
             </tbody>

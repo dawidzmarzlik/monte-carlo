@@ -23,7 +23,7 @@
             <tbody>
                 @foreach ($schedules as $schedule)
                     <tr>
-                        <td>{{ date('Y-m-d', strtotime($schedule->dateTime)) }}</td>
+                        <td>{{ date('d-m-Y', strtotime($schedule->dateTime)) }}</td>
                         <td>{{ date('H:i', strtotime($schedule->dateTime)) }}</td>
                         <td>
                             @if ($schedule->student)
@@ -34,7 +34,7 @@
                             @endif
                         </td>
                         <td>
-                            <a class="btn btn-table" href="">Edytuj</a>
+                            <a class="btn btn-table" href="{{ route('teacher.schedule_edit', $schedule->id) }}">Edytuj</a>
                         </td>
                     </tr>
                 @endforeach
