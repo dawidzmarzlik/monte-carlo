@@ -64,8 +64,8 @@
                             Imię:
                         </div>
                         <div class="col-sm person-data-container">
-                            @if ($teacher)
-                                {{ $teacher->name }}
+                            @if ($student->teacher)
+                                {{ $student->teacher->name }}
                             @else
                                 -----
                             @endif
@@ -76,8 +76,8 @@
                             Nazwisko:
                         </div>
                         <div class="col-sm person-data-container">
-                            @if ($teacher)
-                                {{ $teacher->surname }}
+                            @if ($student->teacher)
+                                {{ $student->teacher->surname }}
                             @else
                                 -----
                             @endif
@@ -88,8 +88,8 @@
                             E-mail:
                         </div>
                         <div class="col-sm person-data-container">
-                            @if ($teacher)
-                                {{ $teacher->email }}
+                            @if ($student->teacher)
+                                {{ $student->teacher->email }}
                             @else
                                 -----
                             @endif
@@ -100,8 +100,8 @@
                             Data urodzenia:
                         </div>
                         <div class="col-sm person-data-container">
-                            @if ($teacher)
-                                {{ $teacher->birthDate }}
+                            @if ($student->teacher)
+                                {{ $student->teacher->birthDate }}
                             @else
                                 -----
                             @endif
@@ -112,15 +112,15 @@
                             Nr telefonu:
                         </div>
                         <div class="col-sm person-data-container">
-                            @if ($teacher)
-                                {{ $teacher->phoneNumber }}
+                            @if ($student->teacher)
+                                {{ $student->teacher->phoneNumber }}
                             @else
                                 -----
                             @endif
                         </div>
                     </div>
                     <div class="row pt-3 pb-0">
-                        @if ($teacher)
+                        @if ($student->teacher)
                             <a class="btn btn-add" href="{{ route('student.teacher') }}">Zmień instruktora</a>
                         @else
                             <a class="btn btn-add" href="{{ route('student.teacher') }}">Wybierz instruktora</a>
