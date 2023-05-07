@@ -30,6 +30,7 @@ class Student extends Authenticatable
         'birthDate',
         'pkk',
         'password',
+        'Teacher_id',
     ];
 
     /**

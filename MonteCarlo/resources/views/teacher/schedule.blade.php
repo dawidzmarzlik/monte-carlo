@@ -21,18 +21,23 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($schedules as $schedule)
+                @foreach ($schedules as $schedule)
                     <tr>
-                        <td>{{ $schedule->date }}</td>
-                        <td>{{ $schedule->time }}</td>
-                        <td>{{ $schedule->student }}</td>
-                        <td>{{ $schedule->sutdentNumber }}</td>
-                        <td>{{ $schedule->category }}</td>
-                        <td class="text-end">
-                            <a class="btn btn-table" href="{{ route('schedule.edit', $schedule->id) }}">Edytuj</a>
+                        <td>{{ date('Y-m-d', strtotime($schedule->dateTime)) }}</td>
+                        <td>{{ date('H:i', strtotime($schedule->dateTime)) }}</td>
+                        <td>
+                            @if ($schedule->student)
+                                {{ $schedule->student->name}} 
+                                {{ $schedule->student->surname }}
+                            @else
+                                ----
+                            @endif
+                        </td>
+                        <td>
+                            <a class="btn btn-table" href="">Edytuj</a>
                         </td>
                     </tr>
-                @endforeach --}}
+                @endforeach
             </tbody>
         </table>
     </div>

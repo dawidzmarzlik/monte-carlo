@@ -13,25 +13,25 @@
                 <tr>
                     <th scope="col">Imię</th>
                     <th scope="col">Nazwisko</th>
-                    <th scope="col">Telefon</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Kategoria kursu</th>
+                    <th scope="col">PKK</th>
+                    <th scope="col">Więcej</th>
+
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($schedules as $schedule)
+                @foreach ($students as $student)
                     <tr>
-                        <td>{{ $schedule->title }}</td>
-                        <td>{{ $schedule->date }}</td>
-                        <td>{{ $schedule->time }}</td>
-                        <td>{{ $schedule->student }}</td>
-                        <td>{{ $schedule->sutdentNumber }}</td>
-                        <td>{{ $schedule->category }}</td>
-                        <td class="text-end">
-                            <a class="btn btn-table" href="{{ route('schedule.edit', $schedule->id) }}">Edytuj</a>
+                        <td>{{ $student->name }}</td>
+                        <td>{{ $student->surname }}</td>
+                        <td>{{ $student->email }}</td>
+                        <td>{{ $student->pkk }}</td>
+
+                        <td>
+                            <a class="btn btn-table" href="">Edytuj</a>
                         </td>
                     </tr>
-                @endforeach --}}
+                @endforeach
             </tbody>
         </table>
     </div>

@@ -16,14 +16,17 @@ class Drive extends Model
         'id',
         'dateTime',
         'idTeacher',
+        'idStudent',
     ];
 
     public function teacher()
     {
-        return $this->hasOne(Teacher::class, 'id', 'idTeacher');
+        return $this->belongsTo(Teacher::class, 'idTeacher');
     }
 
     public function student()
     {
-        return $this->hasOne(Student::class, 'id', 'idStudent');    }
+        return $this->belongsTo(Student::class, 'idStudent');    
+    }
+
 }

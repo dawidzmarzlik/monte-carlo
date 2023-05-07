@@ -13,9 +13,9 @@ use App\Models\Drive;
 class TeacherController extends Controller
 {
     function schedule(){
-        //$schedules = Schedule::all();
+        $schedules = Drive::where('idTeacher', 1)->get();
 
-        return view('teacher.schedule');
+        return view('teacher.schedule', compact('schedules'));
     }
 
     function schedule_create(){
@@ -38,9 +38,9 @@ class TeacherController extends Controller
     }
 
     function student(){
-        //$students = Student::all();
+        $students = Student::where('Teacher_id', 1)->get();
 
-        return view('teacher.student');
+        return view('teacher.student', compact('students'));
     }
 
     function info($id=1){
