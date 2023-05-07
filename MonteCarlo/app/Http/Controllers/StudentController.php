@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Teacher;
 use App\Models\Student;
+use App\Models\Drive;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -22,7 +23,51 @@ class StudentController extends Controller
         if (!auth()->check()) {
             return redirect()->route('login.login');
         }
-        return view('student.schedule');
+
+        $student_id = Auth::user()->id;
+        $schedules = Drive::where('idStudent', $student_id)->get();
+
+        return view('student.schedule', compact('schedules'));
+    }
+
+    public function pickdrive()
+    {
+        if (!auth()->check()) {
+            return redirect()->route('login.login');
+        }
+        $teacher_id = Auth::user()->Teacher_id;
+        $schedules = Drive::where('idTeacher', '=', $teacher_id)->whereNull('idStudent')->get();
+        return view('student.pickdrive', compact('schedules'));
+    }
+
+    public function setdrive(Request $request)
+    {
+        if (!auth()->check()) {
+            return redirect()->route('login.login');
+        }
+
+        $id = $request->drive;
+        
+        $drive = Drive::find($id);
+        $drive->idStudent = Auth::user()->id;
+        $drive->save();
+
+        return redirect()->route('student.schedule');
+    }
+
+    public function deldrive(Request $request)
+    {
+        if (!auth()->check()) {
+            return redirect()->route('login.login');
+        }
+
+        $id = $request->id;
+        
+        $drive = Drive::find($id);
+        $drive->idStudent = NULL;
+        $drive->save();
+
+        return redirect()->route('student.schedule');
     }
 
     public function materials()
