@@ -54,6 +54,7 @@ class RegistrationController extends Controller
 
         if(!is_null($student)) {
             auth()->login($student);
+            $request->session()->put('role', 'student');
             return redirect()->to('/student/schedule');
         }
         else {

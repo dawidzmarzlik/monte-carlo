@@ -29,16 +29,20 @@ class SessionsController extends Controller
         $credentials = $request->only('email', 'password');
         
         if (auth()->guard('web')->attempt($credentials)) {
-            return redirect()->route('student.schedule');
-        }elseif(auth()->guard('teacher')->attempt($credentials)){
-            return redirect()->route('teacher.schedule');
-        }elseif(auth()->guard('admin')->attempt($credentials)){
-            return redirect()->route('admin.teacher');
-        }else {
+            $role = 'student';
+            $redirectRoute = 'student.schedule';
+        } elseif (auth()->guard('teacher')->attempt($credentials)) {
+            $role = 'teacher';
+            $redirectRoute = 'teacher.schedule';
+        } elseif (auth()->guard('admin')->attempt($credentials)) {
+            $role = 'admin';
+            $redirectRoute = 'admin.teacher';
+        } else {
             return redirect()->back()->withErrors(['student' => 'Błędny adres e-mail lub hasło.']);
         }
-
-        return redirect()->to('/login');
+        
+        $request->session()->put('role', $role);
+        return redirect()->route($redirectRoute);
     }
     
     public function destroy(Request $request)
