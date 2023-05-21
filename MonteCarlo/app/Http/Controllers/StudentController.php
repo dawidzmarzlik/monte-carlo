@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Teacher;
 use App\Models\Student;
 use App\Models\Drive;
+use App\Models\Opinion;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -142,6 +143,27 @@ class StudentController extends Controller
             return redirect()->route('login.login');
         }
         return view('student.opinion');
+    }
+
+    public function store(Request $request)
+    {
+        $messages = [
+            'opinion.required' => 'Pole jest wymagane.',
+            'score.required' => 'Pole jest wymagane.',
+        ];
+
+        $request->validate([
+            'opinion' => 'required',
+            'score' => 'required',
+        ], $messages);
+
+        $opinion = new Opinion;
+        $opinion->score = $request->input('score');
+        $opinion->opinionText = $request->input('opinion');
+        $opinion->idStudent = Auth::user()->id;
+        $opinion->save();
+
+        return redirect()->route('admin.vehicle');
     }
 
     public function chat()
