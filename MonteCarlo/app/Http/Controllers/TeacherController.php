@@ -7,6 +7,7 @@ use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\Vehicle;
 use App\Models\Drive;
+use Illuminate\Validation\Rule;
 
 
 
@@ -68,6 +69,50 @@ class TeacherController extends Controller
         $students = Student::where('Teacher_id', 1)->get();
 
         return view('teacher.student', compact('students'));
+    }
+
+    public function student_show($id)
+    {
+        $student = Student::find($id);
+        return view('teacher.studentpage', compact('student'));
+    }
+
+    public function student_edit($id)
+    {
+        $student = Student::find($id);
+        return view('teacher.studentedit', compact('student'));
+    }
+
+    public function student_update(Request $request, $id)
+    {
+        $messages = [
+            'name.required' => 'Pole jest wymagane. Uzupełnij dane.',     
+            'surname.required' => 'Pole jest wymagane. Uzupełnij dane.',     
+            'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.',     
+            'pkk.required' => 'Pole jest wymagane (powinno się składać z 20 cyfr).',
+            'pkk.min' => 'Pole powinno się składać z dokładnie 20 cyfr.',     
+            'pkk.unique' => 'Numer PKK jest już wykorzystany.',
+        ];
+
+        $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'birthDate' => 'required',
+            'pkk' => ['required',
+                'min:20',
+                Rule::unique('student')->ignore($id),
+            ],
+        ], $messages);
+
+        $student = Student::find($id);
+        $student->name = $request->input('name');
+        $student->surname = $request->input('surname');
+        $student->birthDate = $request->input('birthDate');
+        $student->pkk = $request->input('pkk');
+
+        $student->save();
+
+        return redirect()->route('teacher.student');
     }
 
     function info($id=1){

@@ -15,6 +15,7 @@
                     <th scope="col">Nazwisko</th>
                     <th scope="col">Email</th>
                     <th scope="col">PKK</th>
+                    <th scope="col"></th>
 
                 </tr>
             </thead>
@@ -25,6 +26,9 @@
                         <td>{{ $student->surname }}</td>
                         <td>{{ $student->email }}</td>
                         <td>{{ $student->pkk }}</td>
+                        <td class="text-center">
+                            <a class="btn btn-table" href="{{ route('teacher.student_show', $student->id) }}">Więcej</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
