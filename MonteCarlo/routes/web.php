@@ -49,7 +49,6 @@ Route::middleware(['role:teacher'])->group(function () {
     Route::patch('teacher/schedule/edit/{id}', [TeacherController::class, 'schedule_update'])->name('teacher.schedule_update');
     Route::get('/teacher/students', [TeacherController::class, 'student'])->name('teacher.student');
     Route::get('/teacher/info', [TeacherController::class, 'info'])->name('teacher.info');
-    Route::get('/teacher/info/{teacher}/show', [TeacherController::class, 'show'])->name('teacher.info.show');
     Route::get('/teacher/student/{student}/show', [TeacherController::class, 'student_show'])->name('teacher.student_show');
     Route::get('/teacher/student/{student}/edit', [TeacherController::class, 'student_edit'])->name('teacher.student_edit');
     Route::patch('/teacher/student/{student}/update', [TeacherController::class, 'student_update'])->name('teacher.student_update');

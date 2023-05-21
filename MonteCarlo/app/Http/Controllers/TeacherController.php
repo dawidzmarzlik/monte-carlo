@@ -8,13 +8,13 @@ use App\Models\Teacher;
 use App\Models\Vehicle;
 use App\Models\Drive;
 use Illuminate\Validation\Rule;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class TeacherController extends Controller
 {
     function schedule(){
-        $schedules = Drive::where('idTeacher', 1)->get();
+        $teacher_id = Auth::guard('teacher')->user()->id;
+        $schedules = Drive::where('idTeacher', $teacher_id)->get();
 
         return view('teacher.schedule', compact('schedules'));
     }
@@ -35,9 +35,11 @@ class TeacherController extends Controller
             'dateTime' => 'required|date_format:Y-m-d\TH:i',
         ], $messages);
 
+        $teacher_id = Auth::guard('teacher')->user()->id;
+
         $drive = new Drive();
         $drive->dateTime = $validatedData['dateTime'];
-        $drive->idTeacher = 1;
+        $drive->idTeacher = $teacher_id;
         $drive->save();
 
         return redirect()->route('teacher.schedule');
@@ -66,7 +68,8 @@ class TeacherController extends Controller
     }
 
     function student(){
-        $students = Student::where('Teacher_id', 1)->get();
+        $teacher_id = Auth::guard('teacher')->user()->id;
+        $students = Student::where('Teacher_id', $teacher_id)->get();
 
         return view('teacher.student', compact('students'));
     }
@@ -115,18 +118,10 @@ class TeacherController extends Controller
         return redirect()->route('teacher.student');
     }
 
-    function info($id=1){
-        $teacher = Teacher::find($id=1);
-        $vehicle_id = $teacher->Vehicle_id;
-        $vehicle = Vehicle::find($vehicle_id=1);
-        return view('teacher.info', compact('teacher'), compact('vehicle'));
-    }
-
-    public function show($id)
-    {
-        $teacher = Teacher::find($id);
-        $vehicle_id = $teacher->Vehicle_id;
-        $vehicle = Vehicle::find($vehicle_id);
+    function info(){
+        $teacher_id = Auth::guard('teacher')->user()->id;
+        $teacher = Teacher::find($teacher_id);
+        $vehicle = Vehicle::where('Teacher_id', $teacher_id)->first();
         return view('teacher.info', compact('teacher'), compact('vehicle'));
     }
 }
