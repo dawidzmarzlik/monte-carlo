@@ -21,6 +21,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Ilość kursantów</th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,8 +32,9 @@
                             <td>{{ $teacher->surname }}</td>
                             <td>{{ $teacher->phoneNumber }}</td>
                             <td>{{ $teacher->email }}</td>
+                            <td>{{ $teacher->students->count() }}</td>
                             <td></td>
-                            <td class="text-end">
+                            <td class="text-center">
                                 <a class="btn btn-table" href="{{ route('teacher.show', $teacher->id) }}">Więcej</a>
                             </td>
                         </tr>

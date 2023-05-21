@@ -75,7 +75,7 @@
                                 <h6>Ilość kursantów:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                
+                                {{ $teacher->students->count() }}
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -101,22 +101,22 @@
                 <div class="col">
                     <h6>Kursanci:</h6>
                     <div class="container">
-                        @for ($i = 0; $i < 3; $i++)
+                        @foreach ($teacher->students as $student)
                         <div class="row person-data-container mb-1">
                             <div class="col-sm">
-                                Michał
+                                {{ $student->name }}
                             </div>
                             <div class="col-sm">
-                                Nowak
+                                {{ $student->surname }}
                             </div>
                             <div class="col-sm">
-                                12345678901234567890
+                                {{ $student->pkk }}
                             </div>
                         </div>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
-
+                
             </div>
             <div class="row">
                 <div class="col-sm"></div>

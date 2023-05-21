@@ -73,7 +73,7 @@
                             <h6>Ilość kursantów:</h6>
                         </div>
                         <div class="col-sm person-data-container">
-
+                            {{ $teacher->students->count() }}
                         </div>
                     </div>
                 </div>

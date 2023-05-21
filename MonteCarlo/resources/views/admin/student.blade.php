@@ -22,6 +22,7 @@
                         <th scope="col">Numer PKK</th>
                         <th scope="col">Instruktor</th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,8 +35,9 @@
                             <td>{{ $student->birthDate }}</td>
                             <td>{{ $student->email }}</td>
                             <td>{{ $student->pkk }}</td>
+                            <td>{{ $student->teacher->name }} {{ $student->teacher->surname }}</td>
                             <td></td>
-                            <td class="text-end">
+                            <td class="text-center">
                                 <a class="btn btn-table" href="{{ route('student.show', $student->id) }}">Więcej</a>
                             </td>
                         </tr>
