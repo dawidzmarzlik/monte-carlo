@@ -34,9 +34,10 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    @if (auth()->check())
+                    @if (auth()->guard('teacher')->check())
                         <span class="navbar-text fw-bold">
-                            {{ auth()->user()->name }} {{ auth()->user()->surname }},
+                            {{ auth()->guard('teacher')->user()->name }}
+                            {{ auth()->guard('teacher')->user()->surname }},
                         </span>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}">Wyloguj się</a>

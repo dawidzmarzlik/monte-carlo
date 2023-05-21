@@ -42,17 +42,16 @@ Route::post('recover', [PasswordRecoverController::class, 'recover_password']);
 
 //TEACHER PAGE
 Route::middleware(['role:teacher'])->group(function () {
-Route::get('/teacher/schedule', [TeacherController::class, 'schedule'])->name('teacher.schedule');
-Route::get('teacher/schedule/create', [TeacherController::class, 'schedule_create'])->name('teacher.schedulecreate');
-Route::post('teacher/schedule/create', [TeacherController::class, 'store_schedule'])->name('teacher.store_schedule');
-Route::get('teacher/schedule/edit/{id}', [TeacherController::class, 'schedule_edit'])->name('teacher.schedule_edit');
-Route::patch('teacher/schedule/edit/{id}', [TeacherController::class, 'schedule_update'])->name('teacher.schedule_update');
-Route::get('/teacher/students', [TeacherController::class, 'student'])->name('teacher.student');
-Route::get('/teacher/info', [TeacherController::class, 'info'])->name('teacher.info');
-Route::get('/teacher/info/{teacher}/show', [TeacherController::class, 'show'])->name('teacher.info.show');
-Route::get('/teacher/student/{student}/show', [TeacherController::class, 'student_show'])->name('teacher.student_show');
-Route::get('/teacher/student/{student}/edit', [TeacherController::class, 'student_edit'])->name('teacher.student_edit');
-Route::patch('/teacher/student/{student}/update', [TeacherController::class, 'student_update'])->name('teacher.student_update');
+    Route::get('/teacher/schedule', [TeacherController::class, 'schedule'])->name('teacher.schedule');
+    Route::get('teacher/schedule/create', [TeacherController::class, 'schedule_create'])->name('teacher.schedulecreate');
+    Route::post('teacher/schedule/create', [TeacherController::class, 'store_schedule'])->name('teacher.store_schedule');
+    Route::get('teacher/schedule/edit/{id}', [TeacherController::class, 'schedule_edit'])->name('teacher.schedule_edit');
+    Route::patch('teacher/schedule/edit/{id}', [TeacherController::class, 'schedule_update'])->name('teacher.schedule_update');
+    Route::get('/teacher/students', [TeacherController::class, 'student'])->name('teacher.student');
+    Route::get('/teacher/info', [TeacherController::class, 'info'])->name('teacher.info');
+    Route::get('/teacher/student/{student}/show', [TeacherController::class, 'student_show'])->name('teacher.student_show');
+    Route::get('/teacher/student/{student}/edit', [TeacherController::class, 'student_edit'])->name('teacher.student_edit');
+    Route::patch('/teacher/student/{student}/update', [TeacherController::class, 'student_update'])->name('teacher.student_update');
 });
 
 
@@ -60,8 +59,6 @@ Route::patch('/teacher/student/{student}/update', [TeacherController::class, 'st
 Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/teacher', [AdminController::class, 'teacher'])->name('admin.teacher');
     Route::get('/admin/teacher/teacherpage', [AdminTeacherController::class, 'teacherpage'])->name('admin.teacher.teacherpage');
-
-//ADMIN STUDENT
     Route::get('/admin/student', [AdminController::class, 'student'])->name('admin.student');
     Route::get('admin/student/create', [AdminStudentController::class, 'create'])->name('student.create');
     Route::post('admin/student/create', [AdminStudentController::class, 'store'])->name('student.store');
@@ -69,9 +66,6 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('admin/student/{student}/edit', [AdminStudentController::class, 'edit'])->name('student.edit');
     Route::patch('admin/student/{student}/update', [AdminStudentController::class, 'update'])->name('student.update');
     Route::delete('admin/student/{student}/delete', [AdminStudentController::class, 'destroy'])->name('student.destroy');
-//Route::get('/admin/teacher/studentpage', [AdminTeacherController::class, 'studentpage'])->name('admin.teacher.studentpage');
-
-//ADMIN TEACHER
     Route::get('/admin/teacher', [AdminController::class, 'teacher'])->name('admin.teacher');
     Route::get('admin/teacher/create', [AdminTeacherController::class, 'create'])->name('teacher.create');
     Route::post('admin/teacher/create', [AdminTeacherController::class, 'store'])->name('teacher.store');
@@ -79,8 +73,6 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('admin/teacher/{teacher}/edit', [AdminTeacherController::class, 'edit'])->name('teacher.edit');
     Route::patch('admin/teacher/{teacher}/update', [AdminTeacherController::class, 'update'])->name('teacher.update');
     Route::delete('admin/teacher/{teacher}/delete', [AdminTeacherController::class, 'destroy'])->name('teacher.destroy');
-
-//ADMIN VEHICLE RELATED
     Route::get('/admin/vehicle', [AdminController::class, 'vehicle'])->name('admin.vehicle');
     Route::get('admin/vehicle/create', [AdminVehicleController::class, 'create'])->name('vehicle.create');
     Route::post('admin/vehicle/create', [AdminVehicleController::class, 'store'])->name('vehicle.store');
@@ -90,16 +82,12 @@ Route::middleware(['role:admin'])->group(function () {
     Route::delete('admin/vehicle/{vehicle}/delete', [AdminVehicleController::class, 'destroy'])->name('vehicle.destroy');
     Route::get('admin/vehicle/{vehicle}/teacher', [AdminVehicleController::class, 'change_teacher'])->name('vehicle.teacher');
     Route::patch('admin/vehicle/{vehicle}/teacher', [AdminVehicleController::class, 'set_teacher'])->name('vehicle.setTeacher');
-// VEHICLE RELATED
-
-//ADMIN QUESTION RELATED
     Route::get('/admin/question', [AdminController::class, 'question'])->name('admin.question');
     Route::get('admin/question/create', [AdminQuestionController::class, 'create'])->name('question.create');
     Route::post('admin/question/create', [AdminQuestionController::class, 'store'])->name('question.store');
     Route::get('admin/question/{question}/edit', [AdminQuestionController::class, 'edit'])->name('question.edit');
     Route::patch('admin/question/{question}/update', [AdminQuestionController::class, 'update'])->name('question.update');
     Route::delete('admin/question/{question}/delete', [AdminQuestionController::class, 'destroy'])->name('question.destroy');
-// QUESTION RELATED
 });
 
 //CONTACT MAIL
@@ -123,5 +111,5 @@ Route::middleware(['role:student'])->group(function () {
     Route::patch('/student/teacher', [StudentController::class, 'set_teacher'])->name('student.setTeacher');
     Route::get('/student/opinion', [StudentController::class, 'opinion'])->name('student.opinion');
     Route::post('/student/opinion', [StudentController::class, 'store'])->name('student.opinion');
-Route::get('/student/chat', [StudentController::class, 'chat'])->name('student.chat');
+    Route::get('/student/chat', [StudentController::class, 'chat'])->name('student.chat');
 });

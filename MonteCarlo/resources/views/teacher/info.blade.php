@@ -57,7 +57,8 @@
                             <h6>Hasło:</h6>
                         </div>
                         <div class="col-sm person-data-container" type="password">
-                            <input type="password" name="password" class="passwordpole noClick" value="{{ $teacher->password }}" readonly>
+                            <input type="password" name="password" class="passwordpole noClick"
+                                value="{{ $teacher->password }}" readonly>
                         </div>
                     </div>
                     <div class="row pt-1">
@@ -86,47 +87,47 @@
                 </div>
                 <div class="container person-container rounded-4 px-5">
                     @if ($vehicle)
-                    <div class="row pt-1">
-                        <div class="col-sm">
-                            <h6>Marka:</h6>
+                        <div class="row pt-1">
+                            <div class="col-sm">
+                                <h6>Marka:</h6>
+                            </div>
+                            <div class="col-sm person-data-container">
+                                @if ($vehicle)
+                                    {{ $vehicle->brand }}
+                                @endif
+                            </div>
                         </div>
-                        <div class="col-sm person-data-container">
-                            @if ($vehicle)
-                                {{ $vehicle->brand }}
-                            @endif
+                        <div class="row pt-1">
+                            <div class="col-sm">
+                                <h6>Model:</h6>
+                            </div>
+                            <div class="col-sm person-data-container">
+                                @if ($vehicle)
+                                    {{ $vehicle->model }}
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                    <div class="row pt-1">
-                        <div class="col-sm">
-                            <h6>Model:</h6>
+                        <div class="row pt-1">
+                            <div class="col-sm">
+                                <h6>Numer rejestracyjny:</h6>
+                            </div>
+                            <div class="col-sm person-data-container">
+                                @if ($vehicle)
+                                    {{ $vehicle->numberplate }}
+                                @endif
+                            </div>
                         </div>
-                        <div class="col-sm person-data-container">
-                            @if ($vehicle)
-                                {{ $vehicle->model }}
-                            @endif
+                        <div class="row pt-1">
+                            <div class="col-sm">
+                                <h6>Typ:</h6>
+                            </div>
+                            <div class="col-sm person-data-container">
+                                @if ($vehicle)
+                                    {{ $vehicle->type }}
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                    <div class="row pt-1">
-                        <div class="col-sm">
-                            <h6>Numer rejestracyjny:</h6>
-                        </div>
-                        <div class="col-sm person-data-container">
-                            @if ($vehicle)
-                                {{ $vehicle->numberplate }}
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row pt-1">
-                        <div class="col-sm">
-                            <h6>Typ:</h6>
-                        </div>
-                        <div class="col-sm person-data-container">
-                            @if ($vehicle)
-                                {{ $vehicle->type }}
-                            @endif
-                        </div>
-                    </div>
-                    <!-- Add any other fields for "Mój pojazd" here -->
+                        <!-- Add any other fields for "Mój pojazd" here -->
                     @else
                         <h6 class="white"> Brak przypisanego pojazdu.</h6>
                     @endif
