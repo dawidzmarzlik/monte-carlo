@@ -37,9 +37,9 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    @if (auth()->check())
+                    @if (auth()->guard('admin')->check())
                         <span class="navbar-text fw-bold">
-                            {{ auth()->user()->name }} {{ auth()->user()->surname }},
+                            Administrator,
                         </span>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}">Wyloguj się</a>

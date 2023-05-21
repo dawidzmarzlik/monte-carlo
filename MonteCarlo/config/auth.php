@@ -38,15 +38,15 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'student',
+            'provider' => 'students',
         ],
         'teacher' => [
             'driver' => 'session',
-            'provider' => 'teacher',
+            'provider' => 'teachers',
         ],
         'admin' => [
             'driver' => 'session',
-            'provider' => 'admin',
+            'provider' => 'admins',
         ],
     ],
 
@@ -68,17 +68,15 @@ return [
     */
 
     'providers' => [
-        'student' => [
+        'students' => [
             'driver' => 'eloquent',
             'model' => App\Models\Student::class,
         ],
-
-        'teacher' => [
+        'teachers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Teacher::class,
         ],
-
-        'admin' => [
+        'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],

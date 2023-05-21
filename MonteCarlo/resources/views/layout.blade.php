@@ -31,7 +31,7 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    @if (auth()->check())
+                    @if (auth()->guard('web')->check())
                         <span class="navbar-text fw-bold">
                             {{ auth()->user()->name }} {{ auth()->user()->surname }},
                         </span>

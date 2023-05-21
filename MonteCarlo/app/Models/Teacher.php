@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Teacher extends Authenticatable
+class Teacher extends Authenticatable implements \Illuminate\Contracts\Auth\Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     protected $table = 'teacher';

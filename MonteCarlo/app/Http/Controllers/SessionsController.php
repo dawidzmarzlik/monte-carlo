@@ -28,16 +28,23 @@ class SessionsController extends Controller
 
         $credentials = $request->only('email', 'password');
         
-        if (auth()->guard('web')->attempt($credentials)) {
+        if (auth('web')->attempt($credentials)) 
+        {
             $role = 'student';
             $redirectRoute = 'student.schedule';
-        } elseif (auth()->guard('teacher')->attempt($credentials)) {
+        } 
+        elseif (auth('teacher')->attempt($credentials)) 
+        {
             $role = 'teacher';
             $redirectRoute = 'teacher.schedule';
-        } elseif (auth()->guard('admin')->attempt($credentials)) {
+        } 
+        elseif (auth('admin')->attempt($credentials))
+        {
             $role = 'admin';
             $redirectRoute = 'admin.teacher';
-        } else {
+        } 
+        else 
+        {
             return redirect()->back()->withErrors(['student' => 'Błędny adres e-mail lub hasło.']);
         }
         
