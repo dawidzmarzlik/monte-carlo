@@ -391,11 +391,13 @@ input.no-arrow {
 }
 
 .form-control-3 {
-    color: white;
+    color: black;
+    background-color: white;
 }
 
 .form-control-3:focus {
     border-color: black;
     box-shadow: none;
-    color: white;
+    color: black;
+    background-color: white;
 }

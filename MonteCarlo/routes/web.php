@@ -119,5 +119,6 @@ Route::get('/student/profile', [StudentController::class, 'profile'])->name('stu
 Route::get('/student/teacher', [StudentController::class, 'change_teacher'])->name('student.teacher');
 Route::patch('/student/teacher', [StudentController::class, 'set_teacher'])->name('student.setTeacher');
 Route::get('/student/opinion', [StudentController::class, 'opinion'])->name('student.opinion');
+Route::post('/student/opinion', [StudentController::class, 'store'])->name('student.opinion');
 Route::get('/student/chat', [StudentController::class, 'chat'])->name('student.chat');
 //STUDENT
