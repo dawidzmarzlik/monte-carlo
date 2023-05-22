@@ -26,7 +26,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
                     @foreach ($students as $student)
                         <tr>
                             <td>{{ $student->id }}</td>
@@ -35,7 +34,11 @@
                             <td>{{ $student->birthDate }}</td>
                             <td>{{ $student->email }}</td>
                             <td>{{ $student->pkk }}</td>
-                            <td>{{ $student->teacher->name }} {{ $student->teacher->surname }}</td>
+                            @if ($student->Teacher_id)
+                                <td>{{ $student->teacher->name }} {{ $student->teacher->surname }}</td>
+                            @else
+                                <td>---</td>
+                            @endif
                             <td></td>
                             <td class="text-center">
                                 <a class="btn btn-table" href="{{ route('student.show', $student->id) }}">Więcej</a>

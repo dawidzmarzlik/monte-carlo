@@ -163,7 +163,7 @@ class StudentController extends Controller
         $opinion->idStudent = Auth::user()->id;
         $opinion->save();
 
-        return redirect()->route('admin.vehicle');
+        return redirect()->route('student.schedule');
     }
 
     public function chat()
