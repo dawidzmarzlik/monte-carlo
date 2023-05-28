@@ -4,7 +4,8 @@
     <div class="m-auto">
         <div class="row align-items-center m-auto">
             <div class="col ps-0">
-                <h1 class="text-center white">Wybierz termin jazd</h1>
+                <h1 class="white">Wybierz termin jazd</h1>
+                <a href="{{ route('student.schedule') }}" class="btn btn-add mb-3">Wróć</a>
             </div>
         </div>
         <div class="row d-flex align-items-center justify-content-center p-4 m-0">

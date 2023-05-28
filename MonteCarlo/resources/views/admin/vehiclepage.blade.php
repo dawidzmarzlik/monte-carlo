@@ -5,6 +5,7 @@
         <div class="row align-items-center m-auto">
             <div class="col ps-0">
                 <h1 class="white">Pojazd ID: {{ $vehicle->id }}</h1>
+                <a href="{{ route('admin.vehicle') }}" class="btn btn-add mb-3">Wróć</a>
             </div>
         </div>
         <div class="container person-container rounded-4">
@@ -112,7 +113,8 @@
                 <div class="col-sm">
                     <div class="row text-end pe-0">
                         <div class="col-sm pt-2">
-                            <a class="btn btn-table" href="{{ route('vehicle.edit', $vehicle->id) }}">Zmień dane pojazdu</a>
+                            <a class="btn btn-table" href="{{ route('vehicle.edit', $vehicle->id) }}">Zmień dane
+                                pojazdu</a>
                         </div>
                         <div class="col-sm-auto pt-2">
                             <form action="{{ route('vehicle.destroy', $vehicle->id) }}" method="POST">

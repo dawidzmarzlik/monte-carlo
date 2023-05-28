@@ -5,11 +5,12 @@
         <div class="row align-items-center m-auto">
             <div class="col px-auto">
                 <h1 class="white">Kursant</h1>
+                <a href="{{ route('teacher.student') }}" class="btn btn-add mb-3">Wróć</a>
             </div>
         </div>
         <div class="container person-container rounded-4">
             <div class="row">
-                
+
                 <div class="col">
                     <div class="container">
                         <div class="row pt-1">
@@ -57,7 +58,7 @@
                                 <h6>Kurs na kategorię:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                
+
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -73,7 +74,8 @@
                                 <h6>Hasło:</h6>
                             </div>
                             <div class="col-sm person-data-container" type="password">
-                                <input type="password" name="password" class="passwordpole noClick" value="{{ $student->password }}" readonly>
+                                <input type="password" name="password" class="passwordpole noClick"
+                                    value="{{ $student->password }}" readonly>
                             </div>
                         </div>
                     </div>
@@ -84,7 +86,8 @@
                 <div class="col-sm">
                     <div class="row text-center">
                         <div class="col-sm pt-2">
-                            <a class="btn btn-table" href="{{ route('teacher.student_edit', $student->id) }}">Zmień dane kursanta</a>
+                            <a class="btn btn-table" href="{{ route('teacher.student_edit', $student->id) }}">Zmień dane
+                                kursanta</a>
                         </div>
                     </div>
                 </div>

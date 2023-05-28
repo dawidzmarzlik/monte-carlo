@@ -7,11 +7,12 @@
         <div class="row align-items-center m-auto">
             <div class="col ps-0">
                 <h1 class="white">Instruktor</h1>
+                <a href="{{ route('admin.teacher') }}" class="btn btn-add mb-3">Wróć</a>
             </div>
         </div>
         <div class="container person-container rounded-4">
             <div class="row">
-                
+
                 <div class="col">
                     <div class="container">
                         <div class="row pt-1">
@@ -59,7 +60,8 @@
                                 <h6>Hasło:</h6>
                             </div>
                             <div class="col-sm person-data-container" type="password">
-                                <input type="password" name="password" class="passwordpole noClick" value="{{ $teacher->password }}" readonly>
+                                <input type="password" name="password" class="passwordpole noClick"
+                                    value="{{ $teacher->password }}" readonly>
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -67,7 +69,7 @@
                                 <h6>Uprawnienia:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                
+
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -83,16 +85,16 @@
                                 <h6>Pojazd:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                            
+
                                 @php
                                     $vehicle = Vehicle::find($teacher->id);
                                 @endphp
-                                    @if ($vehicle)
-                                        {{ $vehicle->numberplate }}
-                                    @else
-                                        -----
-                                    @endif
-                                
+                                @if ($vehicle)
+                                    {{ $vehicle->numberplate }}
+                                @else
+                                    -----
+                                @endif
+
                             </div>
                         </div>
                     </div>
@@ -102,28 +104,29 @@
                     <h6>Kursanci:</h6>
                     <div class="container">
                         @foreach ($teacher->students as $student)
-                        <div class="row person-data-container mb-1">
-                            <div class="col-sm">
-                                {{ $student->name }}
+                            <div class="row person-data-container mb-1">
+                                <div class="col-sm">
+                                    {{ $student->name }}
+                                </div>
+                                <div class="col-sm">
+                                    {{ $student->surname }}
+                                </div>
+                                <div class="col-sm">
+                                    {{ $student->pkk }}
+                                </div>
                             </div>
-                            <div class="col-sm">
-                                {{ $student->surname }}
-                            </div>
-                            <div class="col-sm">
-                                {{ $student->pkk }}
-                            </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="col-sm"></div>
                 <div class="col-sm">
                     <div class="row text-end pe-0">
                         <div class="col-sm pt-2">
-                            <a class="btn btn-table" href="{{ route('teacher.edit', $teacher->id) }}">Zmień dane instruktora</a>
+                            <a class="btn btn-table" href="{{ route('teacher.edit', $teacher->id) }}">Zmień dane
+                                instruktora</a>
                         </div>
                         <div class="col-sm-auto pt-2">
                             <form action="{{ route('teacher.destroy', $teacher->id) }}" method="POST">

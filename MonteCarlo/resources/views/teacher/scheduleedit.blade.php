@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="bg-grad">
+        <a href="{{ route('teacher.schedule') }}" class="btn btn-add mb-3">Wróć</a>
         <div class="row d-flex align-items-center justify-content-center p-4 m-0">
             <div class="col-md-6 col-lg-4 align-self-center justify-content-center bg-white rounded-4 p-4">
                 <form method="POST" action="{{ route('teacher.schedule_update', $drive->id) }}">
@@ -11,8 +12,9 @@
                         Edycja terminu
                     </p>
                     <div class="form-group">
-                        <input type="datetime-local" class="form-control form-control-2" name="dateTime" id="dateTime" 
-                        placeholder="Data i godzina" value="{{ old('dateTime') != '' ? old('dateTime') : $drive->dateTime }}">
+                        <input type="datetime-local" class="form-control form-control-2" name="dateTime" id="dateTime"
+                            placeholder="Data i godzina"
+                            value="{{ old('dateTime') != '' ? old('dateTime') : $drive->dateTime }}">
                         {!! $errors->first('datetime', "<span class='text-danger'>:message</span>") !!}
                     </div>
 

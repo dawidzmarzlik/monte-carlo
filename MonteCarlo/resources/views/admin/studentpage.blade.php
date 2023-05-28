@@ -5,11 +5,12 @@
         <div class="row align-items-center m-auto">
             <div class="col ps-0">
                 <h1 class="white">Kursant</h1>
+                <a href="{{ route('admin.student') }}" class="btn btn-add mb-3">Wróć</a>
             </div>
         </div>
         <div class="container person-container rounded-4">
             <div class="row">
-                
+
                 <div class="col">
                     <div class="container">
                         <div class="row pt-1">
@@ -57,7 +58,7 @@
                                 <h6>Kurs na kategorię:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                
+
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -65,7 +66,7 @@
                                 <h6>Instruktor:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-                                
+
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -73,7 +74,8 @@
                                 <h6>Hasło:</h6>
                             </div>
                             <div class="col-sm person-data-container" type="password">
-                                <input type="password" name="password" class="passwordpole noClick" value="{{ $student->password }}" readonly>
+                                <input type="password" name="password" class="passwordpole noClick"
+                                    value="{{ $student->password }}" readonly>
                             </div>
                         </div>
                     </div>
@@ -83,17 +85,17 @@
                     <h6>Terminarz jazd:</h6>
                     <div class="container">
                         @for ($i = 0; $i < 6; $i++)
-                        <div class="row person-data-container mb-1">
-                            <div class="col-sm">
-                                20-04-2023
+                            <div class="row person-data-container mb-1">
+                                <div class="col-sm">
+                                    20-04-2023
+                                </div>
+                                <div class="col-sm">
+                                    16:00
+                                </div>
+                                <div class="col-sm">
+                                    OPO 1234
+                                </div>
                             </div>
-                            <div class="col-sm">
-                                16:00
-                            </div>
-                            <div class="col-sm">
-                                OPO 1234
-                            </div>
-                        </div>
                         @endfor
                     </div>
                 </div>
@@ -103,7 +105,8 @@
                 <div class="col-sm">
                     <div class="row text-end pe-0">
                         <div class="col-sm pt-2">
-                            <a class="btn btn-table" href="{{ route('student.edit', $student->id) }}">Zmień dane kursanta</a>
+                            <a class="btn btn-table" href="{{ route('student.edit', $student->id) }}">Zmień dane
+                                kursanta</a>
                         </div>
                         <div class="col-sm-auto pt-2">
                             <form action="{{ route('student.destroy', $student->id) }}" method="POST">

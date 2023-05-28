@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="m-auto">
+        <a href="{{ url()->previous() }}" class="btn btn-add mb-3">Wróć</a>
         <div class="row align-items-center m-auto">
             <div class="col ps-0">
                 <h1 class="text-center white">Przypisanie instruktora dla pojazdu o ID: {{ $vehicle->id }}</h1>
