@@ -47,6 +47,14 @@
                         </div>
                         <div class="row pt-1">
                             <div class="col-sm">
+                                <h6>Telefon:</h6>
+                            </div>
+                            <div class="col-sm person-data-container">
+                                {{ $student->phoneNumber }}
+                            </div>
+                        </div>
+                        <div class="row pt-1">
+                            <div class="col-sm">
                                 <h6>Numer PKK:</h6>
                             </div>
                             <div class="col-sm person-data-container">
@@ -66,7 +74,11 @@
                                 <h6>Instruktor:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-
+                                @if ($student->Teacher_id)
+                                {{ $student->teacher->name }} {{ $student->teacher->surname }}
+                                @else
+                                Brak
+                                @endif
                             </div>
                         </div>
                         <div class="row pt-1">

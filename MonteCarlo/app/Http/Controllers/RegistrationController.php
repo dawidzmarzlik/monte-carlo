@@ -29,7 +29,8 @@ class RegistrationController extends Controller
             'pkk.digits' => 'Numer PKK powinien się składać z 20 cyfr.',     
             'pkk.unique' => 'Numer PKK jest już wykorzystywany.',     
             'email.required' => 'Wpisz adres e-mail.',     
-            'email.unique' => 'Adres e-mail jest już zajęty.',     
+            'email.unique' => 'Adres e-mail jest już zajęty.',   
+            'phoneNumber.required' => 'Pole jest wymagane (powinno się składać z 9 cyfr).',   
             'password.required' => 'Wpisz hasło. Powinno się składać z minimum 8 znaków.',     
             'password.min' => 'Hasło powinno się składać z minimum 8 znaków.',     
         ];
@@ -40,6 +41,7 @@ class RegistrationController extends Controller
             'email' => 'required|email|unique:student',
             'birthDate' => 'required|date|date_format:Y-m-d|before:-18 years',
             'pkk' => 'required|numeric|digits:20|unique:student',
+            'phoneNumber' => 'required|min:9|unique:student',
             'password' => 'required|min:8'
         ], $messages);
         
@@ -49,6 +51,7 @@ class RegistrationController extends Controller
             'email' => $request->email,
             'birthDate' => $request->birthDate,
             'pkk' => $request->pkk,
+            'phoneNumber' => $request->phoneNumber,
             'password' => Hash::make($request->password)
         ]);
 

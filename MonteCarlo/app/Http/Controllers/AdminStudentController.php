@@ -27,7 +27,8 @@ class AdminStudentController extends Controller
             'pkk.required' => 'Pole jest wymagane (powinno się składać z 20 cyfr).',
             'pkk.min' => 'Pole powinno się składać z dokładnie 20 cyfr.',     
             'pkk.unique' => 'Numer PKK jest już wykorzystany.',     
-            'email.required' => 'Pole jest wymagane. Uzupełnij dane.',  
+            'email.required' => 'Pole jest wymagane. Uzupełnij dane.',
+            'phoneNumber.required' => 'Pole jest wymagane (powinno się składać z 9 cyfr).',  
             'password.required' => 'Pole jest wymagane. Uzupełnij dane.',
             'password.min' => 'Hasło powinno składać się z co najmniej 8 znaków.',    
         ];
@@ -38,6 +39,7 @@ class AdminStudentController extends Controller
             'birthDate' => 'required',
             'pkk' => 'required|min:20|unique:student',
             'email' => 'required',
+            'phoneNumber' => 'required|min:9|unique:student',
             'password' => 'required|min:8',
         ], $messages);
 
@@ -47,6 +49,7 @@ class AdminStudentController extends Controller
         $student->email = $request->input('email');
         $student->birthDate = $request->input('birthDate');
         $student->pkk = $request->input('pkk');
+        $student->phoneNumber = $request->input('phoneNumber');
         $student->password = Hash::make($request->input('password'));
         $student->save();
 
@@ -75,6 +78,7 @@ class AdminStudentController extends Controller
             'pkk.min' => 'Pole powinno się składać z dokładnie 20 cyfr.',     
             'pkk.unique' => 'Numer PKK jest już wykorzystany.',     
             'email.required' => 'Pole jest wymagane. Uzupełnij dane.',  
+            'phoneNumber.required' => 'Pole jest wymagane (powinno się składać z 9 cyfr).',
             'password.required' => 'Pole jest wymagane. Uzupełnij dane.', 
             'password.min' => 'Hasło powinno składać się z co najmniej 8 znaków.',  
         ];
@@ -88,6 +92,10 @@ class AdminStudentController extends Controller
                 Rule::unique('student')->ignore($id),
             ],
             'email' => 'required',
+            'phoneNumber' => ['required',
+                'min:9',
+                Rule::unique('student')->ignore($id),
+            ],
             'password' => 'required|min:8'
         ], $messages);
 
@@ -97,6 +105,7 @@ class AdminStudentController extends Controller
         $student->email = $request->input('email');
         $student->birthDate = $request->input('birthDate');
         $student->pkk = $request->input('pkk');
+        $student->phoneNumber = $request->input('phoneNumber');
 
         if ($request->has('password') && $request->input('password') != '') {
             // Get the current password from the database

@@ -14,6 +14,7 @@
                     <th scope="col">Imię</th>
                     <th scope="col">Nazwisko</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Telefon</th>
                     <th scope="col">PKK</th>
                     <th scope="col"></th>
 
@@ -25,6 +26,7 @@
                         <td>{{ $student->name }}</td>
                         <td>{{ $student->surname }}</td>
                         <td>{{ $student->email }}</td>
+                        <td>{{ $student->phoneNumber }}</td>
                         <td>{{ $student->pkk }}</td>
                         <td class="text-center">
                             <a class="btn btn-table" href="{{ route('teacher.student_show', $student->id) }}">Więcej</a>

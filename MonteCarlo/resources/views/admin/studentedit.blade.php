@@ -50,6 +50,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="name"></label>
+                        <input type="number" class="form-control form-control-2 no-arrow" id="phoneNumber"
+                            name="phoneNumber" placeholder="Numer telefonu" max="999999999"
+                            oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="9"
+                            value="{{ old('phoneNumber') != '' ? old('phoneNumber') : $student->phoneNumber }}">
+                        {!! $errors->first('phoneNumber', "<span class='text-danger'>:message</span>") !!}
+                    </div>
+
+                    <div class="form-group">
                         <label for="password"></label>
                         <input type="password" class="form-control form-control-2" id="password" name="password"
                             placeholder="Hasło" value="{{ old('password') != '' ? old('password') : $student->password }}">

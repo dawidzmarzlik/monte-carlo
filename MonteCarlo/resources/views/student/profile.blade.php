@@ -36,6 +36,14 @@
                     </div>
                     <div class="row pt-1">
                         <div class="col-sm">
+                            Telefon:
+                        </div>
+                        <div class="col-sm person-data-container">
+                            {{ $student->phoneNumber }}
+                        </div>
+                    </div>
+                    <div class="row pt-1">
+                        <div class="col-sm">
                             Data urodzenia:
                         </div>
                         <div class="col-sm person-data-container">

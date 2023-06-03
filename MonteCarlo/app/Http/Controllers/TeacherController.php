@@ -91,7 +91,8 @@ class TeacherController extends Controller
         $messages = [
             'name.required' => 'Pole jest wymagane. Uzupełnij dane.',     
             'surname.required' => 'Pole jest wymagane. Uzupełnij dane.',     
-            'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.',     
+            'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.', 
+            'phoneNumber.required' => 'Pole jest wymagane (powinno się składać z 9 cyfr).',    
             'pkk.required' => 'Pole jest wymagane (powinno się składać z 20 cyfr).',
             'pkk.min' => 'Pole powinno się składać z dokładnie 20 cyfr.',     
             'pkk.unique' => 'Numer PKK jest już wykorzystany.',
@@ -101,6 +102,10 @@ class TeacherController extends Controller
             'name' => 'required',
             'surname' => 'required',
             'birthDate' => 'required',
+            'phoneNumber' => ['required',
+                'min:9',
+                Rule::unique('student')->ignore($id),
+            ],
             'pkk' => ['required',
                 'min:20',
                 Rule::unique('student')->ignore($id),
@@ -111,6 +116,7 @@ class TeacherController extends Controller
         $student->name = $request->input('name');
         $student->surname = $request->input('surname');
         $student->birthDate = $request->input('birthDate');
+        $student->phoneNumber = $request->input('phoneNumber');
         $student->pkk = $request->input('pkk');
 
         $student->save();
