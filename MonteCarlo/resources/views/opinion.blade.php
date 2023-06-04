@@ -2,11 +2,11 @@
 
 @section('content')
 
-        <div class="BoxCard">
-            <div class="card-box">
+        <div class="BoxCardO">
+            <div class="card-boxO">
                 @foreach ($opinions as $opinion)
-                    <div class="card">
-                        <div class="card-body">
+                    <div class="cardO">
+                        <div class="card-bodyO">
                             <h2>
                                 @if ($opinion->idStudent)
                                 {{ $opinion->student->name }} {{ $opinion->student->surname }}

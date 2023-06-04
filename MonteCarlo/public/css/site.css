@@ -434,7 +434,7 @@ input.no-arrow {
 }
 
 /* CSS dla kart z opiniami */
-.BoxCard {
+.BoxCardO {
     /*margin-left: 25%;
     margin-right: 25%;*/
     display: flex;
@@ -442,16 +442,17 @@ input.no-arrow {
     padding-top: 1em;
     padding-bottom: 2em;
     margin: 2em;
+    min-height: 60vh;
 }
 
-.card-box {
+.card-boxO {
     display: flex;
     justify-content: space-evenly;
     max-width: 1000px;
-    flex-wrap: wrap;   
+    flex-wrap: wrap;
 }
 
-.card {
+.cardO {
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -464,24 +465,24 @@ input.no-arrow {
     background-color: rgb(43, 43, 43);
 }
 
-.card-body {
+.card-bodyO {
     display: flex;
     flex-direction: column;
     height: 100%;
     padding: 1em;
 }
 
-.card-body h2 {
+.card-bodyO h2 {
     margin-bottom: 1em;
     color: #c5b358;
 }
 
-.card-body h4 {
+.card-bodyO h4 {
     margin-bottom: 1em;
     color: #c5b358;
 }
 
-.card-body p {
+.card-bodyO p {
+    color: white;
     margin-bottom: 1em;
 }
-
