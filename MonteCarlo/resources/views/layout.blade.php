@@ -76,8 +76,8 @@
     <div class="container-fluid p-0">
         @yield('content')
     </div>
-    <footer class="content py-5 bg-footer">
-        <div class="row">
+    <footer class="content py-5 bg-footer mt-auto">
+        <div class="row pt-2">
             <div class="col-12 col-lg-4">
                 <h5>Kontakt:</h5>
                 <p class="text-light">tel: +48 765 098 321</p>
