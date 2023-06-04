@@ -6,7 +6,7 @@
                 <h1 class="white">Testy</h1>
             </div>
             <div class="col text-end pe-0">
-                <a href="{{ route('student.testpage') }}" class="btn btn-add">Rozpocznij test</a>
+                <a href="{{ route('test.start') }}" class="btn btn-add">Rozpocznij test</a>
             </div>
         </div>
         <div class="row align-items-center m-auto">
@@ -19,18 +19,23 @@
                         <thead>
                             <tr>
                                 <th scope="col">Wynik [max 72 pkt.]</th>
-                                <th scope="col">Data</th>
+                                <th scope="col">Dzień</th>
                                 <th scope="col">Godzina</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @for ($i = 0; $i < 15; $i++)
+                            @foreach ($scores as $score)
                                 <tr>
-                                    <td>60</td>
-                                    <td>12.05.2021</td>
-                                    <td>12:00</td>
+                                    <td>{{ $score->score }}</td>
+                                    @if ($score->date != null)
+                                        <td>{{ date('d-m-Y', strtotime($score->date)) }}</td>
+                                        <td>{{ date('H:i', strtotime($score->date)) }}</td>
+                                    @else
+                                        <td>---</td>
+                                        <td>---</td>
+                                    @endif
                                 </tr>
-                            @endfor
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

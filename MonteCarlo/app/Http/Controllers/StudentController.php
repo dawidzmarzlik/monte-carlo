@@ -6,6 +6,7 @@ use App\Models\Student;
 use App\Models\Drive;
 use App\Models\Opinion;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Score;
 
 use Illuminate\Http\Request;
 
@@ -93,18 +94,10 @@ class StudentController extends Controller
 
     public function test()
     {
-        if (!auth()->check()) {
-            return redirect()->route('login.login');
-        }
-        return view('student.test');
-    }
-
-    public function testpage()
-    {
-        if (!auth()->check()) {
-            return redirect()->route('login.login');
-        }
-        return view('student.testpage');
+        $studentId = auth()->id(); // Assuming you have a logged-in user with an ID
+        $scores = Score::where('idStudent', $studentId)->get();
+    
+        return view('student.test', compact('scores'));
     }
 
     public function profile()

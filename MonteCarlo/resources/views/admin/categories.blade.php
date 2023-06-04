@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('content')
-    <h1>Kategorie</h1>
+    <h1 class="white">Kategorie</h1>
     <div class="m-auto">
         <div class="row align-items-center m-auto">
             <div class="col ps-0"></div>

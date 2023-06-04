@@ -57,4 +57,9 @@ class Student extends Authenticatable
     {
         return $this->belongsTo(Teacher::class, 'Teacher_id');
     }
+
+    public function scores()
+    {
+        return $this->hasMany(Score::class, 'idStudent', 'id');
+    }
 }
