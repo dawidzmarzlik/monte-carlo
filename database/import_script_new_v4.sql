@@ -14,7 +14,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8;
 USE `mydb` ;
 
 -- -----------------------------------------------------
@@ -130,8 +130,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`TeacherOpinions` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `score` INT NOT NULL,
   `opinionText` VARCHAR(255) NULL,
-  `Student_id` INT NOT NULL,
-  `Teacher_id` INT NOT NULL,
+  `idStudent` INT NOT NULL,
+  `idTeacher` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   INDEX `fk_TeacherOpinions_Student1_idx` (`idStudent` ASC) VISIBLE,
@@ -145,8 +145,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`TeacherOpinions` (
     FOREIGN KEY (`idTeacher`)
     REFERENCES `mydb`.`Teacher` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
+    ON UPDATE NO ACTION
+)
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`TeachingMaterials`
