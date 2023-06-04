@@ -52,6 +52,21 @@ html {
     color: white;
 }
 
+.btn-rev {
+    background-color: #eadc48;
+    color: #ffffff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-rev:hover {
+    background-color: rgba(255, 255, 255, 1);
+    color: #eadc48;
+}
+
 .form-checkbox:focus {
     outline: none;
     box-shadow: none;
@@ -416,4 +431,58 @@ input.no-arrow {
 
 .nav-blue:hover {
     color: #457eac;
+}
+
+/* CSS dla kart z opiniami */
+.BoxCardO {
+    /*margin-left: 25%;
+    margin-right: 25%;*/
+    display: flex;
+    justify-content: center;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    margin: 2em;
+    min-height: 60vh;
+}
+
+.card-boxO {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 1000px;
+    flex-wrap: wrap;
+}
+
+.cardO {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    /*border: 2px solid #333;*/
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 1em;
+    width: 280px;
+    margin-right: 5%;
+    background-color: rgb(43, 43, 43);
+}
+
+.card-bodyO {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1em;
+}
+
+.card-bodyO h2 {
+    margin-bottom: 1em;
+    color: #c5b358;
+}
+
+.card-bodyO h4 {
+    margin-bottom: 1em;
+    color: #c5b358;
+}
+
+.card-bodyO p {
+    color: white;
+    margin-bottom: 1em;
 }

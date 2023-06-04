@@ -27,6 +27,11 @@ class Teacher extends Authenticatable implements \Illuminate\Contracts\Auth\Auth
      {
          return $this->hasMany(TeacherPermissions::class, 'idTeacher', 'id');
      }
+
+     public function opinions()
+     {
+         return $this->hasMany(TeacherOpinions::class, 'idTeacher', 'id');
+     }
      
     protected $fillable = [
         'name',

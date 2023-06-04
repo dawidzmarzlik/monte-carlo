@@ -31,6 +31,7 @@ use App\Http\Controllers\TestController;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/about', [HomeController::class, 'about'])->name('home.about');
 Route::get('/pricing', [HomeController::class, 'pricing'])->name('home.pricing');
+Route::get('/opinion', [HomeController::class, 'opinion'])->name('home.opinion');
 
 Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');
 Route::post('register', [RegistrationController::class, 'store']);
@@ -92,8 +93,6 @@ Route::middleware(['role:admin'])->group(function () {
     Route::delete('admin/question/{question}/delete', [AdminQuestionController::class, 'destroy'])->name('question.destroy');
     Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories');
     Route::patch('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');  
-    Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');  
-    Route::delete('/categories/{category}/destroy}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 });
 
 //CONTACT MAIL
@@ -115,6 +114,8 @@ Route::middleware(['role:student'])->group(function () {
     // Route::get('/student/testpage', [StudentController::class, 'testpage'])->name('student.testpage');
     Route::get('/student/profile', [StudentController::class, 'profile'])->name('student.profile');
     Route::get('/student/teacher', [StudentController::class, 'change_teacher'])->name('student.teacher');
+    Route::get('/student/teacher/{teacher}/opinion', [StudentController::class, 'review_teacher'])->name('student.review_teacher');
+    Route::post('/student/teacher/opinion/store', [StudentController::class, 'review_teacher_store'])->name('student.review_teacher_store');
     Route::patch('/student/teacher', [StudentController::class, 'set_teacher'])->name('student.setTeacher');
     Route::get('/student/opinion', [StudentController::class, 'opinion'])->name('student.opinion');
     Route::post('/student/opinion', [StudentController::class, 'store'])->name('student.opinion');

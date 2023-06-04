@@ -45,7 +45,7 @@
                             {{ auth()->user()->name }} {{ auth()->user()->surname }},
                         </span>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}">Wyloguj się</a>
+                            <a class="nav-link nav-red" href="{{ route('logout') }}">Wyloguj się</a>
                         </li>
                     @else
                         <li class="nav-item">
