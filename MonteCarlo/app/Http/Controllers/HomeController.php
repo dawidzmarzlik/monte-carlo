@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Opinion;
 use App\Models\Student;
@@ -17,7 +18,9 @@ class HomeController extends Controller
     }
 
     public function pricing(){
-        return view('pricing');
+
+        $categories = Category::all();
+        return view('pricing', compact('categories'));
     }
 
     public function opinion(){

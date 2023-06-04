@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="row content bg-grad">
-        <div class="col-12 col-md-6 about-us">
+        <div class="col-12 col-md-6 about-us pt-5">
             <img class="about-us-img" src="{{ asset('img/czerwona-strzała.png') }}" alt="...">
         </div>
-        <div class="col-12 col-md-6 about-us">
+        <div class="col-12 col-md-6 about-us pt-5">
             <p class="about-us-text">Witaj w Szkole Nauki Jazdy "Monte Carlo"! Jesteśmy profesjonalną szkołą z doświadczonymi
                 instruktorami, elastycznymi kursami i doskonałym stanem technicznym floty samochodów. Oferujemy zarówno
                 kursy teoretyczne, jak i praktyczne, które są dostosowane do indywidualnych potrzeb kursantów. Nasza
