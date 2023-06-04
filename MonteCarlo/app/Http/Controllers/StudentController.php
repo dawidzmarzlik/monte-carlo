@@ -81,10 +81,14 @@ class StudentController extends Controller
 
     public function materials()
     {
-        if (!auth()->check()) {
-            return redirect()->route('login.login');
-        }
         return view('student.materials');
+    }
+
+    public function show_material($pdf)
+    {
+        $pdfPath = '/pdf/' . $pdf;
+
+        return view('student.material')->with('pdfPath', $pdfPath);
     }
 
     public function test()

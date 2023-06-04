@@ -107,6 +107,7 @@ Route::middleware(['role:student'])->group(function () {
     Route::patch('/student/schedule/pickdrive', [StudentController::class, 'setdrive'])->name('student.setdrive');
     Route::patch('/student/schedule/deldrive', [StudentController::class, 'deldrive'])->name('student.deldrive');
     Route::get('/student/materials', [StudentController::class, 'materials'])->name('student.materials');
+    Route::get('/student/materials/{pdf}', [StudentController::class, 'show_material'])->name('student.show_material');
     Route::get('/student/test', [StudentController::class, 'test'])->name('student.test');
     Route::get('/student/testpage', [StudentController::class, 'testpage'])->name('student.testpage');
     Route::get('/student/profile', [StudentController::class, 'profile'])->name('student.profile');
