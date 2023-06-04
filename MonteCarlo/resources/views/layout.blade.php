@@ -36,7 +36,7 @@
                             {{ auth()->user()->name }} {{ auth()->user()->surname }},
                         </span>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.teacher') }}">Mój widok</a>
+                            <a class="nav-link nav-blue" href="{{ route('student.schedule') }}">Mój widok</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-red" href="{{ route('logout') }}">Wyloguj się</a>
@@ -46,7 +46,7 @@
                             {{ auth()->guard('teacher')->user()->name }} {{ auth()->guard('teacher')->user()->surname }},
                         </span>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.teacher') }}">Mój widok</a>
+                            <a class="nav-link nav-blue" href="{{ route('teacher.schedule') }}">Mój widok</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-red" href="{{ route('logout') }}">Wyloguj się</a>
@@ -56,7 +56,7 @@
                             Administrator,
                         </span>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.teacher') }}">Mój widok</a>
+                            <a class="nav-link nav-blue" href="{{ route('admin.teacher') }}">Mój widok</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-red" href="{{ route('logout') }}">Wyloguj się</a>

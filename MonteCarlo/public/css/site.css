@@ -402,15 +402,18 @@ input.no-arrow {
     background-color: white;
 }
 
-.nav-link:hover {
-    border-radius: 10%;
-    background-color: lightgray;
-}
-
 .nav-red {
     color: lightcoral;
 }
 
 .nav-red:hover {
     color: red;
+}
+
+.nav-blue {
+    color: lightskyblue;
+}
+
+.nav-blue:hover {
+    color: #457eac;
 }
