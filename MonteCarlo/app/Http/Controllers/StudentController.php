@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Category;
 use App\Models\Teacher;
 use App\Models\Student;
 use App\Models\Drive;
@@ -10,6 +12,7 @@ use App\Models\TeacherOpinions;
 use App\Models\Score;
 
 use Illuminate\Http\Request;
+use PHPUnit\Framework\MockObject\Builder\Stub;
 
 class StudentController extends Controller
 {
@@ -103,20 +106,25 @@ class StudentController extends Controller
 
     public function profile()
     {
-        if (!auth()->check()) {
-            return redirect()->route('login.login');
-        }
         $student = Auth::user();
         return view('student.profile', compact('student'));
     }
 
     public function change_teacher()
     {
-        if (!auth()->check()) {
-            return redirect()->route('login.login');
-        }
-        $teachers = Teacher::all();
         $student = Auth::user();
+        $categories = [];
+        
+        foreach ($student->permissions as $permission) {
+            $categories[] = $permission->courseRecords->category;
+        }
+        
+        $teacherIds = Category::whereIn('category', $categories)->pluck('id');
+        
+        $teachers = Teacher::whereHas('permissions', function ($query) use ($teacherIds) {
+            $query->whereIn('idCourseRecords', $teacherIds);
+        })->get();
+    
         return view('student.teacher', compact('teachers'), compact('student'));
     }
 
