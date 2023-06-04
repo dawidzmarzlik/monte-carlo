@@ -166,7 +166,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`CourseRecords` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `category` VARCHAR(2) NOT NULL,
+  `category` VARCHAR(3) NOT NULL,
   `price` FLOAT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `idEwidencjaKursow_UNIQUE` (`id` ASC) VISIBLE)
