@@ -66,7 +66,9 @@
                                 <h6>Kurs na kategorię:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-
+                                @foreach ($student->permissions as $permission)
+                                    {{ $permission->courseRecords->category }},
+                                @endforeach
                             </div>
                         </div>
                         <div class="row pt-1">
@@ -92,28 +94,9 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col">
-                    <h6>Terminarz jazd:</h6>
-                    <div class="container">
-                        @for ($i = 0; $i < 6; $i++)
-                            <div class="row person-data-container mb-1">
-                                <div class="col-sm">
-                                    20-04-2023
-                                </div>
-                                <div class="col-sm">
-                                    16:00
-                                </div>
-                                <div class="col-sm">
-                                    OPO 1234
-                                </div>
-                            </div>
-                        @endfor
-                    </div>
-                </div>
-
             </div>
             <div class="row">
+                <div class="col-sm"></div>
                 <div class="col-sm">
                     <div class="row text-end pe-0">
                         <div class="col-sm pt-2">
@@ -128,8 +111,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm"></div>
+                </div> 
             </div>
         </div>
     </div>
