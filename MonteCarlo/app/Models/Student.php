@@ -29,6 +29,7 @@ class Student extends Authenticatable
         'email',
         'birthDate',
         'pkk',
+        'phoneNumber',
         'password',
         'Teacher_id',
     ];

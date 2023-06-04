@@ -36,7 +36,30 @@
                             {{ auth()->user()->name }} {{ auth()->user()->surname }},
                         </span>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}">Wyloguj się</a>
+                            <a class="nav-link" href="{{ route('admin.teacher') }}">Mój widok</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-red" href="{{ route('logout') }}">Wyloguj się</a>
+                        </li>
+                    @elseif (auth()->guard('teacher')->check())
+                        <span class="navbar-text fw-bold">
+                            {{ auth()->guard('teacher')->user()->name }} {{ auth()->guard('teacher')->user()->surname }},
+                        </span>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.teacher') }}">Mój widok</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-red" href="{{ route('logout') }}">Wyloguj się</a>
+                        </li>
+                    @elseif (auth()->guard('admin')->check())
+                        <span class="navbar-text fw-bold">
+                            Administrator,
+                        </span>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.teacher') }}">Mój widok</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-red" href="{{ route('logout') }}">Wyloguj się</a>
                         </li>
                     @else
                         <li class="nav-item">

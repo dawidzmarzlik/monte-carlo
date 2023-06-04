@@ -256,11 +256,11 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Admin`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Admin` (
-  `idAdmin` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(64) NULL,
   `password` VARCHAR(64) NULL,
-  PRIMARY KEY (`idAdmin`),
-  UNIQUE INDEX `idAdmin_UNIQUE` (`idAdmin` ASC) VISIBLE)
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
