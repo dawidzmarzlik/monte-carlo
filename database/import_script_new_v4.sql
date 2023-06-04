@@ -197,6 +197,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `mydb`.`TestScore` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `score` INT NULL,
+  `date` DATETIME NULL,
   `idStudent` INT NOT NULL,
   PRIMARY KEY (`id`, `idStudent`),
   UNIQUE INDEX `idWynikiTest_UNIQUE` (`id` ASC) VISIBLE,

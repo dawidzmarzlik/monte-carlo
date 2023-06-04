@@ -15,6 +15,7 @@ use App\Http\Controllers\PasswordRecoverController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,6 +93,8 @@ Route::middleware(['role:admin'])->group(function () {
     Route::delete('admin/question/{question}/delete', [AdminQuestionController::class, 'destroy'])->name('question.destroy');
     Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories');
     Route::patch('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');  
+    Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');  
+    Route::delete('/categories/{category}/destroy}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 });
 
 //CONTACT MAIL
@@ -109,8 +112,8 @@ Route::middleware(['role:student'])->group(function () {
     Route::patch('/student/schedule/deldrive', [StudentController::class, 'deldrive'])->name('student.deldrive');
     Route::get('/student/materials', [StudentController::class, 'materials'])->name('student.materials');
     Route::get('/student/materials/{pdf}', [StudentController::class, 'show_material'])->name('student.show_material');
-    Route::get('/student/test', [StudentController::class, 'test'])->name('student.test');
-    Route::get('/student/testpage', [StudentController::class, 'testpage'])->name('student.testpage');
+    // Route::get('/student/test', [StudentController::class, 'test'])->name('student.test');
+    // Route::get('/student/testpage', [StudentController::class, 'testpage'])->name('student.testpage');
     Route::get('/student/profile', [StudentController::class, 'profile'])->name('student.profile');
     Route::get('/student/teacher', [StudentController::class, 'change_teacher'])->name('student.teacher');
     Route::get('/student/teacher/{teacher}/opinion', [StudentController::class, 'review_teacher'])->name('student.review_teacher');
@@ -119,4 +122,9 @@ Route::middleware(['role:student'])->group(function () {
     Route::get('/student/opinion', [StudentController::class, 'opinion'])->name('student.opinion');
     Route::post('/student/opinion', [StudentController::class, 'store'])->name('student.opinion');
     Route::get('/student/chat', [StudentController::class, 'chat'])->name('student.chat');
+
+    Route::get('/student/test', [StudentController::class, 'test'])->name('student.test');
+    Route::get('/student/test/start', [TestController::class, 'start'])->name('test.start');
+    Route::post('/student/test/next', [TestController::class, 'nextQuestion'])->name('test.next');
+    Route::get('/student/test/end', [TestController::class, 'end'])->name('test.end');
 });

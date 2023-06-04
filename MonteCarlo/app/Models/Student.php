@@ -67,4 +67,9 @@ class Student extends Authenticatable
     {
         return $this->hasOne(TeacherOpinions::class, 'idStudent', 'id');
     }
+
+    public function scores()
+    {
+        return $this->hasMany(Score::class, 'idStudent', 'id');
+    }
 }
