@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Opinion;
+use App\Models\Student;
 
 class HomeController extends Controller
 {
@@ -17,4 +19,13 @@ class HomeController extends Controller
     public function pricing(){
         return view('pricing');
     }
+
+    public function opinion(){
+        $opinions = Opinion::all();
+
+        return view('opinion', compact('opinions'));
+    }
+
+
+
 }

@@ -16,4 +16,9 @@ class Opinion extends Model
         'opinionText',
         'idStudent'
     ];
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'idStudent');
+    }
 }
