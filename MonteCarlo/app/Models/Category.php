@@ -11,6 +11,11 @@ class Category extends Model
     protected $table = 'courserecords';
     public $timestamps = false;
 
+    public function permissions()
+    {
+        return $this->hasMany(TeacherPermissions::class, 'idCourseRecords', 'id');
+    }
+
     protected $fillable = [
         'category',
         'price',
