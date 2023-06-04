@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Teacher;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use App\Models\TeacherPermissions;
 
 class AdminTeacherController extends Controller
 {
@@ -16,7 +18,8 @@ class AdminTeacherController extends Controller
     
     public function create()
     {
-        return view('admin.teachercreate');
+        $categories = Category::all();
+        return view('admin.teachercreate', compact('categories'));
     }
 
     public function store(Request $request)
@@ -28,15 +31,17 @@ class AdminTeacherController extends Controller
             'phoneNumber.required' => 'Pole jest wymagane (powinno się składać z 9 cyfr).',
             'phoneNumber.min' => 'Pole powinno się składać z dokładnie 9 cyfr.',     
             'phoneNumber.unique' => 'Numer telefonu jest już wykorzystany.',     
+            'categories.required' => 'Pole jest wymagane. Wybierz kategorie dla instruktora.',
             'email.required' => 'Pole jest wymagane. Uzupełnij dane.',  
             'password.required' => 'Pole jest wymagane. Uzupełnij dane.',   
         ];
 
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required',
             'surname' => 'required',
             'birthDate' => 'required',
             'phoneNumber' => 'required|min:9|unique:teacher',
+            'categories' => 'required|array',
             'email' => 'required',
             'password' => 'required',
         ], $messages);
@@ -49,6 +54,14 @@ class AdminTeacherController extends Controller
         $teacher->phoneNumber = $request->input('phoneNumber');
         $teacher->password = Hash::make($request->input('password'));
         $teacher->save();
+
+        $categories = Category::whereIn('id', $validatedData['categories'])->get();
+        foreach ($categories as $category) {
+            $teacherPermission = new TeacherPermissions();
+            $teacherPermission->idCourseRecords = $category->id;
+            $teacherPermission->idTeacher = $teacher->id;
+            $teacherPermission->save();
+    }
 
         return redirect()->route('admin.teacher');
     }
@@ -64,7 +77,8 @@ class AdminTeacherController extends Controller
     public function edit($id)
     {
         $teacher = Teacher::find($id);
-        return view('admin.teacheredit', compact('teacher'));
+        $categories = Category::all();
+        return view('admin.teacheredit', compact('teacher', 'categories'));
     }
 
     public function update(Request $request, $id)
@@ -80,7 +94,7 @@ class AdminTeacherController extends Controller
             'password.required' => 'Pole jest wymagane. Uzupełnij dane.',   
         ];
 
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required',
             'surname' => 'required',
             'birthDate' => 'required',
@@ -88,6 +102,7 @@ class AdminTeacherController extends Controller
                 'min:9',
                 Rule::unique('teacher')->ignore($id),
             ],
+            'categories' => 'required|array',
             'email' => 'required',
             'password' => 'required',
         ], $messages);
@@ -108,8 +123,13 @@ class AdminTeacherController extends Controller
                 $teacher->password = Hash::make($request->input('password'));
             }
         }
-        $teacher->save();
-
+        $categories = Category::whereIn('id', $validatedData['categories'])->get();
+        foreach ($categories as $category) {
+            $teacherPermission = new TeacherPermissions();
+            $teacherPermission->idCourseRecords = $category->id;
+            $teacherPermission->idTeacher = $teacher->id;
+            $teacherPermission->save();
+        }
         return redirect()->route('admin.teacher');
     }
 

@@ -22,6 +22,11 @@ class Teacher extends Authenticatable implements \Illuminate\Contracts\Auth\Auth
      {
          return $this->hasMany(Drive::class, 'idTeacher');
      }
+
+     public function permissions()
+     {
+         return $this->hasMany(TeacherPermissions::class, 'idTeacher', 'id');
+     }
      
     protected $fillable = [
         'name',
