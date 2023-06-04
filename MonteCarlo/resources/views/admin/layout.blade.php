@@ -35,6 +35,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.question') }}">Pytania teoretyczne</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.categories') }}">Kategorie</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav">
                     @if (auth()->guard('admin')->check())

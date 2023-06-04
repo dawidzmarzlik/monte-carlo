@@ -14,6 +14,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PasswordRecoverController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +89,8 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('admin/question/{question}/edit', [AdminQuestionController::class, 'edit'])->name('question.edit');
     Route::patch('admin/question/{question}/update', [AdminQuestionController::class, 'update'])->name('question.update');
     Route::delete('admin/question/{question}/delete', [AdminQuestionController::class, 'destroy'])->name('question.destroy');
+    Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories');
+    Route::patch('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');  
 });
 
 //CONTACT MAIL
