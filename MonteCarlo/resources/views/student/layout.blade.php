@@ -38,9 +38,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('student.opinion') }}">Opinia</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('student.chat') }}">Czat</a>
-                    </li>
                 </ul>
                 <ul class="navbar-nav mx-0">
                     @if (auth()->check())
