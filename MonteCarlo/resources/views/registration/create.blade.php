@@ -62,6 +62,23 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="category" style="color: grey" class="dropdown-toggle form-control form-control-2 mt-3" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">Wybierz kursy, na które chcesz się zapisać</label>
+                        <div class="dropdown">
+                          <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                            @foreach ($categories as $category)
+                            <li>
+                              <input class="form-check-input" type="checkbox" name="categories[]" value="{{ $category->id }}" id="category{{ $category->id }}">
+                              <label class="form-check-label" for="category{{ $category->id }}">
+                                {{ $category->category }}
+                              </label>
+                            </li>
+                            @endforeach
+                          </ul>
+                        </div>
+                        {!! $errors->first('categories', "<span class='text-danger'>:message</span>") !!}
+                    </div>
+
+                    <div class="form-group">
                         <label for="password"></label>
                         <input type="password" class="form-control form-control-2" id="password" name="password"
                             placeholder="Hasło">

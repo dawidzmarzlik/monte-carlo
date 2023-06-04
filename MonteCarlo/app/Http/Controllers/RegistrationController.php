@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\StudentPermissions;
+use Illuminate\Validation\Rule;
 
 
 class RegistrationController extends Controller
 {
     public function create()
     {
-        return view('registration.create');
+        $categories = Category::all();
+        return view('registration.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -30,18 +34,20 @@ class RegistrationController extends Controller
             'pkk.unique' => 'Numer PKK jest już wykorzystywany.',     
             'email.required' => 'Wpisz adres e-mail.',     
             'email.unique' => 'Adres e-mail jest już zajęty.',   
-            'phoneNumber.required' => 'Pole jest wymagane (powinno się składać z 9 cyfr).',   
+            'phoneNumber.required' => 'Pole jest wymagane (powinno się składać z 9 cyfr).', 
+            'categories.required' => 'Pole jest wymagane. Wybierz kategorie dla instruktora.',  
             'password.required' => 'Wpisz hasło. Powinno się składać z minimum 8 znaków.',     
             'password.min' => 'Hasło powinno się składać z minimum 8 znaków.',     
         ];
         
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|alpha:ascii|regex:/^[A-Z]/',
             'surname' => 'required|alpha:ascii|regex:/^[A-Z]/',
             'email' => 'required|email|unique:student',
             'birthDate' => 'required|date|date_format:Y-m-d|before:-18 years',
             'pkk' => 'required|numeric|digits:20|unique:student',
             'phoneNumber' => 'required|min:9|unique:student',
+            'categories' => 'required|array',
             'password' => 'required|min:8'
         ], $messages);
         
@@ -54,6 +60,14 @@ class RegistrationController extends Controller
             'phoneNumber' => $request->phoneNumber,
             'password' => Hash::make($request->password)
         ]);
+
+        $categories = Category::whereIn('id', $validatedData['categories'])->get();
+        foreach ($categories as $category) {
+            $StudentPermission = new StudentPermissions();
+            $StudentPermission->idCourseRecords = $category->id;
+            $StudentPermission->idStudent = $student->id;
+            $StudentPermission->save();
+        }
 
         if(!is_null($student)) {
             auth()->login($student);

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Category;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use App\Models\StudentPermissions;
 
 class AdminStudentController extends Controller
 {
@@ -15,7 +17,8 @@ class AdminStudentController extends Controller
 
     public function create()
     {
-        return view('admin.studentcreate');
+        $categories = Category::all();
+        return view('admin.studentcreate', compact('categories'));
     }
 
     public function store(Request $request)
@@ -28,18 +31,20 @@ class AdminStudentController extends Controller
             'pkk.min' => 'Pole powinno się składać z dokładnie 20 cyfr.',     
             'pkk.unique' => 'Numer PKK jest już wykorzystany.',     
             'email.required' => 'Pole jest wymagane. Uzupełnij dane.',
-            'phoneNumber.required' => 'Pole jest wymagane (powinno się składać z 9 cyfr).',  
+            'phoneNumber.required' => 'Pole jest wymagane (powinno się składać z 9 cyfr).', 
+            'categories.required' => 'Pole jest wymagane. Wybierz kategorie dla instruktora.', 
             'password.required' => 'Pole jest wymagane. Uzupełnij dane.',
             'password.min' => 'Hasło powinno składać się z co najmniej 8 znaków.',    
         ];
 
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required',
             'surname' => 'required',
             'birthDate' => 'required',
             'pkk' => 'required|min:20|unique:student',
             'email' => 'required',
             'phoneNumber' => 'required|min:9|unique:student',
+            'categories' => 'required|array',
             'password' => 'required|min:8',
         ], $messages);
 
@@ -52,6 +57,14 @@ class AdminStudentController extends Controller
         $student->phoneNumber = $request->input('phoneNumber');
         $student->password = Hash::make($request->input('password'));
         $student->save();
+
+        $categories = Category::whereIn('id', $validatedData['categories'])->get();
+        foreach ($categories as $category) {
+            $StudentPermission = new StudentPermissions();
+            $StudentPermission->idCourseRecords = $category->id;
+            $StudentPermission->idStudent = $student->id;
+            $StudentPermission->save();
+        }
 
         return redirect()->route('admin.student');
     }
