@@ -134,6 +134,11 @@
                             <a class="btn btn-add" href="{{ route('student.teacher') }}">Wybierz instruktora</a>
                         @endif
                     </div>
+                    <div class="row pt-3 pb-0">
+                        @if ($student->teacher)
+                            <a class="btn btn-rev" href="{{ route('student.review_teacher', $student->Teacher_id) }}">Oceń instruktora</a>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

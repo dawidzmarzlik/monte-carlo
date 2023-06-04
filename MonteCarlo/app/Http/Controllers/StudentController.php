@@ -6,6 +6,7 @@ use App\Models\Student;
 use App\Models\Drive;
 use App\Models\Opinion;
 use Illuminate\Support\Facades\Auth;
+use App\Models\TeacherOpinions;
 
 use Illuminate\Http\Request;
 
@@ -139,6 +140,46 @@ class StudentController extends Controller
         $student->save();
 
         return view('student.profile', compact('student'));
+    }
+
+    public function review_teacher($Teacher_id){
+        
+        $teacher = Teacher::findOrFail($Teacher_id);
+        $student = Auth::user();
+        return view('student.teacheropinion', compact('teacher', 'student'));
+    }
+
+    public function review_teacher_store(Request $request){
+            
+        $messages = [
+            'opinion.required' => 'Pole jest wymagane.',
+            'score.required' => 'Pole jest wymagane.',
+        ];
+
+        $request->validate([
+            'opinion' => 'required|string',
+            'score' => 'required|integer|min:1|max:5',
+            'student_id' => 'required|exists:student,id',
+            'teacher_id' => 'required|exists:teacher,id',
+        ], $messages);
+
+
+        $opinionText = $request->input('opinion');
+        $score = $request->input('score');
+        $studentId = $request->input('student_id');
+        $teacherId = $request->input('teacher_id');
+
+        $opinion = new TeacherOpinions();
+
+        $opinion->opinionText = $opinionText;
+        $opinion->score = $score;
+        $opinion->idStudent = $studentId;
+        $opinion->idTeacher = $teacherId;
+
+        $opinion->save();
+
+        // Optionally, you can redirect the user to a success page or perform any other necessary actions
+        return redirect()->route('student.profile');
     }
 
     public function opinion()
