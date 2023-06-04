@@ -91,6 +91,8 @@ Route::middleware(['role:admin'])->group(function () {
     Route::delete('admin/question/{question}/delete', [AdminQuestionController::class, 'destroy'])->name('question.destroy');
     Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories');
     Route::patch('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');  
+    Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');  
+    Route::delete('/categories/{category}/destroy}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 });
 
 //CONTACT MAIL
