@@ -5,7 +5,7 @@ Driving School Management Platform "Monte Carlo" group project carried out as pa
 - Make sure you have PHP and Composer installed
 - Pull project
 - Rename `.env.example` file to `.env` inside project root folder and fill with databse information.
-- Uncomment `extension=fileinfo` in php.ini file located in \tools\php82\
+- Uncomment `extension=fileinfo` in php.ini file located in C:\tools\php82
 - Open terminal and cd into root project directory
 - Run `composer install`
 - Run `php artisan key:generate`
