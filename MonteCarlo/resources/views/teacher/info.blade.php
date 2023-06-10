@@ -8,7 +8,7 @@
             <div class="col">
                 <div class="row align-items-center m-auto my-3">
                     <div class="col">
-                        <h1 class="white">Moje Dane</h1>
+                        <h1 class="white">Dane Osobiste</h1>
                     </div>
                 </div>
                 <div class="container person-container rounded-4 px-5">
@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-sm person-data-container">
                             @foreach ($teacher->permissions as $permission)
-                                {{ $permission->courseRecords->category }},
+                            {{ $permission->courseRecords->category }}
                             @endforeach
                         </div>
                     </div>
