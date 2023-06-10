@@ -138,6 +138,6 @@ class AdminQuestionController extends Controller
     {
         $question -> delete();
 
-        return redirect()->route('admin.question');
+        return redirect()->route('admin.question')->with('success_delete', "Pytanie o treści '{$question->questionText}' zostało usunięte.");
     }
 }
