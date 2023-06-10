@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="bg-grad">
-        <a href="{{ url()->previous() }}" class="btn btn-add mb-3">Wróć</a>
+        <a href="{{ route('teacher.student_show', $student->id) }}" class="btn btn-add mb-3">Wróć</a>
         <div class="row d-flex align-items-center justify-content-center p-4 m-0">
             <div class="col-md-6 col-lg-4 align-self-center justify-content-center bg-white rounded-4 p-4">
                 <form method="POST" action="{{ route('teacher.student_update', $student->id) }}">

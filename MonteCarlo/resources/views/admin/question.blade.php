@@ -12,6 +12,12 @@
                 <a href="{{ route('question.create') }}" class="btn btn-add">Dodaj pytanie</a>
             </div>
         </div>
+        @if (session('success_delete'))
+            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                {{ session('success_delete') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <div class="table-responsive rounded-4 mt-2">
             <table class="table table-hover align-middle table-borderless admin-table m-auto">
                 <thead>

@@ -41,8 +41,8 @@ class RegistrationController extends Controller
         ];
         
         $validatedData = $request->validate([
-            'name' => 'required|alpha:ascii|regex:/^[A-Z]/',
-            'surname' => 'required|alpha:ascii|regex:/^[A-Z]/',
+            'name' => 'required|alpha|regex:/^[\p{Lu}][\p{L}]+$/u',
+            'surname' => 'required|alpha|regex:/^[\p{Lu}][\p{L}]+$/u',
             'email' => 'required|email|unique:student',
             'birthDate' => 'required|date|date_format:Y-m-d|before:-18 years',
             'pkk' => 'required|numeric|digits:20|unique:student',

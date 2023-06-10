@@ -5,12 +5,31 @@
         <div class="row align-items-center m-auto">
             <div class="col ps-0"></div>
             <div class="col-md-8 col-lg-6 text-center">
+                @if (session('success_add'))
+                    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                        {{ session('success_add') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if (session('success_update'))
+                    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                        {{ session('success_update') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if (session('success_delete'))
+                    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                        {{ session('success_delete') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <div class="table-responsive rounded-4 mt-2">
                     <table class="table table-hover align-middle table-borderless admin-table m-auto">
                         <thead>
                             <tr>
                                 <th scope="col">Nazwa</th>
-                                <th scope="col">Cena</th>
+                                <th scope="col">Cena [PLN]</th>
+                                <th scope="col"></th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -21,11 +40,25 @@
                                         @csrf
                                         @method('PATCH')
                                         <td>{{ $category->category }}</td>
-                                        <td><input class="form-control form-control-3" style="text-align:center;"
-                                                type="number" name="price" value="{{ $category->price }}"></td>
-                                        <td><button class="btn btn-table" type="submit">Zaktualizuj cenę</button>
+                                        <td><input class="form-control form-control-3"
+                                                style="text-align:center; min-width:100px;" type="number"
+                                                name="price{{ $category->id }}" value="{{ $category->price }}">
+                                            {!! $errors->first(
+                                                'price{{ $category->id }}',
+                                                "<span class='text-warning' style='font-size: 0.75rem'>:message</span>",
+                                            ) !!}
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-table"
+                                                style="white-space: nowrap;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis; min-width:170px"
+                                                type="submit">Zaktualizuj cenę</button>
+                                        </td>
+                                        <td>
                                             <button class="btn btn-add" type="button" data-bs-toggle="modal"
-                                                data-bs-target="#deleteModal{{ $category->id }}">Usuń</button>
+                                                data-bs-target="#deleteModal{{ $category->id }}"
+                                                style="min-width:170px">Usuń</button>
                                         </td>
                                     </form>
                                 </tr>
@@ -60,12 +93,26 @@
                             <tr>
                                 <form method="POST" action="{{ route('categories.store') }}">
                                     @csrf
-                                    <td><input class="form-control form-control-3" style="text-align:center;" type="text"
-                                            name="category" placeholder="Nazwa kategorii"></td>
+                                    <td><input class="form-control form-control-3"
+                                            style="text-align:center; min-width:150px;" type="text" name="category"
+                                            placeholder="Nazwa kategorii" value="{{ old('category') }}">
+                                        {!! $errors->first('category', "<span class='text-warning' style='font-size: 0.75rem'>:message</span>") !!}
                                     </td>
-                                    <td><input class="form-control form-control-3" style="text-align:center;" type="number"
-                                            name="price" placeholder="Cena"></td>
-                                    <td><button class="btn btn-table" type="submit">Dodaj kategorię</button></td>
+                                    <td><input class="form-control form-control-3"
+                                            style="text-align:center; min-width:100px;" type="number" name="price"
+                                            placeholder="Cena" value="{{ old('price') }}">
+                                        {!! $errors->first('price', "<span class='text-warning' style='font-size: 0.75rem'>:message</span>") !!}
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-table"
+                                            style="white-space: nowrap;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis; min-width:170px"
+                                            type="submit">Dodaj kategorię</button>
+                                    </td>
                                 </form>
                             </tr>
                         </tbody>
