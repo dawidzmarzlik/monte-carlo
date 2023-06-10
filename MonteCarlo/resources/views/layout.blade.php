@@ -30,7 +30,10 @@
                         <a class="nav-link" href="{{ route('home.about') }}">O nas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home.opinion') }}">Opinie</a>
+                        <a class="nav-link" href="{{ route('home.opinion') }}">Opinie o szkole</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home.teacheropinion') }}">Opinie o instruktorach</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">

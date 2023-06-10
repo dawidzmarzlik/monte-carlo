@@ -32,6 +32,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/about', [HomeController::class, 'about'])->name('home.about');
 Route::get('/pricing', [HomeController::class, 'pricing'])->name('home.pricing');
 Route::get('/opinion', [HomeController::class, 'opinion'])->name('home.opinion');
+Route::get('/teacheropinion', [HomeController::class, 'teacheropinion'])->name('home.teacheropinion');
 
 Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');
 Route::post('register', [RegistrationController::class, 'store']);

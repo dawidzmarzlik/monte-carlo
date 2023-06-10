@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Opinion;
 use App\Models\Student;
+use App\Models\TeacherOpinions;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,12 @@ class HomeController extends Controller
         $opinions = Opinion::all();
 
         return view('opinion', compact('opinions'));
+    }
+
+    public function teacheropinion(){
+        $teacheropinions = TeacherOpinions::all();
+
+        return view('teacheropinion', compact('teacheropinions'));
     }
 
 

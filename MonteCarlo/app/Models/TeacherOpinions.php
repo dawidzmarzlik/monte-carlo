@@ -19,7 +19,7 @@ class TeacherOpinions extends Model
 
     public function student()
     {
-        return $this->hasOne(Student::class, 'idStudent', 'id');
+        return $this->hasOne(Student::class, 'id', 'idStudent');
     }
 
     protected $fillable = [

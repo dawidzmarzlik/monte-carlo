@@ -9,7 +9,7 @@
                         <div class="card-bodyO">
                             <h2>
                                 @if ($opinion->idStudent)
-                                {{ $opinion->student->name }} {{ $opinion->student->surname }}
+                                {{ $opinion->student->name }}
                                 @else
                                 Kursant
                                 @endif
