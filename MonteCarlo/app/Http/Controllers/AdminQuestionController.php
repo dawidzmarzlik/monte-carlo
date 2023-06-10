@@ -21,6 +21,7 @@ class AdminQuestionController extends Controller
             'answer2.required' => 'Pole jest wymagane. Uzupełnij dane.',         
             'correctAnswer.required' => 'Pole jest wymagane. Uzupełnij dane.',         
             'questionScore.required' => 'Pole jest wymagane. Uzupełnij dane.',         
+            'questionFile.mimes' => 'Pole może zawierać jedynie pliki typu: jpeg, jpg, png, gif, webp, mp4.',         
         ];
 
         $request->validate([
@@ -30,7 +31,7 @@ class AdminQuestionController extends Controller
             'answer3' => 'nullable',
             'correctAnswer' => 'required',
             'questionScore' => 'required',
-            'questionFile' => 'nullable'
+            'questionFile' => 'nullable|file|mimes:jpeg,jpg,png,gif,webp,mp4'
         ], $messages);
 
         if($request->hasfile('questionFile'))
@@ -82,7 +83,8 @@ class AdminQuestionController extends Controller
             'answer1.required' => 'Pole jest wymagane. Uzupełnij dane.',         
             'answer2.required' => 'Pole jest wymagane. Uzupełnij dane.',         
             'correctAnswer.required' => 'Pole jest wymagane. Uzupełnij dane.',         
-            'questionScore.required' => 'Pole jest wymagane. Uzupełnij dane.',         
+            'questionScore.required' => 'Pole jest wymagane. Uzupełnij dane.', 
+            'questionFile.mimes' => 'Pole może zawierać jedynie pliki typu: jpeg, jpg, png, gif, webp, mp4.',                 
         ];
 
         $request->validate([
@@ -92,7 +94,7 @@ class AdminQuestionController extends Controller
             'answer3' => 'nullable',
             'correctAnswer' => 'required',
             'questionScore' => 'required',
-            'questionFile' => 'nullable'
+            'questionFile' => 'nullable|file|mimes:jpeg,jpg,png,gif,webp,mp4'
         ], $messages);
 
         if($request->hasfile('questionFile'))
