@@ -8,6 +8,7 @@ use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use App\Models\TeacherPermissions;
 
 class AdminTeacherController extends Controller
@@ -24,6 +25,11 @@ class AdminTeacherController extends Controller
 
     public function store(Request $request)
     {
+        //$date=\DateTime::createFromFormat('d.m.Y',$request->input('date'));
+        //$formattedDate=$date->format('Y-m-d');
+        //$today=now();
+        //$twentyYearsAgo=now()->subYears(20);
+
         $messages = [
             'name.required' => 'Pole jest wymagane. Uzupełnij dane.',     
             'surname.required' => 'Pole jest wymagane. Uzupełnij dane.',     

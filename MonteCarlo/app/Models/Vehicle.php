@@ -12,6 +12,11 @@ class Vehicle extends Model
     protected $table = 'vehicle';
     public $timestamps = false;
 
+    public function teacher()
+     {
+         return $this->belongsTo(Teacher::class, 'Teacher_id', 'id');
+     }
+
     protected $fillable = [
         'brand',
         'model',
