@@ -17,7 +17,7 @@
                         <div class="cards-wrapper justify-content-center align-items-center my-5">
                             <div class="card">
                                 <div class="card-body">
-                                    <p class=" card-title">Kategoria AM, A1, A2, A</p>
+                                    <h5 class=" card-title">Kategoria AM, A1, A2, A</h5>
                                     <p class=" card-text">Kategoria A i pokrewne daje uprawnienia do kierowania motocyklem
                                     </p>
                                 </div>
@@ -44,8 +44,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class=" card-title">Kategoria C</h5>
-                                    <p class=" card-text">Uprawnia do prowadzenia pojazdu samochodowego o dopuszczalnej
-                                        masie całkowitej przekraczającej 3,5 t</p>
+                                    <p class=" card-text">Uprawnia do prowadzenia pojazdu samochodowego o masie przekraczającej 3,5 t</p>
                                 </div>
                                 <img src="{{ asset('img/Ford-f-max.png') }}" class="card-img-bottom" alt="...">
                             </div>
