@@ -33,7 +33,8 @@ class AdminTeacherController extends Controller
         $messages = [
             'name.required' => 'Pole jest wymagane. Uzupełnij dane.',     
             'surname.required' => 'Pole jest wymagane. Uzupełnij dane.',     
-            'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.',     
+            'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.', 
+            'birthDate.before' => 'Instruktor musi mieć ukończone 22 lata.',
             'phoneNumber.required' => 'Pole jest wymagane (powinno się składać z 9 cyfr).',
             'phoneNumber.min' => 'Pole powinno się składać z dokładnie 9 cyfr.',     
             'phoneNumber.unique' => 'Numer telefonu jest już wykorzystany.',     
@@ -92,7 +93,8 @@ class AdminTeacherController extends Controller
         $messages = [
             'name.required' => 'Pole jest wymagane. Uzupełnij dane.',     
             'surname.required' => 'Pole jest wymagane. Uzupełnij dane.',     
-            'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.',     
+            'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.',    
+            'birthDate.before' => 'Instruktor musi mieć ukończone 22 lata.', 
             'phoneNumber.required' => 'Pole jest wymagane (powinno się składać z 9 cyfr).',
             'phoneNumber.min' => 'Pole powinno się składać z dokładnie 9 cyfr.',     
             'phoneNumber.unique' => 'Numer telefonu jest już wykorzystany.',     
@@ -103,14 +105,14 @@ class AdminTeacherController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'birthDate' => 'required',
+            'birthDate' => 'required|before:-22 years',
             'phoneNumber' => ['required',
                 'min:9',
                 Rule::unique('teacher')->ignore($id),
             ],
             'categories' => 'required|array',
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:8',
         ], $messages);
 
         $teacher = Teacher::find($id);

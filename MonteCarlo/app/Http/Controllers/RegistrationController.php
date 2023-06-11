@@ -28,7 +28,7 @@ class RegistrationController extends Controller
             'surname.alpha' => 'Pole może zawierać jedynie litery',     
             'surname.regex' => 'Pole musi zaczynać się od wielkiej litery',     
             'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.',     
-            'birthDate.before' => 'Musisz mieć conajmniej 18 lat.',     
+            'birthDate.before' => 'Musisz mieć conajmniej 14 lat.',     
             'pkk.required' => 'Wpisz numer PKK. Powinien się składać z 20 cyfr.',
             'pkk.digits' => 'Numer PKK powinien się składać z 20 cyfr.',     
             'pkk.unique' => 'Numer PKK jest już wykorzystywany.',     

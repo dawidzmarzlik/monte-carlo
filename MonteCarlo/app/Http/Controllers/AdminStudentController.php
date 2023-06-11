@@ -26,7 +26,8 @@ class AdminStudentController extends Controller
         $messages = [
             'name.required' => 'Pole jest wymagane. Uzupełnij dane.',     
             'surname.required' => 'Pole jest wymagane. Uzupełnij dane.',     
-            'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.',     
+            'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.',
+            'birthDate.before' => 'Kursant musi mieć ukończone 14 lat.',
             'pkk.required' => 'Pole jest wymagane (powinno się składać z 20 cyfr).',
             'pkk.min' => 'Pole powinno się składać z dokładnie 20 cyfr.',     
             'pkk.unique' => 'Numer PKK jest już wykorzystany.',     
@@ -86,7 +87,8 @@ class AdminStudentController extends Controller
         $messages = [
             'name.required' => 'Pole jest wymagane. Uzupełnij dane.',     
             'surname.required' => 'Pole jest wymagane. Uzupełnij dane.',     
-            'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.',     
+            'birthDate.required' => 'Pole jest wymagane. Uzupełnij dane.',  
+            'birthDate.before' => 'Kursant musi mieć ukończone 14 lat.',
             'pkk.required' => 'Pole jest wymagane (powinno się składać z 20 cyfr).',
             'pkk.min' => 'Pole powinno się składać z dokładnie 20 cyfr.',     
             'pkk.unique' => 'Numer PKK jest już wykorzystany.',     
@@ -99,7 +101,7 @@ class AdminStudentController extends Controller
         $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'birthDate' => 'required',
+            'birthDate' => 'required|before:-14 years',
             'pkk' => ['required',
                 'min:20',
                 Rule::unique('student')->ignore($id),
