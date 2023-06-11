@@ -78,7 +78,9 @@
                                         Uprawnienia:
                                     </div>
                                     <div class="col-sm person-data-container">
-
+                                        @foreach ($teacher->permissions as $permission)
+                                            {{ $permission->courseRecords->category }},
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="row pt-1">

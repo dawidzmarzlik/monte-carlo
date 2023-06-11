@@ -87,16 +87,9 @@
                                 <h6>Pojazd:</h6>
                             </div>
                             <div class="col-sm person-data-container">
-
-                                @php
-                                    $vehicle = Vehicle::find($teacher->id);
-                                @endphp
-                                @if ($vehicle)
+                                @foreach ($teacher->vehicles as $vehicle)
                                     {{ $vehicle->numberplate }}
-                                @else
-                                    -----
-                                @endif
-
+                                @endforeach
                             </div>
                         </div>
                     </div>
