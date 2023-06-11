@@ -40,7 +40,7 @@ class AdminStudentController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'birthDate' => 'required',
+            'birthDate' => 'required|before:-14 years',
             'pkk' => 'required|min:20|unique:student',
             'email' => 'required',
             'phoneNumber' => 'required|min:9|unique:student',

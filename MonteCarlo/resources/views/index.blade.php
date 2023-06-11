@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="row bg-image-2">
-            <div id="carouselExample" class="carousel slide align-self-center">
+            <div id="carouselExample" class="carousel slide align-self-center" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="cards-wrapper justify-content-center align-items-center my-5">
@@ -82,20 +82,23 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 align-self-center">
-                <form method="POST" action="{{ url('contact_mail') }}">
+                <form method="POST" action="{{ url('contact_mail') }}" id="contact-form">
                     @csrf
                     <div class="mb-3">
                         <label for="InputName" class="form-label">Imie Nazwisko</label>
-                        <input type="text" class="form-control form-control-2 rounded" id="InputName" name="name">
+                        <input type="text" class="form-control form-control-2 rounded" id="InputName" name="name" value="{{ old('name') }}">
+                        {!! $errors->first('name', "<span class='text-danger'>:message</span>") !!}
                     </div>
                     <div class="mb-3">
                         <label for="inputEmailHome" class="form-label">E-mail</label>
                         <input type="email" class="form-control form-control-2 rounded" id="inputEmailHome"
-                            name="email">
+                            name="email"  value="{{ old('email') }}">
+                        {!! $errors->first('email', "<span class='text-danger'>:message</span>") !!}
                     </div>
                     <div class="mb-3">
                         <label for="messageText" class="form-label">Treść wiadomości</label>
-                        <textarea type="text" class="form-control form-control-2 rounded" id="messageText" rows="5" name="message"></textarea>
+                        <textarea type="text" class="form-control form-control-2 rounded" id="messageText" rows="5" name="message">{{ old('message') }}</textarea>
+                        {!! $errors->first('message', "<span class='text-danger'>:message</span>") !!}
                     </div>
                     <button style="cursor:pointer; font-weight: bold;" type="submit"
                         class="btn btn-log rounded-pill d-block mx-auto my-4 col-4">Wyślij</button>
@@ -108,5 +111,5 @@
             alert("{{ session('status') }}");
             window.location.href = "/";
         </script>
-    @endif
+    @endif 
 @endsection

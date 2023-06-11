@@ -70,7 +70,7 @@
                             </div>
                             <div class="col-sm person-data-container">
                                 @foreach ($teacher->permissions as $permission)
-                                    {{ $permission->courseRecords->category }},
+                                    {{ $permission->courseRecords->category }}
                                 @endforeach
                             </div>
                         </div>

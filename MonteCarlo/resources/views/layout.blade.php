@@ -104,5 +104,16 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var contactForm = document.getElementById('contact-form');
+        var errorMessages = document.getElementsByClassName('text-danger');
+
+        if (contactForm && errorMessages.length > 0) {
+            contactForm.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+</script>
+
 
 </html>

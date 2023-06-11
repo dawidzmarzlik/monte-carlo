@@ -25,14 +25,15 @@ class TeacherController extends Controller
 
     function store_schedule(Request $request){
         
-        //WALIDACJA
+        // WALIDACJA
         $messages = [
             'dateTime.required' => 'Pole jest wymagane. Uzupełnij dane.',     
             'dateTime.date_format' => 'Niepoprawny format daty.',     
+            'dateTime.after_or_equal' => 'Nie można wybrać przeszłej daty.',
         ];
 
         $validatedData = $request->validate([
-            'dateTime' => 'required|date_format:Y-m-d\TH:i',
+            'dateTime' => 'required|date_format:Y-m-d\TH:i|after_or_equal:now',
         ], $messages);
 
         $teacher_id = Auth::guard('teacher')->user()->id;

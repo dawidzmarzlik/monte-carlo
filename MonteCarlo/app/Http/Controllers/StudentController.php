@@ -158,7 +158,7 @@ class StudentController extends Controller
         ];
 
         $request->validate([
-            'opinion' => 'required|string',
+            'opinion' => 'required|string|max:1000',
             'score' => 'required|integer|min:1|max:5',
             'student_id' => 'required|exists:student,id',
             'teacher_id' => 'required|exists:teacher,id',
@@ -199,7 +199,7 @@ class StudentController extends Controller
         ];
 
         $request->validate([
-            'opinion' => 'required',
+            'opinion' => 'required|string|max:1000',
             'score' => 'required',
         ], $messages);
 

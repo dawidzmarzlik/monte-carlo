@@ -65,7 +65,8 @@
                                 @foreach ($categories as $category)
                                     <li>
                                         <input class="form-check-input" type="checkbox" name="categories[]"
-                                            value="{{ $category->id }}" id="category{{ $category->id }}">
+                                            value="{{ $category->id }}" id="category{{ $category->id }}"
+                                            {{ in_array($category->id, old('categories', [])) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="category{{ $category->id }}">
                                             {{ $category->category }}
                                         </label>

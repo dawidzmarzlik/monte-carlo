@@ -17,7 +17,7 @@
                             <label for="opinion"></label>
                             <div class="form-floating">
                                 <textarea class="form-control form-control-3 rounded-4" placeholder="Twoja opinia." id="opinion" name="opinion"
-                                    style="height: 350px;"></textarea>
+                                    style="height: 350px;" maxlength="1000"></textarea>
                             </div>
 
                             <select class="form-control form-control-3 mt-4" id="drive" name="score">

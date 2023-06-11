@@ -39,11 +39,11 @@ class AdminTeacherController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'birthDate' => 'required',
-            'phoneNumber' => 'required|min:9|unique:teacher',
+            'birthDate' => 'required|before:-22 years',
+            'phoneNumber' => 'required|min:9|numeric|unique:teacher',
             'categories' => 'required|array',
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:8',
         ], $messages);
 
         $teacher = new Teacher;

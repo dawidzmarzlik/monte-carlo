@@ -44,9 +44,9 @@ class RegistrationController extends Controller
             'name' => 'required|alpha|regex:/^[\p{Lu}][\p{L}]+$/u',
             'surname' => 'required|alpha|regex:/^[\p{Lu}][\p{L}]+$/u',
             'email' => 'required|email|unique:student',
-            'birthDate' => 'required|date|date_format:Y-m-d|before:-18 years',
+            'birthDate' => 'required|date|date_format:Y-m-d|before:-14 years',
             'pkk' => 'required|numeric|digits:20|unique:student',
-            'phoneNumber' => 'required|min:9|unique:student',
+            'phoneNumber' => 'required|min:9|numeric|unique:student',
             'categories' => 'required|array',
             'password' => 'required|min:8'
         ], $messages);

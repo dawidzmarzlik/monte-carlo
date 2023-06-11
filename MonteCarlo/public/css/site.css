@@ -491,3 +491,8 @@ input.no-arrow {
     color: white;
     margin-bottom: 1em;
 }
+
+.carousel-control-prev,
+.carousel-control-next {
+    filter: invert(100%);
+}

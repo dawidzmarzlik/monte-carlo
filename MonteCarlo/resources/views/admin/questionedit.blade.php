@@ -65,7 +65,7 @@
 
                     <label for="questionFile"></label>
                     <div class="form-group">
-                        <input class="form-control form-control-2" type="file" id="questionFile" name="questionFile"
+                        <input class="form-control form-control-2" type="file" id="questionFile" name="questionFile" accept="image/jpeg,image/png,image/gif,image/webp,video/mp4"
                             value="{{ old('questionFile') != '' ? old('questionFile') : $question->questionFile }}">
                         {!! $errors->first('questionFile', "<span class='text-danger'>:message</span>") !!}
                     </div>
