@@ -11,7 +11,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Kategoria</th>
-                        <th scope="col">Cena</th>
+                        <th scope="col">Cena [PLN]</th>
                     </tr>
                 </thead>
                 <tbody>

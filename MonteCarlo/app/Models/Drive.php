@@ -9,7 +9,7 @@ class Drive extends Model
 {
     use HasFactory;
 
-    protected $table = 'Drive';
+    protected $table = 'drive';
     public $timestamps = false;
 
     protected $fillable = [
